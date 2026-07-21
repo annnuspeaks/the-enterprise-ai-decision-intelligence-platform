@@ -6,6 +6,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parents[3]
 
+
 class Settings(BaseSettings):
     app_name: str
     app_env: str
@@ -24,6 +25,18 @@ class Settings(BaseSettings):
     model_path: str
 
     log_level: str
+    
+    api_v1_prefix: str = "/api/v1"
+
+
+    project_description: str = (
+        "Enterprise AI Decision Intelligence Platform"
+    )
+
+    cors_origins: list[str] = [
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+    ]
 
     model_config = SettingsConfigDict(
         env_file=BASE_DIR / ".env",

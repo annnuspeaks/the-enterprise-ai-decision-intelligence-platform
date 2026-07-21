@@ -1,25 +1,15 @@
 from fastapi import FastAPI
 
+from app.api.router import api_router
 from app.core.config import settings
+from app.core.logging import logger
 
 app = FastAPI(
     title=settings.app_name,
+    description=settings.project_description,
     version=settings.app_version,
     debug=settings.app_debug,
 )
 
-
-@app.get("/", tags=["Root"])
-async def root():
-    return {
-        "message": f"Welcome to {settings.app_name}",
-        "environment": settings.app_env,
-        "version": settings.app_version,
-    }
-
-
-@app.get("/health", tags=["Health"])
-async def health_check():
-    return {
-        "status": "Very healthy",
-    }
+app.include_router(api_router)
+logger.info("Application started successfully.")
