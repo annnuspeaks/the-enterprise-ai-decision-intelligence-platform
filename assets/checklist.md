@@ -55,11 +55,11 @@
     - [ ] Protected Route Foundation        [completed]
 - [ ] UI Framework                          
     - [ ] Framework Selection (Material UI) [completed]
-    - [ ] Installation                      
-    - [ ] Global Configuration              
+    - [ ] Installation                      [completed]
+    - [ ] Global Configuration              [completed]
 - [ ] Theme System                          
-    - [ ] Theme Provider                    
-    - [ ] Light/Dark Theme                  
+    - [ ] Theme Provider                    [completed]
+    - [ ] Light/Dark Theme                  [completed]
     - [ ] Theme Utilities                   
 
 ## 1.5 Documentation
