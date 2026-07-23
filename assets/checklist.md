@@ -51,10 +51,10 @@
 - [ ] Routing                               
     - [ ] React Router Installation         [completed]
     - [ ] Browser Route Setup               [completed]
-    - [ ] Route Configuration               
-    - [ ] Protected Route Foundation        
+    - [ ] Route Configuration               [completed]
+    - [ ] Protected Route Foundation        [completed]
 - [ ] UI Framework                          
-    - [ ] Framework Selection               
+    - [ ] Framework Selection (Material UI) [completed]
     - [ ] Installation                      
     - [ ] Global Configuration              
 - [ ] Theme System                          
