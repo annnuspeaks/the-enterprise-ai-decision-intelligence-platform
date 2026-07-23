@@ -77,20 +77,20 @@
     - [ ] License                           [completed]
 
 - [ ] Frontend Documentation
-    - [ ] Frontend Overview
-    - [ ] Features & Tech Stack
-    - [ ] Architecture & Folder Structure
-    - [ ] Routing, Theme & API Layer
-    - [ ] Development, Build & Deployment
-    - [ ] Future Enhancements
+    - [ ] Frontend Overview                 [completed]
+    - [ ] Features & Tech Stack             [completed]
+    - [ ] Architecture & Folder Structure   [completed]
+    - [ ] Routing, Theme & API Layer        [completed]
+    - [ ] Development, Build & Deployment   [completed]
+    - [ ] Future Enhancements               [completed]
 
 - [ ] Backend Documentation
-    - [ ] Backend Overview
-    - [ ] Architecture & Folder Structure
-    - [ ] Configuration, Logging & Utilities
-    - [ ] API Design & Request Lifecycle
-    - [ ] Development & Deployment
-    - [ ] Future Enhancements
+    - [ ] Backend Overview                  [completed]
+    - [ ] Architecture & Folder Structure   [completed]
+    - [ ] Configuration, Logging & Utilities[completed]
+    - [ ] API Design & Request Lifecycle    [completed]
+    - [ ] Development & Deployment          [completed]
+    - [ ] Future Enhancements               [completed]
 ---
 
 # 🔵 PHASE 2 — Data Engineering
@@ -98,22 +98,22 @@
 ## 2.1 Dataset Collection
 
 ### 2.1.1 Business Dataset
-- [ ] Dataset Selection
-- [ ] Data Dictionary
+- [ ] Dataset Selection                     [completed]
+- [ ] Data Dictionary                       [completed]
 
 ### 2.1.2 Data Validation
-- [ ] Schema Validation
-- [ ] Missing Values
-- [ ] Duplicate Detection
+- [ ] Schema Validation                     [completed]
+- [ ] Missing Values                        [completed]
+- [ ] Duplicate Detection                   [completed]
 
 ### 2.1.3 Data Cleaning
-- [ ] Cleaning Pipeline
-- [ ] Outlier Handling
+- [ ] Cleaning Pipeline                     [completed]
+- [ ] Outlier Handling                      [completed]
 
 ### 2.1.4 Feature Engineering
-- [ ] Feature Creation
-- [ ] Encoding
-- [ ] Scaling
+- [ ] Feature Creation                      [completed]
+- [ ] Encoding                              [completed]
+- [ ] Scaling                               [completed]
 
 ### 2.1.5 Exploratory Data Analysis
 - [ ] Statistical Analysis
