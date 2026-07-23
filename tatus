@@ -1,0 +1,9 @@
+* [33m69f3265[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdev[m[33m, [m[1;31morigin/dev[m[33m)[m docs: complete Phase 1.5 project documentation
+* [33m8691388[m feat(frontend): implement scalable theme system foundation
+* [33m320f510[m feat(frontend): integrate Material UI framework
+* [33m470e660[m feat(frontend): implement routing foundation with protected route scaffold
+* [33ma1f3642[m feat(frontend): complete Phase 1.4 frontend foundation
+* [33mb86424f[m feat(backend): complete Phase 1.3 backend foundation
+* [33m857bded[m feat(backend): complete Phase 1.3 backend foundation
+* [33m03b90af[m feat(setup): complete Phase 1.2 Python environment
+* [33m9821179[m[33m ([m[1;31morigin/staging[m[33m, [m[1;32mstaging[m[33m)[m Initial commit
