@@ -60,19 +60,37 @@
 - [ ] Theme System                          
     - [ ] Theme Provider                    [completed]
     - [ ] Light/Dark Theme                  [completed]
-    - [ ] Theme Utilities                   
+    - [ ] Theme Utilities                   [completed]
 
 ## 1.5 Documentation
-- [ ] Backend README
-    - [ ] Root README Initialization         
-    - [ ] Project Overview                   
-    - [ ] Tech Stack                         
-    - [ ] Repository Structure               
-    - [ ] Development Setup                  
-    - [ ] Project Roadmap                    
-    - [ ] License                            
-- [ ] Frontend README                        
+- [ ] Root Repository Documentation         [completed]
+    - [ ] Project Title & Description       [completed]
+    - [ ] Project Overview                  [completed]
+    - [ ] Objectives & Key Features         [completed]
+    - [ ] Tech Stack                        [completed]
+    - [ ] System Architecture               [completed]
+    - [ ] Repository Structure              [completed]
+    - [ ] Frontend Overview                 [completed]
+    - [ ] Backend Overview                  [completed]
+    - [ ] Development Setup                 [completed]
+    - [ ] Project Roadmap & Future Scope    [completed]
+    - [ ] License                           [completed]
 
+- [ ] Frontend Documentation
+    - [ ] Frontend Overview
+    - [ ] Features & Tech Stack
+    - [ ] Architecture & Folder Structure
+    - [ ] Routing, Theme & API Layer
+    - [ ] Development, Build & Deployment
+    - [ ] Future Enhancements
+
+- [ ] Backend Documentation
+    - [ ] Backend Overview
+    - [ ] Architecture & Folder Structure
+    - [ ] Configuration, Logging & Utilities
+    - [ ] API Design & Request Lifecycle
+    - [ ] Development & Deployment
+    - [ ] Future Enhancements
 ---
 
 # 🔵 PHASE 2 — Data Engineering
