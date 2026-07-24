@@ -1,6 +1,4 @@
-# Feature Engineering
-
-## 2.1.4 Feature Engineering
+# 2.1 Dataset Collection || 2.1.4 Feature Engineering
 
 Feature engineering is the process of transforming raw business data into meaningful variables that improve the predictive capability of Machine Learning models.
 

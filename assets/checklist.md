@@ -112,22 +112,22 @@
 
 ### 2.1.4 Feature Engineering
 - [ ] Feature Creation                      [completed]
-- [ ] Encoding                              [completed]
-- [ ] Scaling                               [completed]
+- [ ] Categorical Feature Encoding          [completed]
+- [ ] Feature Scaling                       [completed]
 
 ### 2.1.5 Exploratory Data Analysis
 - [ ] Statistical Analysis                  [completed]
 - [ ] Visualizations                        [completed]
-- [ ] Business Insights
+- [ ] Business Insights                     [completed]
 
 ### 2.1.6 Processed Dataset Export
-- [ ] Export Processed Dataset
+- [ ] Export Processed Dataset              [completed]
 
 ### Documentation (Parallel)
-- [ ] Dataset README
-- [ ] EDA README
-- [ ] Feature Engineering README
-- [ ] Update Master README
+- [ ] Dataset README                        [completed]
+- [ ] EDA README                            [completed]
+- [ ] Feature Engineering README            [completed]
+- [ ] Update Master README                  [completed]
 
 ---
 

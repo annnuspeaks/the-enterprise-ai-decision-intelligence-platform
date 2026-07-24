@@ -1,6 +1,4 @@
-# Data Cleaning
-
-## 2.1.3 Data Cleaning
+# 2.1 Dataset Collection || 2.1.3 Data Cleaning
 
 Data cleaning is a critical stage in the data engineering pipeline that transforms raw data into a reliable and analysis-ready format. Real-world datasets often contain inconsistencies, missing values, duplicate records, incorrect data types, and unnecessary attributes that can negatively impact downstream analytics and Machine Learning models.
 

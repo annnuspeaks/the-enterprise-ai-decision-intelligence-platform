@@ -1,4 +1,4 @@
-# Data Dictionary
+# 2.1 Dataset Collection || 2.1.1 Business Dataset
 
 ## 2.1.1.2 Data Dictionary
 
@@ -6,7 +6,7 @@ The **Brazilian E-Commerce Public Dataset by Olist** consists of multiple relati
 
 ---
 
-## Dataset Overview
+### Dataset Overview
 
 | Property | Details |
 |----------|---------|
@@ -19,9 +19,9 @@ The **Brazilian E-Commerce Public Dataset by Olist** consists of multiple relati
 
 ---
 
-## Dataset Tables
+### Dataset Tables
 
-### 1. Customers Dataset
+#### 1. Customers Dataset
 
 **File:** `olist_customers_dataset.csv`
 
@@ -35,7 +35,7 @@ The **Brazilian E-Commerce Public Dataset by Olist** consists of multiple relati
 
 ---
 
-### 2. Orders Dataset
+#### 2. Orders Dataset
 
 **File:** `olist_orders_dataset.csv`
 
@@ -52,7 +52,7 @@ The **Brazilian E-Commerce Public Dataset by Olist** consists of multiple relati
 
 ---
 
-### 3. Order Items Dataset
+#### 3. Order Items Dataset
 
 **File:** `olist_order_items_dataset.csv`
 
@@ -68,7 +68,7 @@ The **Brazilian E-Commerce Public Dataset by Olist** consists of multiple relati
 
 ---
 
-### 4. Products Dataset
+#### 4. Products Dataset
 
 **File:** `olist_products_dataset.csv`
 
@@ -86,7 +86,7 @@ The **Brazilian E-Commerce Public Dataset by Olist** consists of multiple relati
 
 ---
 
-### 5. Payments Dataset
+#### 5. Payments Dataset
 
 **File:** `olist_order_payments_dataset.csv`
 
@@ -100,7 +100,7 @@ The **Brazilian E-Commerce Public Dataset by Olist** consists of multiple relati
 
 ---
 
-### 6. Reviews Dataset
+#### 6. Reviews Dataset
 
 **File:** `olist_order_reviews_dataset.csv`
 
@@ -116,7 +116,7 @@ The **Brazilian E-Commerce Public Dataset by Olist** consists of multiple relati
 
 ---
 
-### 7. Sellers Dataset
+#### 7. Sellers Dataset
 
 **File:** `olist_sellers_dataset.csv`
 
@@ -129,7 +129,7 @@ The **Brazilian E-Commerce Public Dataset by Olist** consists of multiple relati
 
 ---
 
-### 8. Geolocation Dataset
+#### 8. Geolocation Dataset
 
 **File:** `olist_geolocation_dataset.csv`
 
@@ -143,7 +143,7 @@ The **Brazilian E-Commerce Public Dataset by Olist** consists of multiple relati
 
 ---
 
-### 9. Product Category Translation Dataset
+#### 9. Product Category Translation Dataset
 
 **File:** `product_category_name_translation.csv`
 
@@ -154,7 +154,7 @@ The **Brazilian E-Commerce Public Dataset by Olist** consists of multiple relati
 
 ---
 
-## Primary Keys
+### Primary Keys
 
 | Table | Primary Key |
 |---------|-------------|
@@ -168,7 +168,7 @@ The **Brazilian E-Commerce Public Dataset by Olist** consists of multiple relati
 
 ---
 
-## Major Relationships
+### Major Relationships
 
 | Parent Table | Child Table | Join Key |
 |--------------|-------------|----------|
@@ -181,6 +181,6 @@ The **Brazilian E-Commerce Public Dataset by Olist** consists of multiple relati
 
 ---
 
-## Business Significance
+### Business Significance
 
 The relational structure of the Olist dataset enables end-to-end analysis of the e-commerce lifecycle, including customer behavior, purchasing patterns, seller performance, payment trends, logistics, and product analytics. These relationships provide the foundation for building multiple interconnected AI modules within the Enterprise AI Decision Intelligence Platform.

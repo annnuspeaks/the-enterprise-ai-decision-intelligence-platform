@@ -1,6 +1,4 @@
-# Data Validation
-
-## 2.1.2 Data Validation
+# 2.1 Dataset Collection || 2.1.2 Data Validation
 
 Data validation is the first stage of the data engineering pipeline. Before performing preprocessing, feature engineering, or Machine Learning tasks, the integrity and structure of the dataset must be verified.
 

@@ -1,8 +1,6 @@
-# Dataset Collection
+# 2.1 Dataset Collection || 2.1.1 Business Dataset
 
-## 2.1.1 Business Dataset
-
-### 2.1.1.1 Dataset Selection
+## 2.1.1.1 Dataset Selection
 
 The **Enterprise AI Decision Intelligence Platform** is built using the **Brazilian E-Commerce Public Dataset by Olist**, a publicly available real-world e-commerce dataset hosted on Kaggle. The dataset contains transactional, customer, seller, product, payment, review, and geolocation data collected from the Olist online marketplace in Brazil between 2016 and 2018.
 
@@ -12,7 +10,7 @@ The dataset provides complete customer purchase journeys—from order placement 
 
 ---
 
-## Dataset Information
+### Dataset Information
 
 | Attribute | Details |
 |----------|---------|
@@ -31,7 +29,7 @@ The dataset provides complete customer purchase journeys—from order placement 
 
 ---
 
-## Why This Dataset?
+### Why This Dataset?
 
 The dataset was selected based on the following factors:
 
@@ -46,7 +44,7 @@ The dataset was selected based on the following factors:
 
 ---
 
-## AI Modules Supported
+### AI Modules Supported
 
 The selected dataset enables the implementation of multiple enterprise AI modules, including:
 
@@ -63,7 +61,7 @@ The selected dataset enables the implementation of multiple enterprise AI module
 
 ---
 
-## Dataset Files
+### Dataset Files
 
 The project primarily utilizes the following datasets:
 
