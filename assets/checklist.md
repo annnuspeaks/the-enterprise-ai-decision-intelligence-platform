@@ -116,8 +116,8 @@
 - [ ] Scaling                               [completed]
 
 ### 2.1.5 Exploratory Data Analysis
-- [ ] Statistical Analysis
-- [ ] Visualizations
+- [ ] Statistical Analysis                  [completed]
+- [ ] Visualizations                        [completed]
 - [ ] Business Insights
 
 ### 2.1.6 Processed Dataset Export
