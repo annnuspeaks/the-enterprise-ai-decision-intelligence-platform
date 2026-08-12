@@ -133,29 +133,43 @@
 
 # 🔵 PHASE 3 — ML Model 1: Customer Segmentation
 
+# 🔵 PHASE 3 — ML Model 1: Customer Segmentation
+
 ## Development
 - [ ] Business Understanding
 - [ ] Feature Selection
+- [ ] Data Preparation
 - [ ] Model Selection
 - [ ] Training
 - [ ] Evaluation
 - [ ] Cluster Interpretation
+- [ ] Model Serialization
 
 ## Backend
+- [ ] ML Model Service
 - [ ] Prediction API
-- [ ] Model Serialization
+- [ ] Model Loading
+- [ ] Request / Response Schemas
 
 ## Frontend
 - [ ] Dashboard Card
 - [ ] Cluster Visualization
 - [ ] Customer Explorer
 
-## Documentation
-- [ ] Model README
-- [ ] API README Update
-- [ ] Master README Update
-- [ ] Screenshots
-- [ ] GitHub Release
+## Integration
+- [ ] Backend–Frontend Integration
+- [ ] End-to-End Prediction Flow
+
+## Model Registry Placeholders
+- [ ] Customer Churn Prediction
+- [ ] CLV Prediction
+- [ ] Purchase Propensity — Deferred
+- [ ] Anomaly Detection — Deferred
+- [ ] Sales / Demand Forecasting
+- [ ] Recommendation System
+- [ ] Dynamic Risk Scoring
+- [ ] Next Best Action
+- [ ] AI Decision Assistant
 
 ---
 
