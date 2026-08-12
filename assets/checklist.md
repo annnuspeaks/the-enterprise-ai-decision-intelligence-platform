@@ -133,9 +133,7 @@
 
 # 🔵 PHASE 3 — ML Model 1: Customer Segmentation
 
-# 🔵 PHASE 3 — ML Model 1: Customer Segmentation
-
-## Development
+## 3.1 Development
 - [ ] Business Understanding
 - [ ] Feature Selection
 - [ ] Data Preparation
@@ -145,22 +143,22 @@
 - [ ] Cluster Interpretation
 - [ ] Model Serialization
 
-## Backend
+## 3.2 Backend
 - [ ] ML Model Service
 - [ ] Prediction API
 - [ ] Model Loading
 - [ ] Request / Response Schemas
 
-## Frontend
+## 3.3 Frontend
 - [ ] Dashboard Card
 - [ ] Cluster Visualization
 - [ ] Customer Explorer
 
-## Integration
+## 3.4 Integration
 - [ ] Backend–Frontend Integration
 - [ ] End-to-End Prediction Flow
 
-## Model Registry Placeholders
+## 3.5 Model Registry Placeholders
 - [ ] Customer Churn Prediction
 - [ ] CLV Prediction
 - [ ] Purchase Propensity — Deferred
@@ -175,7 +173,7 @@
 
 # 🔵 PHASE 4 — ML Model 2: Customer Churn Prediction
 
-## Development
+## 4.1 Development
 - [ ] Data Preparation
 - [ ] Feature Engineering
 - [ ] Model Comparison
@@ -183,15 +181,15 @@
 - [ ] Evaluation
 - [ ] Explainability
 
-## Backend
+## 4.2 Backend
 - [ ] Prediction API
 
-## Frontend
+## 4.3 Frontend
 - [ ] Dashboard Widget
 - [ ] Churn Analytics
 - [ ] Customer Prediction Page
 
-## Documentation
+## 4.4 Documentation
 - [ ] Model README
 - [ ] API Documentation
 - [ ] Master README
@@ -202,20 +200,20 @@
 
 # 🔵 PHASE 5 — ML Model 3: Customer Lifetime Value Prediction
 
-## Development
+## 5.1 Development
 - [ ] Data Preparation
 - [ ] Regression Models
 - [ ] Model Evaluation
 - [ ] Explainability
 
-## Backend
+## 5.2 Backend
 - [ ] Prediction API
 
-## Frontend
+## 5.3 Frontend
 - [ ] CLV Dashboard
 - [ ] Customer Value Insights
 
-## Documentation
+## 5.4 Documentation
 - [ ] Model README
 - [ ] API README
 - [ ] Master README
@@ -225,19 +223,19 @@
 
 # 🔵 PHASE 6 — ML Model 4: Purchase Propensity Prediction
 
-## Development
+## 6.1 Development
 - [ ] Dataset
 - [ ] Binary Classification
 - [ ] Evaluation
 
-## Backend
+## 6.2 Backend
 - [ ] Prediction API
 
-## Frontend
+## 6.3 Frontend
 - [ ] Purchase Probability Dashboard
 - [ ] Customer Details
 
-## Documentation
+## 6.4 Documentation
 - [ ] Model README
 - [ ] API Documentation
 - [ ] Master README
@@ -247,19 +245,19 @@
 
 # 🔵 PHASE 7 — ML Model 5: Anomaly Detection
 
-## Development
+## 7.1 Development
 - [ ] Data Preparation
 - [ ] Isolation Forest
 - [ ] Model Evaluation
 
-## Backend
+## 7.2 Backend
 - [ ] Prediction API
 
-## Frontend
+## 7.3 Frontend
 - [ ] Anomaly Dashboard
 - [ ] Suspicious Customer Page
 
-## Documentation
+## 7.4 Documentation
 - [ ] Model README
 - [ ] API Documentation
 - [ ] Master README
@@ -269,30 +267,30 @@
 
 # 🔵 PHASE 8 — Enterprise Dashboard
 
-## Executive Dashboard
+## 8.1 Executive Dashboard
 - [ ] KPI Cards
 - [ ] Charts
 - [ ] Business Metrics
 
-## Customer Module
+## 8.2 Customer Module
 - [ ] Customer List
 - [ ] Customer Profile
 - [ ] Model Predictions
 
-## Website Navigation
+## 8.3 Website Navigation
 - [ ] Dashboard
 - [ ] Customers
 - [ ] Reports
 - [ ] Settings
 
-## Future Expansion Placeholders
+## 8.4 Future Expansion Placeholders
 - [ ] Recommendation System *(Coming Soon)*
 - [ ] Sales Forecasting *(Coming Soon)*
 - [ ] Risk Scoring *(Coming Soon)*
 - [ ] Next Best Action *(Coming Soon)*
 - [ ] AI Assistant *(Coming Soon)*
 
-## Documentation
+## 8.5 Documentation
 - [ ] Frontend README
 - [ ] Screenshots
 - [ ] Master README
@@ -307,7 +305,7 @@
 - [ ] Validation
 - [ ] Logging
 
-## Documentation
+## 9.1 Documentation
 - [ ] API Documentation
 - [ ] Backend README
 - [ ] Master README
@@ -316,21 +314,21 @@
 
 # 🔵 PHASE 10 — Testing & Quality Assurance
 
-## Model Testing
+## 10.1 Model Testing
 - [ ] Unit Tests
 - [ ] Performance Evaluation
 
-## Backend Testing
+## 10.2 Backend Testing
 - [ ] API Testing
 
-## Frontend Testing
+## 10.3 Frontend Testing
 - [ ] UI Testing
 - [ ] Responsiveness
 
-## Integration Testing
+## 10.4 Integration Testing
 - [ ] End-to-End Testing
 
-## Documentation
+## 10.5 Documentation
 - [ ] Testing Report
 - [ ] Known Issues
 
@@ -338,25 +336,25 @@
 
 # 🔵 PHASE 11 — Deployment
 
-## Backend
+## 11.1 Backend
 - [ ] Production Server
 
-## Frontend
+## 11.2 Frontend
 - [ ] Production Build
 
-## Database
+## 11.3 Database
 - [ ] Database Deployment
 
-## CI/CD
+## 11.4 CI/CD
 - [ ] CI/CD Pipeline
 
-## Domain
+## 11.5 Domain
 - [ ] Domain Configuration
 
-## Monitoring
+## 11.6 Monitoring
 - [ ] Monitoring Setup
 
-## Documentation
+## 11.7 Documentation
 - [ ] Deployment Guide
 - [ ] User Guide
 - [ ] Final Master README
@@ -379,7 +377,7 @@
 
 # 🟣 PHASE 13 — Future Expansion (Semester 4)
 
-## Recommendation System
+## 13.1 Recommendation System
 - [ ] Data Pipeline
 - [ ] Hybrid Recommendation Engine
 - [ ] API
@@ -390,7 +388,7 @@
 
 # 🟣 PHASE 14 — Future Expansion (Semester 4)
 
-## Sales & Demand Forecasting
+## 14.1 Sales & Demand Forecasting
 - [ ] Time Series Pipeline
 - [ ] Forecast Models
 - [ ] Dashboard
@@ -400,7 +398,7 @@
 
 # 🟣 PHASE 15 — Future Expansion (Semester 4)
 
-## Dynamic Risk Scoring
+## 15.1 Dynamic Risk Scoring
 
 **Depends on:** Churn + CLV + Purchase Propensity
 
@@ -413,7 +411,7 @@
 
 # 🟣 PHASE 16 — Future Expansion (Semester 4)
 
-## Next Best Action
+## 16.1 Next Best Action
 
 **Depends on:** Recommendation + Risk Scoring
 
@@ -426,7 +424,7 @@
 
 # 🟣 PHASE 17 — Future Expansion (Semester 4)
 
-## Enterprise Decision Engine
+## 17.1 Enterprise Decision Engine
 
 **Consumes outputs from all previous models.**
 
@@ -440,7 +438,7 @@
 
 # 🟣 PHASE 18 — Future Expansion (Semester 4)
 
-## AI Business Assistant (LLM)
+## 18.1 AI Business Assistant (LLM)
 - [ ] LLM Integration
 - [ ] Context Retrieval
 - [ ] Business Q&A
@@ -451,7 +449,7 @@
 
 # 🟣 PHASE 19 — Future Expansion (Semester 4)
 
-## Advanced MLOps
+## 19.1 Advanced MLOps
 - [ ] MLflow
 - [ ] Model Registry
 - [ ] Versioning
@@ -463,7 +461,7 @@
 
 # 🟣 PHASE 20 — Future Expansion (Semester 4)
 
-## Production Release v2.0
+## 20.1 Production Release v2.0
 - [ ] Final UI Enhancements
 - [ ] Scalability Improvements
 - [ ] Security Hardening
