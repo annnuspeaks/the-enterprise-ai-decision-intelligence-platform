@@ -159,7 +159,7 @@
     - [x] CORS configuration                [completed]
     - [ ] CORS middleware attachment        [completed]
     - [ ] Backend prediction connection     [completed]
-    - [ ] Frontend API connection           
+    - [ ] Frontend API connection           [completed]
     - [ ] Real prediction response          [completed]
 - [ ] End-to-End Prediction Flow
 

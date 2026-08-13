@@ -1,19 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-import {
-  Alert,
-  Box,
-  CircularProgress,
-  Container,
-  Grid,
-  Stack,
-  Typography,
-} from "@mui/material";
+import CustomerPredictionForm from "../components/ui/CustomerPredictionForm";
+import type { CustomerPredictionResult } from "../components/ui/CustomerPredictionForm";
+
+import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 
 import DashboardCard from "../components/ui/DashboardCard";
 import ClusterVisualization from "../components/ui/ClusterVisualization";
 import CustomerExplorer from "../components/ui/CustomerExplorer";
-import { predictCustomerSegmentation } from "../services/customerSegmentationService";
 
 interface CustomerData {
   customerId: string;
@@ -38,49 +32,16 @@ function CustomerSegmentationPage() {
     clusterId: 0,
   });
 
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    let isMounted = true;
-
-    async function loadPrediction() {
-      try {
-        setIsLoading(true);
-        setError(null);
-
-        const prediction = await predictCustomerSegmentation({
-          total_orders: demoCustomer.totalOrders,
-          total_spent: demoCustomer.totalSpent,
-          average_order_value: demoCustomer.averageOrderValue,
-          average_review_score: demoCustomer.averageReviewScore,
-        });
-
-        if (isMounted) {
-          setCustomer({
-            ...demoCustomer,
-            clusterId: prediction.cluster_id,
-          });
-        }
-      } catch {
-        if (isMounted) {
-          setError(
-            "Unable to connect to the Customer Segmentation prediction service.",
-          );
-        }
-      } finally {
-        if (isMounted) {
-          setIsLoading(false);
-        }
-      }
-    }
-
-    loadPrediction();
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
+  const handlePrediction = (prediction: CustomerPredictionResult) => {
+    setCustomer({
+      customerId: demoCustomer.customerId,
+      totalOrders: prediction.totalOrders,
+      totalSpent: prediction.totalSpent,
+      averageOrderValue: prediction.averageOrderValue,
+      averageReviewScore: prediction.averageReviewScore,
+      clusterId: prediction.clusterId,
+    });
+  };
 
   return (
     <Container maxWidth="lg">
@@ -131,25 +92,9 @@ function CustomerSegmentationPage() {
 
         <ClusterVisualization />
 
-        {error && <Alert severity="error">{error}</Alert>}
+        <CustomerPredictionForm onPrediction={handlePrediction} />
 
-        {isLoading ? (
-          <Stack
-            spacing={2}
-            sx={{
-              py: 4,
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <CircularProgress />
-            <Typography variant="body2" color="text.secondary">
-              Generating customer segmentation prediction...
-            </Typography>
-          </Stack>
-        ) : (
-          <CustomerExplorer customer={customer} />
-        )}
+        <CustomerExplorer customer={customer} />
       </Stack>
     </Container>
   );
