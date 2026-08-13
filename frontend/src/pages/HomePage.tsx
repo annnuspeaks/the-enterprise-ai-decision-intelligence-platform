@@ -2,6 +2,7 @@ import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 
 import DashboardCard from "../components/ui/DashboardCard";
 import ClusterVisualization from "../components/ui/ClusterVisualization";
+import CustomerExplorer from "../components/ui/CustomerExplorer";
 
 function HomePage() {
   return (
@@ -52,6 +53,16 @@ function HomePage() {
         </Grid>
 
         <ClusterVisualization />
+        <CustomerExplorer
+          customer={{
+            customerId: "demo-customer-001",
+            totalOrders: 12,
+            totalSpent: 1850.75,
+            averageOrderValue: 154.23,
+            averageReviewScore: 4.6,
+            clusterId: 2,
+          }}
+        />
       </Stack>
     </Container>
   );
