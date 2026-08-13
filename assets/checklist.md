@@ -151,11 +151,16 @@
 
 ## 3.3 Frontend
 - [ ] Dashboard Card                        [completed]
-- [ ] Cluster Visualization
-- [ ] Customer Explorer
+- [ ] Cluster Visualization                 [completed]
+- [ ] Customer Explorer                     [completed]
 
 ## 3.4 Integration
 - [ ] Backend–Frontend Integration
+    - [x] CORS configuration                [completed]
+    - [ ] CORS middleware attachment        [completed]
+    - [ ] Backend prediction connection     [completed]
+    - [ ] Frontend API connection           
+    - [ ] Real prediction response          [completed]
 - [ ] End-to-End Prediction Flow
 
 ## 3.5 Model Registry Placeholders

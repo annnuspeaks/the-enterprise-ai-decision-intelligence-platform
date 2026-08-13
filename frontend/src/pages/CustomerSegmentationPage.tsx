@@ -4,7 +4,7 @@ import DashboardCard from "../components/ui/DashboardCard";
 import ClusterVisualization from "../components/ui/ClusterVisualization";
 import CustomerExplorer from "../components/ui/CustomerExplorer";
 
-function HomePage() {
+function CustomerSegmentationPage() {
   return (
     <Container maxWidth="lg">
       <Stack spacing={4} sx={{ py: 6 }}>
@@ -68,4 +68,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default CustomerSegmentationPage;
