@@ -161,7 +161,7 @@
     - [ ] Backend prediction connection     [completed]
     - [ ] Frontend API connection           [completed]
     - [ ] Real prediction response          [completed]
-- [ ] End-to-End Prediction Flow
+- [ ] End-to-End Prediction Flow            [completed]
 
 ## 3.5 Model Registry Placeholders
 - [ ] Customer Churn Prediction
