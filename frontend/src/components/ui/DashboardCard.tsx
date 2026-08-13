@@ -1,9 +1,4 @@
-import {
-  Card,
-  CardContent,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Card, CardContent, Stack, Typography } from "@mui/material";
 
 interface DashboardCardProps {
   title: string;
@@ -11,34 +6,20 @@ interface DashboardCardProps {
   description: string;
 }
 
-function DashboardCard({
-  title,
-  value,
-  description,
-}: DashboardCardProps) {
+function DashboardCard({ title, value, description }: DashboardCardProps) {
   return (
     <Card elevation={2}>
       <CardContent>
         <Stack spacing={1}>
-          <Typography
-            variant="body2"
-            color="text.secondary"
-          >
+          <Typography variant="body2" color="text.secondary">
             {title}
           </Typography>
 
-          <Typography
-            variant="h4"
-            component="div"
-            fontWeight={700}
-          >
+          <Typography variant="h4" component="div" sx={{ fontWeight: 700 }}>
             {value}
           </Typography>
 
-          <Typography
-            variant="body2"
-            color="text.secondary"
-          >
+          <Typography variant="body2" color="text.secondary">
             {description}
           </Typography>
         </Stack>

@@ -19,7 +19,7 @@ function CustomerExplorer({ customer }: CustomerExplorerProps) {
       <CardContent>
         <Stack spacing={3}>
           <Box>
-            <Typography variant="h6" fontWeight={700}>
+            <Typography variant="h6" sx={{ fontWeight: 700 }}>
               Customer Explorer
             </Typography>
 
@@ -36,7 +36,7 @@ function CustomerExplorer({ customer }: CustomerExplorerProps) {
                 Customer ID
               </Typography>
 
-              <Typography variant="body1" fontWeight={600}>
+              <Typography variant="body1" sx={{ fontWeight: 600 }}>
                 {customer.customerId}
               </Typography>
             </Box>
@@ -46,7 +46,8 @@ function CustomerExplorer({ customer }: CustomerExplorerProps) {
                 Total Orders
               </Typography>
 
-              <Typography variant="body1" fontWeight={600}>
+              <Typography variant="body1" sx={{ fontWeight: 600 }}>
+                {" "}
                 {customer.totalOrders.toLocaleString()}
               </Typography>
             </Box>
@@ -56,7 +57,7 @@ function CustomerExplorer({ customer }: CustomerExplorerProps) {
                 Total Spent
               </Typography>
 
-              <Typography variant="body1" fontWeight={600}>
+              <Typography variant="body1" sx={{ fontWeight: 600 }}>
                 {customer.totalSpent.toFixed(2)}
               </Typography>
             </Box>
@@ -66,7 +67,7 @@ function CustomerExplorer({ customer }: CustomerExplorerProps) {
                 Average Order Value
               </Typography>
 
-              <Typography variant="body1" fontWeight={600}>
+              <Typography variant="body1" sx={{ fontWeight: 600 }}>
                 {customer.averageOrderValue.toFixed(2)}
               </Typography>
             </Box>
@@ -76,7 +77,7 @@ function CustomerExplorer({ customer }: CustomerExplorerProps) {
                 Average Review Score
               </Typography>
 
-              <Typography variant="body1" fontWeight={600}>
+              <Typography variant="body1" sx={{ fontWeight: 600 }}>
                 {customer.averageReviewScore.toFixed(2)}
               </Typography>
             </Box>
@@ -86,7 +87,7 @@ function CustomerExplorer({ customer }: CustomerExplorerProps) {
                 Cluster
               </Typography>
 
-              <Typography variant="h6" fontWeight={700}>
+              <Typography variant="h6" sx={{ fontWeight: 700 }}>
                 Cluster {customer.clusterId}
               </Typography>
             </Box>

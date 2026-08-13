@@ -45,7 +45,7 @@ function ClusterVisualization() {
       <CardContent>
         <Stack spacing={3}>
           <Box>
-            <Typography variant="h6" fontWeight={700}>
+            <Typography variant="h6" sx={{ fontWeight: 700 }}>
               Customer Cluster Distribution
             </Typography>
 
@@ -59,11 +59,13 @@ function ClusterVisualization() {
               <Box key={item.cluster}>
                 <Stack
                   direction="row"
-                  justifyContent="space-between"
-                  alignItems="center"
-                  sx={{ mb: 0.75 }}
+                  sx={{
+                    mb: 0.75,
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
                 >
-                  <Typography variant="body2" fontWeight={600}>
+                  <Typography variant="body2" sx={{ fontWeight: 600 }}>
                     Cluster {item.cluster}
                   </Typography>
 
