@@ -133,24 +133,24 @@
 
 # 🔵 PHASE 3 — ML Model 1: Customer Segmentation
 
-## 3.1 Development
-- [ ] Business Understanding
-- [ ] Feature Selection
-- [ ] Data Preparation
-- [ ] Model Selection
-- [ ] Training
-- [ ] Evaluation
-- [ ] Cluster Interpretation
-- [ ] Model Serialization
+## 3.1 Development          
+- [ ] Business Understanding                [completed]
+- [ ] Feature Selection                     [completed]
+- [ ] Data Preparation                      [completed]
+- [ ] Model Selection                       [completed]
+- [ ] Training                              [completed]
+- [ ] Evaluation                            [completed]
+- [ ] Cluster Interpretation                [completed]
+- [ ] Model Serialization                   [completed]
 
 ## 3.2 Backend
-- [ ] ML Model Service
-- [ ] Prediction API
-- [ ] Model Loading
-- [ ] Request / Response Schemas
+- [ ] ML Model Service                      [completed]
+- [ ] Prediction API                        [completed]
+- [ ] Model Loading                         [completed]
+- [ ] Request / Response Schemas            [completed]
 
 ## 3.3 Frontend
-- [ ] Dashboard Card
+- [ ] Dashboard Card                        [completed]
 - [ ] Cluster Visualization
 - [ ] Customer Explorer
 

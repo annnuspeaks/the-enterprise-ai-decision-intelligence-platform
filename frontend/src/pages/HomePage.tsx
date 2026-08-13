@@ -1,6 +1,7 @@
 import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 
 import DashboardCard from "../components/ui/DashboardCard";
+import ClusterVisualization from "../components/ui/ClusterVisualization";
 
 function HomePage() {
   return (
@@ -49,6 +50,8 @@ function HomePage() {
             />
           </Grid>
         </Grid>
+
+        <ClusterVisualization />
       </Stack>
     </Container>
   );
