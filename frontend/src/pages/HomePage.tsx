@@ -16,21 +16,10 @@ import { Link } from "react-router-dom";
 
 import nexoraLogo from "../assets/nexora-logo.png";
 import nexoraIcon from "../assets/nexora-icon.png";
-import ThemeToggle from "../components/layout/Navbar/ThemeToggle";
 
 function HomePage() {
   return (
     <>
-      <Box
-        sx={{
-          position: "fixed",
-          top: { xs: 78, sm: 88 },
-          right: { xs: 14, sm: 24 },
-          zIndex: 900,
-        }}
-      >
-        <ThemeToggle />
-      </Box>
       <Box component="main">
         <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Stack spacing={7} sx={{ py: { xs: 3, md: 5 } }}>

@@ -113,12 +113,21 @@
 }
 
 .nexora-navbar__actions {
-  width: 42px;
-  min-width: 42px;
-  height: 40px;
+  margin-left: 8px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  gap: 10px;
+}
+
+.nexora-navbar__desktop-theme {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nexora-navbar__mobile-theme {
+  display: none;
 }
 
 .nexora-navbar__menu-button {
@@ -176,14 +185,36 @@
   }
 
   .nexora-navbar__actions {
-    width: auto;
-    min-width: auto;
     margin-left: auto;
-    gap: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .nexora-navbar__desktop-theme {
+    display: none;
   }
 
   .nexora-navbar__menu-button {
     display: inline-flex;
+  }
+
+  .nexora-navbar__mobile-theme {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 46px;
+    margin-top: 5px;
+    padding: 0 14px;
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
+    color: rgba(15, 23, 42, 0.82);
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  [data-theme="dark"] .nexora-navbar__mobile-theme {
+    border-top-color: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.86);
   }
 
   .nexora-navbar__mobile-nav {

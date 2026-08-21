@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 import "./Navbar.css";
 
 const navLinks = [
@@ -20,9 +21,16 @@ const Navbar = () => {
   return (
     <header className="nexora-navbar">
       <div className="nexora-navbar__inner">
-        <NavLink to="/" end className="nexora-navbar__brand" aria-label="Nexora Home">
+        <NavLink
+          to="/"
+          end
+          className="nexora-navbar__brand"
+          aria-label="Nexora Home"
+        >
           <img
-            src={new URL("../../../assets/nexora-logo.png", import.meta.url).href}
+            src={
+              new URL("../../../assets/nexora-logo.png", import.meta.url).href
+            }
             alt="Nexora"
             className="nexora-navbar__logo"
           />
@@ -44,16 +52,28 @@ const Navbar = () => {
           ))}
         </nav>
 
-        <button
-          type="button"
-          className="nexora-navbar__menu-button"
-          onClick={() => setMenuOpen((current) => !current)}
-          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
-          aria-expanded={menuOpen}
-          aria-controls="nexora-mobile-navigation"
-        >
-          {menuOpen ? <X size={20} strokeWidth={2} /> : <Menu size={20} strokeWidth={2} />}
-        </button>
+        <div className="nexora-navbar__actions">
+          <div className="nexora-navbar__desktop-theme">
+            <ThemeToggle />
+          </div>
+
+          <button
+            type="button"
+            className="nexora-navbar__menu-button"
+            onClick={() => setMenuOpen((current) => !current)}
+            aria-label={
+              menuOpen ? "Close navigation menu" : "Open navigation menu"
+            }
+            aria-expanded={menuOpen}
+            aria-controls="nexora-mobile-navigation"
+          >
+            {menuOpen ? (
+              <X size={20} strokeWidth={2} />
+            ) : (
+              <Menu size={20} strokeWidth={2} />
+            )}
+          </button>
+        </div>
 
         <nav
           id="nexora-mobile-navigation"
@@ -73,6 +93,11 @@ const Navbar = () => {
               {item.label}
             </NavLink>
           ))}
+
+          <div className="nexora-navbar__mobile-theme">
+            <span>Theme</span>
+            <ThemeToggle />
+          </div>
         </nav>
       </div>
     </header>

@@ -245,13 +245,13 @@
 
 ## 4.6 Final Homepage Verification
 
-- [ ] 4.6.1 All navigation links tested
-- [ ] 4.6.2 Dashboard route tested
-- [ ] 4.6.3 Theme toggle tested
-- [ ] 4.6.4 Back-to-top tested
-- [ ] 4.6.5 All 8 model cards tested
-- [ ] 4.6.6 Footer links tested
-- [ ] 4.6.7 Desktop visual QA
+- [ ] 4.6.1 All navigation links tested             [done]
+- [ ] 4.6.2 Dashboard route tested                  [done]
+- [ ] 4.6.3 Theme toggle tested                     [done]
+- [ ] 4.6.4 Back-to-top tested                      [done]
+- [ ] 4.6.5 All 8 model cards tested                [done]
+- [ ] 4.6.6 Footer links tested                     [done]
+- [ ] 4.6.7 Desktop visual QA                       [done]
 - [ ] 4.6.8 Tablet visual QA
 - [ ] 4.6.9 Mobile visual QA
 - [ ] 4.6.10 Production build
