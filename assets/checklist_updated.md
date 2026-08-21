@@ -176,9 +176,92 @@
 
 ---
 
-# 🔵 PHASE 4 — ML Model 2: Customer Churn Prediction
+# 🔵 PHASE 4 — Global Platform UI/UX Polish
 
-## 4.1 Development
+## 4.1 Global Homepage
+
+- [ ] 4.1.1 Global homepage layout          [completed]
+- [ ] 4.1.2 Hero section                    [completed]
+- [ ] 4.1.3 Platform overview / dashboard preview [done]
+- [ ] 4.1.4 8-model showcase
+- [ ] 4.1.5 Model card design & hierarchy
+- [ ] 4.1.6 Available / Coming Soon / Deferred states
+- [ ] 4.1.7 Platform value / Why this project section
+- [ ] 4.1.8 How It Works section
+- [ ] 4.1.9 Technology Stack section
+- [ ] 4.1.10 About the Project section
+- [ ] 4.1.11 Dashboard CTA section
+- [ ] 4.1.12 Homepage responsive layout
+
+## 4.2 Global Navigation
+
+- [ ] 4.2.1 Header / Navigation bar
+- [ ] 4.2.2 Home menu
+- [ ] 4.2.3 About menu
+- [ ] 4.2.4 Features menu
+- [ ] 4.2.5 Technology menu
+- [ ] 4.2.6 Dashboard menu
+- [ ] 4.2.7 Contact menu
+- [ ] 4.2.8 Theme toggle — Home screen only
+- [ ] 4.2.9 Mobile / responsive navigation
+
+## 4.3 UI/UX System
+
+- [ ] 4.3.1 Typography hierarchy
+- [ ] 4.3.2 Spacing & container system
+- [ ] 4.3.3 Icons & visual consistency
+- [ ] 4.3.4 Card / panel consistency
+- [ ] 4.3.5 Hover / focus states
+- [ ] 4.3.6 Loading / empty / error states
+- [ ] 4.3.7 Light / Dark theme consistency
+- [ ] 4.3.8 Existing color palette preserved
+- [ ] 4.3.9 Existing visual styles preserved
+
+## 4.4 Responsive & Cross-Device Polish
+
+- [ ] 4.4.1 Desktop responsiveness
+- [ ] 4.4.2 Tablet responsiveness
+- [ ] 4.4.3 Mobile responsiveness
+- [ ] 4.4.4 Header responsiveness
+- [ ] 4.4.5 Navigation responsiveness
+- [ ] 4.4.6 Hero responsiveness
+- [ ] 4.4.7 Dashboard preview responsiveness
+- [ ] 4.4.8 Model card responsiveness
+- [ ] 4.4.9 Section spacing responsiveness
+- [ ] 4.4.10 Footer responsiveness
+
+## 4.5 Global Utilities & Footer
+
+- [ ] 4.5.1 Back-to-top floating button
+- [ ] 4.5.2 Back-to-top smooth scrolling
+- [ ] 4.5.3 Global footer
+- [ ] 4.5.4 Current-year copyright
+- [ ] 4.5.5 TAS Communication Services | Anurag Shukla branding
+- [ ] 4.5.6 Our Other Products section
+- [ ] 4.5.7 FraudMatrix link
+- [ ] 4.5.8 ChurnMatrix link
+- [ ] 4.5.9 Remaining 4 project links
+- [ ] 4.5.10 Footer responsive layout
+
+## 4.6 Final Homepage Verification
+
+- [ ] 4.6.1 All navigation links tested
+- [ ] 4.6.2 Dashboard route tested
+- [ ] 4.6.3 Theme toggle tested
+- [ ] 4.6.4 Back-to-top tested
+- [ ] 4.6.5 All 8 model cards tested
+- [ ] 4.6.6 Footer links tested
+- [ ] 4.6.7 Desktop visual QA
+- [ ] 4.6.8 Tablet visual QA
+- [ ] 4.6.9 Mobile visual QA
+- [ ] 4.6.10 Production build
+- [ ] 4.6.11 Git commit
+
+---
+
+# 🔵 PHASE 5 — ML Model 2: Customer Churn Prediction
+
+## 5.1 Development
 - [ ] Data Preparation
 - [ ] Feature Engineering
 - [ ] Model Comparison
@@ -186,15 +269,15 @@
 - [ ] Evaluation
 - [ ] Explainability
 
-## 4.2 Backend
+## 5.2 Backend
 - [ ] Prediction API
 
-## 4.3 Frontend
+## 5.3 Frontend
 - [ ] Dashboard Widget
 - [ ] Churn Analytics
 - [ ] Customer Prediction Page
 
-## 4.4 Documentation
+## 5.4 Documentation
 - [ ] Model README
 - [ ] API Documentation
 - [ ] Master README
@@ -203,22 +286,22 @@
 
 ---
 
-# 🔵 PHASE 5 — ML Model 3: Customer Lifetime Value Prediction
+# 🔵 PHASE 6 — ML Model 3: Customer Lifetime Value Prediction
 
-## 5.1 Development
+## 6.1 Development
 - [ ] Data Preparation
 - [ ] Regression Models
 - [ ] Model Evaluation
 - [ ] Explainability
 
-## 5.2 Backend
+## 6.2 Backend
 - [ ] Prediction API
 
-## 5.3 Frontend
+## 6.3 Frontend
 - [ ] CLV Dashboard
 - [ ] Customer Value Insights
 
-## 5.4 Documentation
+## 6.4 Documentation
 - [ ] Model README
 - [ ] API README
 - [ ] Master README
@@ -226,41 +309,19 @@
 
 ---
 
-# 🔵 PHASE 6 — ML Model 4: Purchase Propensity Prediction
+# 🔵 PHASE 7 — ML Model 4: Purchase Propensity Prediction
 
-## 6.1 Development
+## 7.1 Development
 - [ ] Dataset
 - [ ] Binary Classification
 - [ ] Evaluation
-
-## 6.2 Backend
-- [ ] Prediction API
-
-## 6.3 Frontend
-- [ ] Purchase Probability Dashboard
-- [ ] Customer Details
-
-## 6.4 Documentation
-- [ ] Model README
-- [ ] API Documentation
-- [ ] Master README
-- [ ] Screenshots
-
----
-
-# 🔵 PHASE 7 — ML Model 5: Anomaly Detection
-
-## 7.1 Development
-- [ ] Data Preparation
-- [ ] Isolation Forest
-- [ ] Model Evaluation
 
 ## 7.2 Backend
 - [ ] Prediction API
 
 ## 7.3 Frontend
-- [ ] Anomaly Dashboard
-- [ ] Suspicious Customer Page
+- [ ] Purchase Probability Dashboard
+- [ ] Customer Details
 
 ## 7.4 Documentation
 - [ ] Model README
@@ -270,39 +331,59 @@
 
 ---
 
-# 🔵 PHASE 8 — Enterprise Dashboard
+# 🔵 PHASE 8 — ML Model 5: Anomaly Detection
 
-## 8.1 Executive Dashboard
+## 8.1 Development
+- [ ] Data Preparation
+- [ ] Isolation Forest
+- [ ] Model Evaluation
+
+## 8.2 Backend
+- [ ] Prediction API
+
+## 8.3 Frontend
+- [ ] Anomaly Dashboard
+- [ ] Suspicious Customer Page
+
+## 8.4 Documentation
+- [ ] Model README
+- [ ] API Documentation
+- [ ] Master README
+- [ ] Screenshots
+
+---
+
+# 🔵 PHASE 9 — Enterprise Dashboard
+
+## 9.1 Executive Dashboard
 - [ ] KPI Cards
 - [ ] Charts
 - [ ] Business Metrics
 
-## 8.2 Customer Module
+## 9.2 Customer Module
 - [ ] Customer List
 - [ ] Customer Profile
 - [ ] Model Predictions
 
-## 8.3 Website Navigation
+## 9.3 Website Navigation
 - [ ] Dashboard
 - [ ] Customers
 - [ ] Reports
 - [ ] Settings
 
-## 8.4 Future Expansion Placeholders
+## 9.4 Future Expansion Placeholders
 - [ ] Recommendation System *(Coming Soon)*
 - [ ] Sales Forecasting *(Coming Soon)*
 - [ ] Risk Scoring *(Coming Soon)*
-- [ ] Next Best Action *(Coming Soon)*
-- [ ] AI Assistant *(Coming Soon)*
 
-## 8.5 Documentation
+## 9.5 Documentation
 - [ ] Frontend README
 - [ ] Screenshots
 - [ ] Master README
 
 ---
 
-# 🔵 PHASE 9 — Backend Integration
+# 🔵 PHASE 10 — Backend Integration
 
 - [ ] API Integration
 - [ ] Error Handling
@@ -317,7 +398,7 @@
 
 ---
 
-# 🔵 PHASE 10 — Testing & Quality Assurance
+# 🔵 PHASE 11 — Testing & Quality Assurance
 
 ## 10.1 Model Testing
 - [ ] Unit Tests
@@ -339,7 +420,7 @@
 
 ---
 
-# 🔵 PHASE 11 — Deployment
+# 🔵 PHASE 12 — Deployment
 
 ## 11.1 Backend
 - [ ] Production Server
@@ -366,7 +447,7 @@
 
 ---
 
-# 🔵 PHASE 12 — Project Finalization (Semester 3)
+# 🔵 PHASE 13 — Project Finalization (Semester 3)
 
 - [ ] Final UI Polish
 - [ ] Performance Optimization
@@ -380,9 +461,9 @@
 
 ---
 
-# 🟣 PHASE 13 — Future Expansion (Semester 4)
+# 🟣 PHASE 14 — Future Expansion (Semester 4)
 
-## 13.1 Recommendation System
+## 14.1 Recommendation System
 - [ ] Data Pipeline
 - [ ] Hybrid Recommendation Engine
 - [ ] API
@@ -391,9 +472,9 @@
 
 ---
 
-# 🟣 PHASE 14 — Future Expansion (Semester 4)
+# 🟣 PHASE 15 — Future Expansion (Semester 4)
 
-## 14.1 Sales & Demand Forecasting
+## 15.1 Sales & Demand Forecasting
 - [ ] Time Series Pipeline
 - [ ] Forecast Models
 - [ ] Dashboard
@@ -401,9 +482,9 @@
 
 ---
 
-# 🟣 PHASE 15 — Future Expansion (Semester 4)
+# 🟣 PHASE 16 — Future Expansion (Semester 4)
 
-## 15.1 Dynamic Risk Scoring
+## 16.1 Dynamic Risk Scoring
 
 **Depends on:** Churn + CLV + Purchase Propensity
 
@@ -414,9 +495,9 @@
 
 ---
 
-# 🟣 PHASE 16 — Future Expansion (Semester 4)
+# 🟣 PHASE 17 — Future Expansion (Semester 4)
 
-## 16.1 Next Best Action
+## 17.1 Next Best Action
 
 **Depends on:** Recommendation + Risk Scoring
 
@@ -427,9 +508,9 @@
 
 ---
 
-# 🟣 PHASE 17 — Future Expansion (Semester 4)
+# 🟣 PHASE 18 — Future Expansion (Semester 4)
 
-## 17.1 Enterprise Decision Engine
+## 18.1 Enterprise Decision Engine
 
 **Consumes outputs from all previous models.**
 
@@ -441,9 +522,9 @@
 
 ---
 
-# 🟣 PHASE 18 — Future Expansion (Semester 4)
+# 🟣 PHASE 19 — Future Expansion (Semester 4)
 
-## 18.1 AI Business Assistant (LLM)
+## 19.1 AI Business Assistant (LLM)
 - [ ] LLM Integration
 - [ ] Context Retrieval
 - [ ] Business Q&A
@@ -452,9 +533,9 @@
 
 ---
 
-# 🟣 PHASE 19 — Future Expansion (Semester 4)
+# 🟣 PHASE 20 — Future Expansion (Semester 4)
 
-## 19.1 Advanced MLOps
+## 20.1 Advanced MLOps
 - [ ] MLflow
 - [ ] Model Registry
 - [ ] Versioning
@@ -464,9 +545,9 @@
 
 ---
 
-# 🟣 PHASE 20 — Future Expansion (Semester 4)
+# 🟣 PHASE 21 — Future Expansion (Semester 4)
 
-## 20.1 Production Release v2.0
+## 21.1 Production Release v2.0
 - [ ] Final UI Enhancements
 - [ ] Scalability Improvements
 - [ ] Security Hardening

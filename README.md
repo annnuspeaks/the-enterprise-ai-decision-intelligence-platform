@@ -2,7 +2,7 @@
 
 > **Modern enterprises generate vast amounts of customer and business data, yet converting this information into actionable decisions remains a significant challenge. Traditional business intelligence systems primarily provide descriptive analytics and dashboards but often lack predictive and intelligent decision-support capabilities. This project proposes the development of an Enterprise AI Decision Intelligence Platform that integrates multiple Machine Learning models to assist organizations in making data-driven business decisions.**
 
-The proposed system will analyze customer data to generate valuable insights through **Customer Segmentation, Customer Churn Prediction, Customer Lifetime Value (CLV) Prediction, Purchase Propensity Prediction, and Anomaly Detection**. These models will work independently while being integrated into a unified web-based platform that presents interactive dashboards, visual analytics, and prediction services through a user-friendly interface. The platform will provide business users with meaningful insights to improve customer retention, marketing strategies, revenue optimization, and operational efficiency.
+The proposed system will analyze customer and business data through a modular **8-model decision intelligence platform**. The current model registry contains **Customer Segmentation, Customer Churn Prediction, Customer Lifetime Value (CLV) Prediction, Purchase Propensity Prediction, Anomaly Detection, Sales & Demand Forecasting, Recommendation System, and Dynamic Risk Scoring**. Customer Segmentation is the first fully working model and is integrated end-to-end with the FastAPI backend and React frontend. The remaining models are represented through registry placeholders with appropriate `coming_soon` or `deferred` states. Two previously considered capabilities — Next Best Action and AI Decision Assistant — have been dropped from the current platform scope.
 
 The primary objectives of this project are to design a scalable enterprise AI platform, implement and deploy multiple Machine Learning models, develop RESTful APIs for model inference, and create an interactive dashboard for business decision support. The project also emphasizes modular architecture, maintainable software engineering practices, and comprehensive documentation to facilitate future enhancements.
 
@@ -14,15 +14,18 @@ Enterprise AI Decision Intelligence Platform is a full-stack enterprise analytic
 
 The platform follows a modular and scalable architecture where each Machine Learning model is developed, trained, deployed, and maintained independently while being integrated through a centralized FastAPI backend and an interactive React frontend. This architecture ensures high maintainability, easy extensibility, and seamless integration of future AI capabilities without requiring major structural changes.
 
-The first release of the platform focuses on five core business intelligence modules:
+The current platform scope is organized around eight model capabilities:
 
-- Customer Segmentation
-- Customer Churn Prediction
-- Customer Lifetime Value (CLV) Prediction
-- Purchase Propensity Prediction
-- Anomaly Detection
+- Customer Segmentation — **Available / Fully Working**
+- Customer Churn Prediction — **Coming Soon**
+- Customer Lifetime Value (CLV) Prediction — **Coming Soon**
+- Purchase Propensity Prediction — **Deferred**
+- Anomaly Detection — **Deferred**
+- Sales & Demand Forecasting — **Coming Soon**
+- Recommendation System — **Coming Soon**
+- Dynamic Risk Scoring — **Coming Soon**
 
-Each module exposes prediction services through RESTful APIs and presents business insights using interactive dashboards, visualizations, and customer-level analytics. The frontend provides a unified interface for business users, while the backend orchestrates API requests, Machine Learning inference, business logic, and data processing.
+The platform uses a centralized Model Registry to define the supported model capabilities and their current availability. Customer Segmentation is currently the only fully implemented prediction flow, exposing a REST API and an interactive frontend experience. The remaining capabilities are intentionally represented as placeholders so the platform can expand without changing its core architecture.
 
 The project is being developed by following enterprise software engineering best practices, including clean architecture, modular development, API-first design, centralized configuration management, structured logging, comprehensive documentation, version control, and reproducible Machine Learning workflows. The overall system has been designed as a long-term, portfolio-grade enterprise application that can be extended with advanced AI capabilities such as recommendation systems, demand forecasting, intelligent business assistants, and automated decision intelligence.
 
@@ -41,15 +44,55 @@ The primary objectives of the Enterprise AI Decision Intelligence Platform are:
 - Build a portfolio-grade enterprise application demonstrating expertise in Full-Stack Development, Machine Learning, API Development, and Software Engineering.
 - Design the platform with future scalability in mind to support additional AI modules, enterprise integrations, and intelligent decision automation.
 
+## Current Implementation Status
+
+The platform has completed its first end-to-end Machine Learning integration with **Customer Segmentation**.
+
+### Customer Segmentation — Fully Working
+
+- Validated customer segmentation model using K-Means.
+- Six customer clusters identified from the validated dataset.
+- Model quality metrics exposed by the platform.
+- Customer cluster distribution visualization.
+- Customer-level explorer.
+- Frontend prediction form for customer-level features.
+- Real-time prediction request from React frontend to FastAPI backend.
+- CORS and API configuration completed.
+- Prediction response displayed in the frontend.
+- Centralized model registry implemented for future model expansion.
+
+The global homepage currently acts as the platform entry point and presents the eight-model capability set. A dedicated **Global Platform UI/UX Polish** phase follows the first working model so that the shared homepage, navigation, responsive behavior, typography, model cards, themes, and visual consistency are established before the second model is implemented.
+
+## Model Registry
+
+The platform currently defines the following eight-model scope:
+
+| Model | Status | Endpoint |
+|---|---|---|
+| Customer Segmentation | **Available** | `/customer-segmentation/predict` |
+| Customer Churn Prediction | Coming Soon | — |
+| Customer Lifetime Value | Coming Soon | — |
+| Purchase Propensity | Deferred | — |
+| Anomaly Detection | Deferred | — |
+| Sales & Demand Forecasting | Coming Soon | — |
+| Recommendation System | Coming Soon | — |
+| Dynamic Risk Scoring | Coming Soon | — |
+
+**Dropped from current scope:** Next Best Action and AI Decision Assistant.
+
 ## Key Features
 
 - Enterprise-grade Full-Stack Architecture
 - Modular Machine Learning Model Integration
-- Customer Segmentation
-- Customer Churn Prediction
-- Customer Lifetime Value (CLV) Prediction
-- Purchase Propensity Prediction
-- Anomaly Detection
+- Customer Segmentation — Fully Working
+- Customer Churn Prediction — Coming Soon
+- Customer Lifetime Value (CLV) Prediction — Coming Soon
+- Purchase Propensity Prediction — Deferred
+- Anomaly Detection — Deferred
+- Sales & Demand Forecasting — Coming Soon
+- Recommendation System — Coming Soon
+- Dynamic Risk Scoring — Coming Soon
+- Centralized Model Registry
 - Interactive Business Dashboards
 - RESTful API Services
 - Secure Authentication *(Planned)*
@@ -359,51 +402,54 @@ Once both services are running, open the frontend in your browser and begin usin
 
 ## Project Roadmap
 
-The project is being developed in a phased manner to ensure systematic implementation, maintainability, and scalability. Each phase focuses on a specific aspect of the platform, from project setup and data engineering to Machine Learning model development, backend services, frontend integration, testing, deployment, and documentation.
+The project is being developed in structured phases. The first three phases establish the foundation and deliver the first fully working model. The new Phase 4 focuses on polishing the global platform experience before the second Machine Learning model is implemented.
 
 | Phase | Status | Description |
-|--------|--------|-------------|
+|---|---|---|
 | Phase 0 | ✅ Completed | Project Planning & Architecture |
 | Phase 1 | 🚧 In Progress | Repository Setup, Backend, Frontend & Documentation |
-| Phase 2 | ⬜ Planned | Data Collection & Dataset Preparation |
-| Phase 3 | ⬜ Planned | Data Validation & Data Quality Assessment |
-| Phase 4 | ⬜ Planned | Exploratory Data Analysis (EDA) |
-| Phase 5 | ⬜ Planned | Feature Engineering & Data Preprocessing |
-| Phase 6 | ⬜ Planned | Customer Segmentation Model |
-| Phase 7 | ⬜ Planned | Customer Churn Prediction Model |
-| Phase 8 | ⬜ Planned | Customer Lifetime Value (CLV) Prediction Model |
-| Phase 9 | ⬜ Planned | Purchase Propensity Prediction Model |
-| Phase 10 | ⬜ Planned | Anomaly Detection Model |
-| Phase 11 | ⬜ Planned | Model Evaluation & Optimization |
-| Phase 12 | ⬜ Planned | Model Serialization & Versioning |
-| Phase 13 | ⬜ Planned | Backend API Development |
-| Phase 14 | ⬜ Planned | Frontend Dashboard Development |
-| Phase 15 | ⬜ Planned | Model Integration |
-| Phase 16 | ⬜ Planned | Authentication & Authorization |
-| Phase 17 | ⬜ Planned | Testing & Quality Assurance |
-| Phase 18 | ⬜ Planned | Deployment |
-| Phase 19 | ⬜ Planned | Final Documentation |
-| Phase 20 | ⬜ Planned | Future Enhancements |
+| Phase 2 | 🚧 In Progress | Data Collection & Dataset Preparation |
+| Phase 3 | ✅ Completed | Customer Segmentation — First Fully Working Model |
+| Phase 4 | 🚧 Next | Global Platform UI/UX Polish |
+| Phase 5 | ⬜ Planned | Customer Churn Prediction |
+| Phase 6 | ⬜ Planned | Customer Lifetime Value Prediction |
+| Phase 7 | ⬜ Planned | Purchase Propensity Prediction |
+| Phase 8 | ⬜ Planned | Anomaly Detection |
+| Phase 9 | ⬜ Planned | Enterprise Dashboard |
+| Phase 10 | ⬜ Planned | Backend Integration & Platform Services |
+| Phase 11 | ⬜ Planned | Testing & Quality Assurance |
+| Phase 12 | ⬜ Planned | Deployment |
+| Phase 13 | ⬜ Planned | Project Finalization |
+| Phase 14+ | ⬜ Planned | Future AI / ML Expansion |
+
+### Current Milestone
+
+**Phase 3 — Customer Segmentation is complete.**
+
+The next implementation milestone is **Phase 4 — Global Platform UI/UX Polish**. This phase will establish the polished, responsive platform shell and homepage before Customer Churn Prediction is developed as the second fully implemented model.
 
 ## Future Scope
 
-The platform has been designed with extensibility as a core principle, enabling additional AI capabilities to be integrated without major architectural changes. Future enhancements may include:
+The platform has been designed with extensibility as a core principle. Additional capabilities can be implemented through the centralized model registry and modular backend/frontend architecture.
 
-- Recommendation Systems
-- Time Series Forecasting
-- AI-powered Business Assistant (LLM Integration)
+Potential future enhancements include:
+
+- Advanced recommendation strategies
+- Time-series forecasting improvements
 - Explainable AI (XAI)
-- Real-time Streaming Analytics
-- Automated Model Retraining (MLOps)
-- CI/CD Pipeline Integration
-- Containerized Deployment using Docker and Kubernetes
-- Cloud Deployment on AWS, Azure, or Google Cloud
-- Enterprise Authentication (OAuth2, SSO)
+- Real-time streaming analytics
+- Automated model retraining (MLOps)
+- CI/CD pipeline integration
+- Containerized deployment using Docker and Kubernetes
+- Cloud deployment on AWS, Azure, or Google Cloud
+- Enterprise authentication (OAuth2, SSO)
 - Role-Based Access Control (RBAC)
-- Database Integration with PostgreSQL
-- Model Monitoring and Performance Tracking
-- Business Report Generation
-- Multi-Tenant Enterprise Support
+- PostgreSQL production database integration
+- Model monitoring and performance tracking
+- Business report generation
+- Multi-tenant enterprise support
+
+The current scope intentionally excludes **Next Best Action** and **AI Decision Assistant**.
 
 ## License
 
