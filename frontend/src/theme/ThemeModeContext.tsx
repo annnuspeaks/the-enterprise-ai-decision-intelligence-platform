@@ -1,4 +1,13 @@
-import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
+/* eslint-disable react-refresh/only-export-components */
+
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from "react";
 import { ThemeProvider } from "@mui/material";
 import { getTheme, DEFAULT_THEME_MODE } from "./index";
 
@@ -21,6 +30,10 @@ export const ThemeModeProvider = ({ children }: { children: ReactNode }) => {
       : DEFAULT_THEME_MODE;
   });
 
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", mode);
+  }, [mode]);
+
   const theme = useMemo(() => getTheme(mode), [mode]);
 
   const value = useMemo(
@@ -30,7 +43,6 @@ export const ThemeModeProvider = ({ children }: { children: ReactNode }) => {
         setMode((current) => {
           const next = current === "dark" ? "light" : "dark";
           localStorage.setItem("nexora-theme", next);
-          document.documentElement.setAttribute("data-theme", next);
           return next;
         });
       },

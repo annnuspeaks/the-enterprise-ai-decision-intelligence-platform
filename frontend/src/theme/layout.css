@@ -108,6 +108,125 @@
   transform: translateY(0);
 }
 
+/* =========================================================
+   Nexora — Hover / Focus States
+   4.3.5
+   ========================================================= */
+
+.nx-interactive {
+  transition:
+    transform 180ms ease,
+    opacity 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease;
+}
+
+.nx-interactive:hover {
+  transform: translateY(-1px);
+}
+
+.nx-interactive:active {
+  transform: translateY(0);
+}
+
+:where(a, button, input, textarea, select, [role="button"]):focus-visible {
+  outline: 2px solid rgba(25, 118, 210, 0.55);
+  outline-offset: 3px;
+}
+
+:where(a, button, input, textarea, select, [role="button"]):focus:not(
+    :focus-visible
+  ) {
+  outline: none;
+}
+
+/* =========================================================
+   Nexora — Card / Panel Consistency
+   4.3.4
+   ========================================================= */
+
+.nx-panel {
+  width: 100%;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.55);
+  padding: var(--nx-space-6);
+  box-sizing: border-box;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+[data-theme="dark"] .nx-panel {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.nx-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--nx-space-4);
+  margin-bottom: var(--nx-space-5);
+}
+
+.nx-panel__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.nx-panel__subtitle {
+  margin: var(--nx-space-2) 0 0;
+  color: rgba(15, 23, 42, 0.6);
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+[data-theme="dark"] .nx-panel__subtitle {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.nx-panel__body {
+  min-width: 0;
+}
+
+.nx-panel__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--nx-space-4);
+  margin-top: var(--nx-space-6);
+  padding-top: var(--nx-space-5);
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="dark"] .nx-panel__footer {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 599px) {
+  .nx-panel {
+    padding: var(--nx-space-4);
+    border-radius: 14px;
+  }
+
+  .nx-panel__header {
+    margin-bottom: var(--nx-space-4);
+  }
+
+  .nx-panel__footer {
+    margin-top: var(--nx-space-5);
+    padding-top: var(--nx-space-4);
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
 @media (max-width: 1199px) {
   :root {
     --nx-container-gutter: 20px;
