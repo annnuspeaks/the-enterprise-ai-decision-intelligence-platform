@@ -1,0 +1,133 @@
+:root {
+  --nx-space-1: 4px;
+  --nx-space-2: 8px;
+  --nx-space-3: 12px;
+  --nx-space-4: 16px;
+  --nx-space-5: 20px;
+  --nx-space-6: 24px;
+  --nx-space-7: 28px;
+  --nx-space-8: 32px;
+  --nx-space-10: 40px;
+  --nx-space-12: 48px;
+  --nx-space-14: 56px;
+  --nx-space-16: 64px;
+  --nx-space-20: 80px;
+  --nx-space-24: 96px;
+
+  --nx-container-max: 1400px;
+  --nx-container-gutter: 24px;
+  --nx-section-gap: 72px;
+  --nx-section-gap-compact: 48px;
+
+  --nx-content-readable: 720px;
+  --nx-content-narrow: 560px;
+  --nx-content-wide: 1100px;
+}
+
+.nx-container {
+  width: min(
+    var(--nx-container-max),
+    calc(100% - (var(--nx-container-gutter) * 2))
+  );
+  margin-inline: auto;
+}
+
+.nx-content-readable {
+  width: min(100%, var(--nx-content-readable));
+  margin-inline: auto;
+}
+
+.nx-content-narrow {
+  width: min(100%, var(--nx-content-narrow));
+  margin-inline: auto;
+}
+
+.nx-content-wide {
+  width: min(100%, var(--nx-content-wide));
+  margin-inline: auto;
+}
+
+.nx-section {
+  width: 100%;
+  margin-block: var(--nx-section-gap);
+}
+
+.nx-section + .nx-section {
+  margin-top: var(--nx-section-gap);
+}
+
+.nx-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nx-space-6);
+}
+
+.nx-stack-sm {
+  gap: var(--nx-space-4);
+}
+
+.nx-stack-lg {
+  gap: var(--nx-space-10);
+}
+
+.nx-inline {
+  display: flex;
+  align-items: center;
+  gap: var(--nx-space-3);
+}
+
+/* =========================================================
+   Nexora — Global Interaction States
+   4.3.4 Hover / Focus System
+   ========================================================= */
+
+:where(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid rgba(25, 118, 210, 0.55);
+  outline-offset: 3px;
+}
+
+:where(a, button, input, textarea, select):focus:not(:focus-visible) {
+  outline: none;
+}
+
+.nx-interactive {
+  transition:
+    transform 180ms ease,
+    opacity 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease;
+}
+
+.nx-interactive:hover {
+  transform: translateY(-1px);
+}
+
+.nx-interactive:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 1199px) {
+  :root {
+    --nx-container-gutter: 20px;
+    --nx-section-gap: 64px;
+    --nx-section-gap-compact: 40px;
+  }
+}
+
+@media (max-width: 899px) {
+  :root {
+    --nx-container-gutter: 16px;
+    --nx-section-gap: 56px;
+    --nx-section-gap-compact: 36px;
+  }
+}
+
+@media (max-width: 599px) {
+  :root {
+    --nx-container-gutter: 12px;
+    --nx-section-gap: 44px;
+    --nx-section-gap-compact: 28px;
+  }
+}

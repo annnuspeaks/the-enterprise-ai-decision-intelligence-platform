@@ -121,7 +121,7 @@ function HomePage() {
                     <Button
                       variant="contained"
                       size="large"
-                      endIcon={<ArrowRight size={18} />}
+                      endIcon={<ArrowRight size={18} strokeWidth={2} />}
                       component={Link}
                       to="/customer-segmentation"
                       sx={{ minHeight: 48, px: 3, width: { xs: "100%", sm: "auto" } }}
@@ -143,7 +143,7 @@ function HomePage() {
                   <Grid container spacing={2} sx={{ pt: 1 }}>
                     <Grid size={{ xs: 12, sm: 4 }}>
                       <Stack direction="row" spacing={1.2} sx={{ alignItems: "center" }}>
-                        <Brain size={21} />
+                        <Brain size={22} strokeWidth={2} />
                         <Box>
                           <Typography variant="h6" sx={{ fontWeight: 800 }}>
                             8
@@ -157,7 +157,7 @@ function HomePage() {
 
                     <Grid size={{ xs: 12, sm: 4 }}>
                       <Stack direction="row" spacing={1.2} sx={{ alignItems: "center" }}>
-                        <Gauge size={21} />
+                        <Gauge size={22} strokeWidth={2} />
                         <Box>
                           <Typography variant="h6" sx={{ fontWeight: 800 }}>
                             1
@@ -171,7 +171,7 @@ function HomePage() {
 
                     <Grid size={{ xs: 12, sm: 4 }}>
                       <Stack direction="row" spacing={1.2} sx={{ alignItems: "center" }}>
-                        <BarChart3 size={21} />
+                        <BarChart3 size={22} strokeWidth={2} />
                         <Box>
                           <Typography variant="h6" sx={{ fontWeight: 800 }}>
                             Real-time
@@ -556,28 +556,28 @@ function HomePage() {
                 {[
                   {
                     number: "01",
-                    icon: <BarChart3 size={24} />,
+                    icon: <BarChart3 size={24} strokeWidth={2} />,
                     title: "Data Collection",
                     description:
                       "Collect relevant customer and business data required by the selected intelligence model.",
                   },
                   {
                     number: "02",
-                    icon: <Network size={24} />,
+                    icon: <Network size={24} strokeWidth={2} />,
                     title: "Data Processing",
                     description:
                       "Validate, transform, and prepare input data through the appropriate processing pipeline.",
                   },
                   {
                     number: "03",
-                    icon: <Brain size={24} />,
+                    icon: <Brain size={24} strokeWidth={2} />,
                     title: "AI Model",
                     description:
                       "Apply the selected machine learning model to generate predictions or analytical outputs.",
                   },
                   {
                     number: "04",
-                    icon: <Gauge size={24} />,
+                    icon: <Gauge size={24} strokeWidth={2} />,
                     title: "Decision & Insights",
                     description:
                       "Present model results as clear insights that can support better business decisions.",
@@ -675,25 +675,25 @@ function HomePage() {
               <Grid container spacing={2.5}>
                 {[
                   {
-                    icon: <Brain size={24} />,
+                    icon: <Brain size={24} strokeWidth={2} />,
                     title: "AI-Powered Intelligence",
                     description:
                       "Use machine learning models to turn customer and business data into meaningful intelligence.",
                   },
                   {
-                    icon: <Network size={24} />,
+                    icon: <Network size={24} strokeWidth={2} />,
                     title: "8-Model Architecture",
                     description:
                       "A locked platform architecture that brings eight specialized decision models under one system.",
                   },
                   {
-                    icon: <Gauge size={24} />,
+                    icon: <Gauge size={24} strokeWidth={2} />,
                     title: "Real-Time Decisions",
                     description:
                       "The live Customer Segmentation model demonstrates an end-to-end prediction flow.",
                   },
                   {
-                    icon: <BarChart3 size={24} />,
+                    icon: <BarChart3 size={24} strokeWidth={2} />,
                     title: "Actionable Insights",
                     description:
                       "Present model outputs through clear analytics and decision-focused platform experiences.",
@@ -798,7 +798,7 @@ function HomePage() {
                   <Button
                     variant="contained"
                     size="large"
-                    endIcon={<ArrowRight size={18} />}
+                    endIcon={<ArrowRight size={18} strokeWidth={2} />}
                     component={Link}
                     to="/customer-segmentation"
                     sx={{ minHeight: 48, px: 3, flexShrink: 0, width: { xs: "100%", md: "auto" } }}
@@ -812,7 +812,7 @@ function HomePage() {
 
           <Box component="section">
             <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
-              <Brain size={20} />
+              <Brain size={22} strokeWidth={2} />
               <Typography variant="body2" color="text.secondary">
                 More decision intelligence capabilities will be added as the
                 platform evolves.

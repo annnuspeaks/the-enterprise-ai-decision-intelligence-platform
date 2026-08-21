@@ -40,7 +40,7 @@ const models: ModelDefinition[] = [
     description:
       "Identify meaningful customer groups using behavioral and purchasing patterns.",
     status: "Available",
-    icon: <Users size={28} />,
+    icon: <Users size={28} strokeWidth={2} />,
     endpoint: "/customer-segmentation",
   },
   {
@@ -49,7 +49,7 @@ const models: ModelDefinition[] = [
     description:
       "Predict customers who are at risk of leaving and support retention decisions.",
     status: "Coming Soon",
-    icon: <CircleAlert size={28} />,
+    icon: <CircleAlert size={28} strokeWidth={2} />,
   },
   {
     key: "customer_lifetime_value",
@@ -57,7 +57,7 @@ const models: ModelDefinition[] = [
     description:
       "Estimate the long-term economic value of individual customers.",
     status: "Coming Soon",
-    icon: <Gauge size={28} />,
+    icon: <Gauge size={28} strokeWidth={2} />,
   },
   {
     key: "purchase_propensity",
@@ -65,7 +65,7 @@ const models: ModelDefinition[] = [
     description:
       "Estimate the likelihood that a customer will make a purchase.",
     status: "Coming Soon",
-    icon: <ShoppingCart size={28} />,
+    icon: <ShoppingCart size={28} strokeWidth={2} />,
   },
   {
     key: "anomaly_detection",
@@ -73,7 +73,7 @@ const models: ModelDefinition[] = [
     description:
       "Detect unusual customer behavior and potentially suspicious activity.",
     status: "Coming Soon",
-    icon: <ShieldCheck size={28} />,
+    icon: <ShieldCheck size={28} strokeWidth={2} />,
   },
   {
     key: "sales_demand_forecasting",
@@ -81,7 +81,7 @@ const models: ModelDefinition[] = [
     description:
       "Forecast future sales and demand trends to support planning.",
     status: "Coming Soon",
-    icon: <LineChart size={28} />,
+    icon: <LineChart size={28} strokeWidth={2} />,
   },
   {
     key: "recommendation_system",
@@ -89,7 +89,7 @@ const models: ModelDefinition[] = [
     description:
       "Generate personalized product and customer recommendations.",
     status: "Coming Soon",
-    icon: <Network size={28} />,
+    icon: <Network size={28} strokeWidth={2} />,
   },
   {
     key: "dynamic_risk_scoring",
@@ -97,7 +97,7 @@ const models: ModelDefinition[] = [
     description:
       "Combine customer signals to produce dynamic business risk scores.",
     status: "Coming Soon",
-    icon: <BarChart3 size={28} />,
+    icon: <BarChart3 size={28} strokeWidth={2} />,
   },
 ];
 
@@ -268,7 +268,7 @@ function DashboardPage() {
                             component={Link}
                             to={model.endpoint}
                             variant="contained"
-                            endIcon={<ArrowRight size={17} />}
+                            endIcon={<ArrowRight size={18} strokeWidth={2} />}
                             sx={{ alignSelf: "flex-start", mt: 1 }}
                           >
                             Open Model
@@ -294,7 +294,7 @@ function DashboardPage() {
           <Card elevation={0}>
             <CardContent sx={{ p: { xs: 2.5, md: 3 } }}>
               <Stack direction="row" spacing={1.5} sx={{ alignItems: "center" }}>
-                <Brain size={22} />
+                <Brain size={22} strokeWidth={2} />
                 <Typography variant="body2" color="text.secondary">
                   Nexora's model architecture is locked to eight decision
                   intelligence capabilities; models become live as their

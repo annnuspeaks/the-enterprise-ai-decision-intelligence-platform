@@ -31,7 +31,7 @@ const BackToTop = () => {
       aria-label="Back to top"
       title="Back to top"
     >
-      <ArrowUp size={19} />
+      <ArrowUp size={20} strokeWidth={2} />
     </button>
   );
 };

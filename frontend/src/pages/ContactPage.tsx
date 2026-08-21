@@ -42,7 +42,7 @@ function ContactPage() {
                     Nexora is being developed as a scalable enterprise decision intelligence platform. For project information, collaboration, or related work, use the available product and project links below.
                   </Typography>
                   <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} sx={{ mt: 3 }}>
-                    <Button component={Link} to="/dashboard" variant="contained" endIcon={<ArrowRight size={18} />}>
+                    <Button component={Link} to="/dashboard" variant="contained" endIcon={<ArrowRight size={18} strokeWidth={2} />}>
                       Explore Dashboard
                     </Button>
                     <Button component="a" href="https://github.com/annnuspeaks/the-enterprise-ai-decision-intelligence-platform" target="_blank" rel="noreferrer" variant="outlined">
@@ -84,7 +84,7 @@ function ContactPage() {
                   </Typography>
                 </Box>
                 <Button component={Link} to="/dashboard" variant="contained"
-                  endIcon={<ArrowRight size={18} />} sx={{ minHeight: 46, flexShrink: 0 }}>
+                  endIcon={<ArrowRight size={18} strokeWidth={2} />} sx={{ minHeight: 46, flexShrink: 0 }}>
                   Open Dashboard
                 </Button>
               </Stack>

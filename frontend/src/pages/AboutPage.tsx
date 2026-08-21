@@ -73,7 +73,7 @@ function AboutPage() {
                   </Typography>
                 </Box>
                 <Button component={Link} to="/dashboard" variant="contained"
-                  endIcon={<ArrowRight size={18} />} sx={{ minHeight: 46, flexShrink: 0 }}>
+                  endIcon={<ArrowRight size={18} strokeWidth={2} />} sx={{ minHeight: 46, flexShrink: 0 }}>
                   Open Dashboard
                 </Button>
               </Stack>

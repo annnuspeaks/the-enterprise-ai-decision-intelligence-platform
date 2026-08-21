@@ -52,7 +52,7 @@ const Navbar = () => {
           aria-expanded={menuOpen}
           aria-controls="nexora-mobile-navigation"
         >
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          {menuOpen ? <X size={20} strokeWidth={2} /> : <Menu size={20} strokeWidth={2} />}
         </button>
 
         <nav
