@@ -245,3 +245,69 @@
     background: rgba(255, 255, 255, 0.055);
   }
 }
+
+/* =========================================================
+   Nexora — Header Responsive Polish
+   ========================================================= */
+
+@media (max-width: 1050px) {
+  .nexora-navbar__inner {
+    width: calc(100% - 32px);
+    gap: 14px;
+  }
+
+  .nexora-navbar__logo {
+    width: 88px;
+    height: 54px;
+  }
+
+  .nexora-navbar__nav {
+    gap: 0;
+  }
+
+  .nexora-navbar__link {
+    padding-inline: 8px;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 780px) {
+  .nexora-navbar__inner {
+    width: calc(100% - 24px);
+    min-height: 68px;
+  }
+
+  .nexora-navbar__logo {
+    width: 82px;
+    height: 52px;
+  }
+
+  .nexora-navbar__nav {
+    display: none;
+  }
+
+  .nexora-navbar__actions {
+    margin-left: auto;
+  }
+
+  .nexora-navbar__menu-button {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 420px) {
+  .nexora-navbar__inner {
+    width: calc(100% - 20px);
+    min-height: 64px;
+  }
+
+  .nexora-navbar__logo {
+    width: 76px;
+    height: 48px;
+  }
+
+  .nexora-navbar__menu-button {
+    width: 38px;
+    height: 38px;
+  }
+}

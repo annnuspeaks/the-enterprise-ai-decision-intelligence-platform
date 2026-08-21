@@ -23,8 +23,8 @@
 
 .nexora-footer__top {
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr 1fr;
-  gap: 48px;
+  grid-template-columns: 1.3fr 0.8fr 1.4fr 0.9fr;
+  gap: 40px;
   padding: 52px 0 42px;
 }
 
@@ -79,12 +79,58 @@
   color: #1976d2;
 }
 
+.nexora-footer__contact {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+}
+
+.nexora-footer__contact span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.nexora-footer__socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.nexora-footer__socials a {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 50%;
+  color: rgba(15, 23, 42, 0.72) !important;
+  background: rgba(15, 23, 42, 0.03);
+}
+
+[data-theme="dark"] .nexora-footer__socials a {
+  border-color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.78) !important;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.nexora-footer__socials a:hover {
+  color: #1976d2 !important;
+  border-color: rgba(25, 118, 210, 0.35);
+  transform: translateY(-2px);
+}
+
+[data-theme="dark"] .nexora-footer__socials a:hover {
+  color: #90caf9 !important;
+}
+
 [data-theme="dark"] .nexora-footer__column a:hover {
   color: #90caf9;
 }
 
-.nexora-footer__logo{
-  width: 300px
+.nexora-footer__logo {
+  width: 300px;
 }
 
 .nexora-footer__bottom {

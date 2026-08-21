@@ -78,16 +78,14 @@ const models: ModelDefinition[] = [
   {
     key: "sales_demand_forecasting",
     name: "Sales & Demand Forecasting",
-    description:
-      "Forecast future sales and demand trends to support planning.",
+    description: "Forecast future sales and demand trends to support planning.",
     status: "Coming Soon",
     icon: <LineChart size={28} strokeWidth={2} />,
   },
   {
     key: "recommendation_system",
     name: "Recommendation System",
-    description:
-      "Generate personalized product and customer recommendations.",
+    description: "Generate personalized product and customer recommendations.",
     status: "Coming Soon",
     icon: <Network size={28} strokeWidth={2} />,
   },
@@ -102,7 +100,9 @@ const models: ModelDefinition[] = [
 ];
 
 function DashboardPage() {
-  const liveModels = models.filter((model) => model.status === "Available").length;
+  const liveModels = models.filter(
+    (model) => model.status === "Available",
+  ).length;
 
   return (
     <Box component="main">
@@ -127,8 +127,8 @@ function DashboardPage() {
               sx={{ maxWidth: 760, fontWeight: 400, lineHeight: 1.6 }}
             >
               Explore Nexora's eight locked AI and Machine Learning models.
-              Available models are live, while upcoming capabilities are
-              clearly marked as coming soon.
+              Available models are live, while upcoming capabilities are clearly
+              marked as coming soon.
             </Typography>
           </Stack>
 
@@ -186,14 +186,28 @@ function DashboardPage() {
             <Stack
               direction={{ xs: "column", sm: "row" }}
               spacing={1.5}
-              sx={{ justifyContent: "space-between", alignItems: { sm: "center" } }}
+              sx={{
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: 1,
+                minWidth: 0,
+              }}
             >
               <Box>
-                <Typography variant="h4" component="h2" sx={{ fontWeight: 800 }}>
+                <Typography
+                  variant="h4"
+                  component="h2"
+                  sx={{ fontWeight: 800 }}
+                >
                   AI & Machine Learning Models
                 </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
-                  Eight specialized models under one decision intelligence platform.
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{ mt: 0.5 }}
+                >
+                  Eight specialized models under one decision intelligence
+                  platform.
                 </Typography>
               </Box>
 
@@ -219,7 +233,8 @@ function DashboardPage() {
                         flexDirection: "column",
                         border: 1,
                         borderColor: "divider",
-                        transition: "transform 180ms ease, border-color 180ms ease",
+                        transition:
+                          "transform 180ms ease, border-color 180ms ease",
                         "&:hover": available
                           ? {
                               transform: "translateY(-3px)",
@@ -233,15 +248,30 @@ function DashboardPage() {
                           display: "flex",
                           flexDirection: "column",
                           flexGrow: 1,
-                          gap: 1.5,
+                          gap: { xs: 1.25, sm: 1.5 },
+                          p: { xs: 2, sm: 2.5 },
                         }}
                       >
                         <Stack
                           direction="row"
                           spacing={1.5}
-                          sx={{ alignItems: "center", justifyContent: "space-between" }}
+                          sx={{
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                            gap: 1,
+                            minWidth: 0,
+                          }}
                         >
-                          <Box sx={{ color: "primary.main" }}>{model.icon}</Box>
+                          <Box
+                            sx={{
+                              color: "primary.main",
+                              display: "flex",
+                              alignItems: "center",
+                              flexShrink: 0,
+                            }}
+                          >
+                            {model.icon}
+                          </Box>
 
                           <Chip
                             label={model.status}
@@ -251,14 +281,25 @@ function DashboardPage() {
                           />
                         </Stack>
 
-                        <Typography variant="h6" sx={{ fontWeight: 800 }}>
+                        <Typography
+                          variant="h6"
+                          sx={{
+                            fontWeight: 800,
+                            fontSize: { xs: "1rem", sm: "1.1rem" },
+                            lineHeight: 1.3,
+                          }}
+                        >
                           {model.name}
                         </Typography>
 
                         <Typography
                           variant="body2"
                           color="text.secondary"
-                          sx={{ lineHeight: 1.65, flexGrow: 1 }}
+                          sx={{
+                            lineHeight: 1.6,
+                            flexGrow: 1,
+                            fontSize: { xs: "0.82rem", sm: "0.875rem" },
+                          }}
                         >
                           {model.description}
                         </Typography>
@@ -293,7 +334,11 @@ function DashboardPage() {
 
           <Card elevation={0}>
             <CardContent sx={{ p: { xs: 2.5, md: 3 } }}>
-              <Stack direction="row" spacing={1.5} sx={{ alignItems: "center" }}>
+              <Stack
+                direction="row"
+                spacing={1.5}
+                sx={{ alignItems: "center" }}
+              >
                 <Brain size={22} strokeWidth={2} />
                 <Typography variant="body2" color="text.secondary">
                   Nexora's model architecture is locked to eight decision

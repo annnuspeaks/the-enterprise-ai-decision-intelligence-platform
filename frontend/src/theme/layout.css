@@ -144,7 +144,6 @@
 
 /* =========================================================
    Nexora — Card / Panel Consistency
-   4.3.4
    ========================================================= */
 
 .nx-panel {
@@ -248,5 +247,152 @@
     --nx-container-gutter: 12px;
     --nx-section-gap: 44px;
     --nx-section-gap-compact: 28px;
+  }
+}
+
+/* =========================================================
+   Nexora — Desktop Responsive Baseline
+   ========================================================= */
+
+.nx-desktop-layout {
+  width: min(1400px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.nx-desktop-grid {
+  width: 100%;
+  display: grid;
+  gap: 24px;
+}
+
+.nx-desktop-grid--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.nx-desktop-grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.nx-desktop-grid--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.nx-desktop-content {
+  width: min(100%, 1200px);
+  margin-inline: auto;
+}
+
+@media (min-width: 1440px) {
+  .nx-desktop-layout {
+    width: min(1400px, calc(100% - 64px));
+  }
+}
+
+/* =========================================================
+   Nexora — Tablet Responsive Baseline
+   ========================================================= */
+
+@media (min-width: 600px) and (max-width: 899px) {
+  :root {
+    --nx-container-gutter: 16px;
+    --nx-section-gap: 56px;
+    --nx-section-gap-compact: 36px;
+  }
+
+  .nx-container,
+  .nx-desktop-layout {
+    width: calc(100% - 32px);
+    max-width: 100%;
+  }
+
+  .nx-desktop-grid--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nx-desktop-grid--3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nx-desktop-grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nx-content-wide {
+    width: 100%;
+  }
+
+  .nx-section {
+    margin-block: var(--nx-section-gap);
+  }
+}
+
+/* =========================================================
+   Nexora — Mobile Responsive Baseline
+   ========================================================= */
+
+@media (max-width: 599px) {
+  :root {
+    --nx-container-gutter: 12px;
+    --nx-section-gap: 44px;
+    --nx-section-gap-compact: 28px;
+  }
+
+  .nx-container,
+  .nx-desktop-layout {
+    width: calc(100% - 24px);
+    max-width: 100%;
+  }
+
+  .nx-content-readable,
+  .nx-content-narrow,
+  .nx-content-wide {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .nx-desktop-grid,
+  .nx-desktop-grid--2,
+  .nx-desktop-grid--3,
+  .nx-desktop-grid--4 {
+    grid-template-columns: 1fr;
+    gap: var(--nx-space-4);
+  }
+
+  .nx-section {
+    margin-block: var(--nx-section-gap);
+  }
+
+  .nx-stack-lg {
+    gap: var(--nx-space-6);
+  }
+
+  .nx-inline {
+    flex-wrap: wrap;
+  }
+}
+
+/* =========================================================
+   Nexora — Section Spacing Responsive Polish
+   ========================================================= */
+
+.nx-section--compact {
+  margin-block: var(--nx-section-gap-compact);
+}
+
+.nx-section--tight {
+  margin-block: var(--nx-space-10);
+}
+
+.nx-section--flush {
+  margin-block: 0;
+}
+
+@media (max-width: 599px) {
+  .nx-section--compact {
+    margin-block: var(--nx-section-gap-compact);
+  }
+
+  .nx-section--tight {
+    margin-block: var(--nx-space-6);
   }
 }
