@@ -1,39 +1,36 @@
-import { createContext, useContext, useMemo, useState } from "react";
-import type { ReactNode } from "react";
-import type { PaletteMode } from "@mui/material";
-import { getTheme } from "./index";
+import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
+import { ThemeProvider } from "@mui/material";
+import { getTheme, DEFAULT_THEME_MODE } from "./index";
 
-type ThemeModeContextValue = {
-  mode: PaletteMode;
+type ThemeMode = "light" | "dark";
+
+interface ThemeModeContextValue {
+  mode: ThemeMode;
   toggleTheme: () => void;
-};
+}
 
 const ThemeModeContext = createContext<ThemeModeContextValue | undefined>(
   undefined,
 );
 
-const getInitialMode = (): PaletteMode => {
-  const stored = localStorage.getItem("theme-mode");
+export const ThemeModeProvider = ({ children }: { children: ReactNode }) => {
+  const [mode, setMode] = useState<ThemeMode>(() => {
+    const stored = localStorage.getItem("nexora-theme");
+    return stored === "light" || stored === "dark"
+      ? stored
+      : DEFAULT_THEME_MODE;
+  });
 
-  if (stored === "light" || stored === "dark") {
-    return stored;
-  }
-
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
-};
-
-export function ThemeModeProvider({ children }: { children: ReactNode }) {
-  const [mode, setMode] = useState<PaletteMode>(getInitialMode);
+  const theme = useMemo(() => getTheme(mode), [mode]);
 
   const value = useMemo(
     () => ({
       mode,
       toggleTheme: () => {
         setMode((current) => {
-          const next = current === "light" ? "dark" : "light";
-          localStorage.setItem("theme-mode", next);
+          const next = current === "dark" ? "light" : "dark";
+          localStorage.setItem("nexora-theme", next);
+          document.documentElement.setAttribute("data-theme", next);
           return next;
         });
       },
@@ -41,20 +38,14 @@ export function ThemeModeProvider({ children }: { children: ReactNode }) {
     [mode],
   );
 
-  const theme = useMemo(() => getTheme(mode), [mode]);
-
   return (
     <ThemeModeContext.Provider value={value}>
-      <div data-theme={mode}>
-        <ThemeModeMuiProvider theme={theme}>{children}</ThemeModeMuiProvider>
-      </div>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </ThemeModeContext.Provider>
   );
-}
+};
 
-import { ThemeProvider as ThemeModeMuiProvider } from "@mui/material/styles";
-
-export function useThemeMode() {
+export const useThemeMode = () => {
   const context = useContext(ThemeModeContext);
 
   if (!context) {
@@ -62,4 +53,4 @@ export function useThemeMode() {
   }
 
   return context;
-}
+};

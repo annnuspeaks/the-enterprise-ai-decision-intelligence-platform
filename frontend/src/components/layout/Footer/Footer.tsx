@@ -41,14 +41,14 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
             >
-              Fraud Detection System
+              Fraudmatrix | Fraud Detection System
             </a>
             <a
               href="https://churnmatrix.vercel.app/"
               target="_blank"
               rel="noreferrer"
             >
-              Customer Churn Prediction
+              Churnmatrix | Customer Churn Prediction
             </a>
             <span>MLOps Automated Training &amp; Deployment Pipeline</span>
             <span>RAG AI Assistant</span>

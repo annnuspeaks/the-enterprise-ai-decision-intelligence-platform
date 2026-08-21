@@ -1,8 +1,19 @@
 .nexora-footer {
   width: 100%;
   margin-top: 72px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(248, 250, 252, 0.94);
+  color: #0f172a;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+[data-theme="dark"] .nexora-footer {
+  border-top-color: rgba(255, 255, 255, 0.08);
   background: rgba(5, 8, 18, 0.72);
+  color: #ffffff;
 }
 
 .nexora-footer__inner {
@@ -21,22 +32,15 @@
   max-width: 360px;
 }
 
-.nexora-footer__brand a {
-  display: inline-flex;
-}
-
-.nexora-footer__logo {
-  width: 190px;
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
 .nexora-footer__brand p {
   margin: 18px 0 0;
-  color: rgba(255, 255, 255, 0.58);
+  color: rgba(15, 23, 42, 0.58);
   font-size: 0.88rem;
   line-height: 1.7;
+}
+
+[data-theme="dark"] .nexora-footer__brand p {
+  color: rgba(255, 255, 255, 0.58);
 }
 
 .nexora-footer__column {
@@ -48,22 +52,39 @@
 
 .nexora-footer__column h3 {
   margin: 0 0 7px;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(15, 23, 42, 0.92);
   font-size: 0.92rem;
   font-weight: 700;
 }
 
+[data-theme="dark"] .nexora-footer__column h3 {
+  color: rgba(255, 255, 255, 0.92);
+}
+
 .nexora-footer__column a,
 .nexora-footer__column span {
-  color: rgba(255, 255, 255, 0.58);
+  color: rgba(15, 23, 42, 0.58);
   font-size: 0.84rem;
   line-height: 1.5;
   text-decoration: none;
   transition: color 180ms ease;
 }
 
+[data-theme="dark"] .nexora-footer__column a,
+[data-theme="dark"] .nexora-footer__column span {
+  color: rgba(255, 255, 255, 0.58);
+}
+
 .nexora-footer__column a:hover {
-  color: #ffffff;
+  color: #1976d2;
+}
+
+[data-theme="dark"] .nexora-footer__column a:hover {
+  color: #90caf9;
+}
+
+.nexora-footer__logo{
+  width: 300px
 }
 
 .nexora-footer__bottom {
@@ -72,9 +93,14 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.48);
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  color: rgba(15, 23, 42, 0.48);
   font-size: 0.78rem;
+}
+
+[data-theme="dark"] .nexora-footer__bottom {
+  border-top-color: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.48);
 }
 
 @media (max-width: 900px) {

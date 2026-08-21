@@ -9,11 +9,12 @@
   align-items: center;
   justify-content: center;
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(15, 23, 42, 0.16);
   border-radius: 50%;
-  background: rgba(5, 8, 18, 0.88);
-  color: inherit;
+  background: rgba(255, 255, 255, 0.92);
+  color: #334155;
   cursor: pointer;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.14);
   opacity: 0;
   visibility: hidden;
   transform: translateY(12px);
@@ -27,6 +28,13 @@
     background-color 180ms ease;
 }
 
+[data-theme="dark"] .nexora-back-to-top {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(5, 8, 18, 0.88);
+  color: #e5e7eb;
+  box-shadow: none;
+}
+
 .nexora-back-to-top.is-visible {
   opacity: 1;
   visibility: visible;
@@ -35,6 +43,10 @@
 }
 
 .nexora-back-to-top:hover {
+  background: rgba(15, 23, 42, 0.07);
+}
+
+[data-theme="dark"] .nexora-back-to-top:hover {
   background: rgba(255, 255, 255, 0.09);
 }
 
