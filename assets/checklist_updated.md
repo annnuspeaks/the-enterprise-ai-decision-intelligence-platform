@@ -252,19 +252,66 @@
 - [ ] 4.6.5 All 8 model cards tested                [done]
 - [ ] 4.6.6 Footer links tested                     [done]
 - [ ] 4.6.7 Desktop visual QA                       [done]
-- [ ] 4.6.8 Tablet visual QA
-- [ ] 4.6.9 Mobile visual QA
-- [ ] 4.6.10 Production build
-- [ ] 4.6.11 Git commit
+- [ ] 4.6.8 Tablet visual QA                        [done]
+- [ ] 4.6.9 Mobile visual QA                        [done]
+- [ ] 4.6.10 Production build                       [done]
+- [ ] 4.6.11 Git commit                             [done]
 
 ---
 
 # 🔵 PHASE 5 — ML Model 2: Customer Churn Prediction
 
 ## 5.1 Development
-- [ ] Data Preparation
-- [ ] Feature Engineering
-- [ ] Model Comparison
+- [x] Data Preparation
+    - [x] Raw Dataset Validation
+    - [x] Schema Verification
+    - [x] Data Quality Assessment
+    - [x] Missing Value Analysis
+    - [x] Duplicate Analysis
+    - [x] Temporal Consistency
+    - [x] Data Integration / Joining
+    - [x] Prepared Dataset Export
+- [x] Feature Engineering
+    - [x] Customer Frequency Features
+    - [x] Purchase Cycle Features
+    - [x] Recency / Inactivity Features
+    - [x] Reorder Behaviour Features
+    - [x] Order Behaviour Features
+    - [x] Product Diversity Features
+    - [x] Product Category Behaviour Features
+    - [x] Feature Consolidation
+- [x] Model Comparison
+    - [x] Dataset & Target Setup
+        - [x] Churn Label Definition
+    - [x] Train / Validation / Test Split
+        - [x] Stratified Split
+        - [X] Split Integrity Check
+    - [x] Baseline Model
+        - [x] Dummy / Majority-Class Baseline
+        - [x] Baseline Performance
+    - [x] Candidate Model Training
+        - [x] Logistic Regression
+        - [x] Random Forest
+        - [x] Extra Trees
+        - [x] HistGradientBoosting
+        - [x] XGBoost
+    - [x] Cross-Validation
+        - [x] Stratified Cross-Validation
+        - [ ] Cross-Validation Performance
+    - [ ] Performance Comparison
+        - [ ] Classification Metrics
+        - [ ] ROC-AUC
+        - [ ] PR-AUC
+        - [ ] Confusion Matrix
+        - [ ] Model Comparison Table
+    - [ ] Error / Class-Imbalance Analysis
+        - [ ] Class Distribution Analysis
+        - [ ] False Positive / False Negative Analysis
+        - [ ] Threshold Analysis
+    - [ ] Model Selection
+        - [ ] Best Model Selection
+        - [ ] Selection Justification
+        - [ ] Save Selected Baseline Model
 - [ ] Hyperparameter Tuning
 - [ ] Evaluation
 - [ ] Explainability
