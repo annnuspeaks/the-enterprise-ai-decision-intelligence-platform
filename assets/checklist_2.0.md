@@ -297,32 +297,89 @@
         - [x] XGBoost
     - [x] Cross-Validation
         - [x] Stratified Cross-Validation
-        - [ ] Cross-Validation Performance
-    - [ ] Performance Comparison
-        - [ ] Classification Metrics
-        - [ ] ROC-AUC
-        - [ ] PR-AUC
-        - [ ] Confusion Matrix
-        - [ ] Model Comparison Table
-    - [ ] Error / Class-Imbalance Analysis
-        - [ ] Class Distribution Analysis
-        - [ ] False Positive / False Negative Analysis
-        - [ ] Threshold Analysis
-    - [ ] Model Selection
-        - [ ] Best Model Selection
-        - [ ] Selection Justification
-        - [ ] Save Selected Baseline Model
-- [ ] Hyperparameter Tuning
-- [ ] Evaluation
-- [ ] Explainability
+        - [x] Cross-Validation Performance
+    - [x] Performance Comparison
+        - [x] Classification Metrics
+        - [x] ROC-AUC
+        - [x] PR-AUC
+        - [x] Confusion Matrix
+        - [x] Model Comparison Table
+    - [x] Error / Class-Imbalance Analysis
+        - [x] Class Distribution Analysis
+        - [x] False Positive / False Negative Analysis
+        - [x] Threshold Analysis
+    - [x] Model Selection
+        - [x] Best Model Selection
+        - [x] Selection Justification
+        - [x] Save Selected Baseline Model
+- [x] Hyperparameter Tuning
+    - [x] Tuning Strategy & Objective
+        - [x] Define primary tuning metric
+        - [x] Define CV strategy
+        - [x] Define search method
+        - [x] Define reproducibility settings
+    - [x] Random Forest Hyperparameter Search
+        - [x] Define parameter search space
+        - [x] Randomized Search
+        - [x] Cross-validated parameter evaluation
+        - [x] Identify best parameters
+        - [x] Fit best estimator
+    - [x] Tuned Model Validation
+        - [x] Validation-set prediction
+        - [x] Classification metrics
+        - [x] ROC-AUC
+        - [x] PR-AUC
+        - [x] Compare tuned vs baseline
+    - [x] Tuning Diagnostics
+        - [x] CV mean/std analysis
+        - [x] Overfitting / generalization check
+        - [x] Search-result analysis
+    - [x] Tuned Model Selection
+        - [x] Compare tuned RF with previous candidates
+        - [x] Confirm selected model
+        - [x] Document tuning decision
+        - [x] Save tuned model
+    - [x] Final Threshold Optimization
+        - [x] Threshold analysis on validation set
+        - [x] Select operating threshold
+        - [x] Document threshold rationale
+- [x] Final Test Evaluation
+- [x] Evaluation
+- [x] Explainability
+    - [x] Global Feature Importance
+    - [x] Feature Importance Visualization
+    - [x] SHAP Analysis
 
 ## 5.2 Backend
 - [ ] Prediction API
+    - [x] Model Loader
+    - [x] Model Metadata Loader
+    - [x] Prediction Service
+    - [x] API Schema
+    - [x] API Route
+    - [x] Route Registration
+    - [x] API Integration Test
+    - [x] Swagger/API Verification
 
 ## 5.3 Frontend
-- [ ] Dashboard Widget
-- [ ] Churn Analytics
-- [ ] Customer Prediction Page
+
+- [ ] 5.3.1 Dashboard Widget
+    - [ ] Model Card Integration
+    - [ ] Prediction Summary
+    - [ ] Risk Indicator
+
+- [ ] 5.3.2 Churn Analytics
+    - [ ] KPI Cards
+    - [ ] Churn Distribution
+    - [ ] Risk Analytics
+    - [ ] Model Insights
+
+- [ ] 5.3.3 Customer Prediction Page
+    - [ ] Input Form
+    - [ ] API Integration
+    - [ ] Prediction Result
+    - [ ] Risk Visualization
+    - [ ] Loading/Error States
 
 ## 5.4 Documentation
 - [ ] Model README

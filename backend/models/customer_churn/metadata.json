@@ -1,0 +1,14 @@
+{
+    "model_name": "Tuned Random Forest",
+    "model_type": "RandomForestClassifier",
+    "target": "churn_like_label",
+    "selected_threshold": 0.6299999999999997,
+    "threshold_selection_method": "Maximum validation F1",
+    "validation_metrics_at_selected_threshold": {
+        "Accuracy": 0.7414317123642007,
+        "Precision": 0.43421166306695463,
+        "Recall": 0.7763361136855113,
+        "F1": 0.5569283616820877
+    },
+    "best_cv_pr_auc": 0.49859470745229156
+}
