@@ -1,15 +1,4 @@
-import {
-  ArrowRight,
-  BarChart3,
-  Brain,
-  CircleAlert,
-  Gauge,
-  LineChart,
-  Network,
-  ShieldCheck,
-  ShoppingCart,
-  Users,
-} from "lucide-react";
+import { ArrowRight, Brain } from "lucide-react";
 import {
   Box,
   Button,
@@ -22,86 +11,13 @@ import {
   Typography,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-import type { ReactNode } from "react";
-
-interface ModelDefinition {
-  key: string;
-  name: string;
-  description: string;
-  status: "Available" | "Coming Soon";
-  icon: ReactNode;
-  endpoint?: string;
-}
-
-const models: ModelDefinition[] = [
-  {
-    key: "customer_segmentation",
-    name: "Customer Segmentation",
-    description:
-      "Identify meaningful customer groups using behavioral and purchasing patterns.",
-    status: "Available",
-    icon: <Users size={28} strokeWidth={2} />,
-    endpoint: "/customer-segmentation",
-  },
-  {
-    key: "customer_churn",
-    name: "Customer Churn Prediction",
-    description:
-      "Predict customers who are at risk of leaving and support retention decisions.",
-    status: "Coming Soon",
-    icon: <CircleAlert size={28} strokeWidth={2} />,
-  },
-  {
-    key: "customer_lifetime_value",
-    name: "Customer Lifetime Value",
-    description:
-      "Estimate the long-term economic value of individual customers.",
-    status: "Coming Soon",
-    icon: <Gauge size={28} strokeWidth={2} />,
-  },
-  {
-    key: "purchase_propensity",
-    name: "Purchase Propensity",
-    description:
-      "Estimate the likelihood that a customer will make a purchase.",
-    status: "Coming Soon",
-    icon: <ShoppingCart size={28} strokeWidth={2} />,
-  },
-  {
-    key: "anomaly_detection",
-    name: "Anomaly Detection",
-    description:
-      "Detect unusual customer behavior and potentially suspicious activity.",
-    status: "Coming Soon",
-    icon: <ShieldCheck size={28} strokeWidth={2} />,
-  },
-  {
-    key: "sales_demand_forecasting",
-    name: "Sales & Demand Forecasting",
-    description: "Forecast future sales and demand trends to support planning.",
-    status: "Coming Soon",
-    icon: <LineChart size={28} strokeWidth={2} />,
-  },
-  {
-    key: "recommendation_system",
-    name: "Recommendation System",
-    description: "Generate personalized product and customer recommendations.",
-    status: "Coming Soon",
-    icon: <Network size={28} strokeWidth={2} />,
-  },
-  {
-    key: "dynamic_risk_scoring",
-    name: "Dynamic Risk Scoring",
-    description:
-      "Combine customer signals to produce dynamic business risk scores.",
-    status: "Coming Soon",
-    icon: <BarChart3 size={28} strokeWidth={2} />,
-  },
-];
+import { MODEL_REGISTRY } from "../config/modelRegistry";
 
 function DashboardPage() {
+  const models = MODEL_REGISTRY;
+
   const liveModels = models.filter(
-    (model) => model.status === "Available",
+    (model) => model.status === "available",
   ).length;
 
   return (
@@ -221,7 +137,8 @@ function DashboardPage() {
 
             <Grid container spacing={3}>
               {models.map((model) => {
-                const available = model.status === "Available";
+                const available =
+                  model.status === "available" && Boolean(model.route);
 
                 return (
                   <Grid key={model.key} size={{ xs: 12, sm: 6, lg: 3 }}>
@@ -270,11 +187,17 @@ function DashboardPage() {
                               flexShrink: 0,
                             }}
                           >
-                            {model.icon}
+                            <model.icon size={28} strokeWidth={2} />{" "}
                           </Box>
 
                           <Chip
-                            label={model.status}
+                            label={
+                              model.status === "available"
+                                ? "Available"
+                                : model.status === "deferred"
+                                  ? "Deferred"
+                                  : "Coming Soon"
+                            }
                             size="small"
                             color={available ? "success" : "default"}
                             variant="outlined"
@@ -304,10 +227,10 @@ function DashboardPage() {
                           {model.description}
                         </Typography>
 
-                        {available && model.endpoint ? (
+                        {available && model.route ? (
                           <Button
                             component={Link}
-                            to={model.endpoint}
+                            to={model.route}
                             variant="contained"
                             endIcon={<ArrowRight size={18} strokeWidth={2} />}
                             sx={{ alignSelf: "flex-start", mt: 1 }}
