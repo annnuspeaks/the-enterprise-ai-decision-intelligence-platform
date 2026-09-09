@@ -1,6 +1,7 @@
 import {
   Activity,
   ArrowRight,
+  BarChart3,
   Brain,
   Clock3,
   Database,
@@ -79,6 +80,33 @@ const workflowSteps = [
     title: "Receive churn risk",
     description:
       "Nexora returns a churn probability, prediction, and business-readable risk level.",
+  },
+];
+
+const performanceMetrics = [
+  {
+    icon: BarChart3,
+    label: "ROC-AUC",
+    value: "0.836",
+    description: "Test-set ranking performance",
+  },
+  {
+    icon: Target,
+    label: "PR-AUC",
+    value: "0.500",
+    description: "Test-set precision-recall performance",
+  },
+  {
+    icon: Activity,
+    label: "F1 Score",
+    value: "0.553",
+    description: "Test-set balance of precision and recall",
+  },
+  {
+    icon: ShieldCheck,
+    label: "Recall",
+    value: "0.773",
+    description: "Test-set churn detection coverage",
   },
 ];
 
@@ -191,6 +219,67 @@ function CustomerChurnPage() {
               </Box>
             </Grid>
           </Grid>
+        </Container>
+      </section>
+
+      <section className="customer-churn-section customer-churn-section--muted">
+        <Container maxWidth="xl">
+          <Stack spacing={1.5} className="customer-churn-section__heading">
+            <Typography variant="overline" color="primary">
+              Model performance
+            </Typography>
+
+            <Typography variant="h2" component="h2">
+              Validated churn prediction performance.
+            </Typography>
+
+            <Typography variant="body1" color="text.secondary">
+              These metrics summarize how the trained churn model performed on
+              its held-out test set. They describe model performance, not a live
+              customer population.
+            </Typography>
+          </Stack>
+
+          <Grid container spacing={2.5} sx={{ mt: 2 }}>
+            {performanceMetrics.map((metric) => {
+              const Icon = metric.icon;
+
+              return (
+                <Grid key={metric.label} size={{ xs: 12, sm: 6, lg: 3 }}>
+                  <Box className="customer-churn-metric-card">
+                    <Box className="customer-churn-metric-card__top">
+                      <Box className="customer-churn-metric-card__icon">
+                        <Icon size={21} strokeWidth={1.8} />
+                      </Box>
+
+                      <Typography variant="overline" color="text.secondary">
+                        {metric.label}
+                      </Typography>
+                    </Box>
+
+                    <Typography
+                      variant="h3"
+                      className="customer-churn-metric-card__value"
+                    >
+                      {metric.value}
+                    </Typography>
+
+                    <Typography variant="body2" color="text.secondary">
+                      {metric.description}
+                    </Typography>
+                  </Box>
+                </Grid>
+              );
+            })}
+          </Grid>
+
+          <Typography
+            variant="caption"
+            color="text.secondary"
+            className="customer-churn-metric-note"
+          >
+            Evaluation context: held-out test set · Operating threshold: 0.63
+          </Typography>
         </Container>
       </section>
 

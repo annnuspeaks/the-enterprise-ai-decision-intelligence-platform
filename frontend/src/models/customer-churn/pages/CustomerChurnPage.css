@@ -213,6 +213,72 @@
   background: rgba(25, 118, 210, 0.08);
 }
 
+.customer-churn-metric-card {
+  height: 100%;
+  padding: 28px;
+  border: 1px solid rgba(100, 116, 139, 0.14);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.5);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+[data-theme="dark"] .customer-churn-metric-card {
+  background: rgba(255, 255, 255, 0.025);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.customer-churn-metric-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(25, 118, 210, 0.25);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+}
+
+.customer-churn-metric-card__top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.customer-churn-metric-card__icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 13px;
+  color: var(--mui-palette-primary-main);
+  background: rgba(25, 118, 210, 0.08);
+}
+
+.customer-churn-metric-card__value {
+  margin: 22px 0 8px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.customer-churn-metric-card p {
+  line-height: 1.6;
+}
+
+.customer-churn-metric-note {
+  display: block;
+  margin-top: 24px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .customer-churn-metric-card {
+    transition: none;
+  }
+
+  .customer-churn-metric-card:hover {
+    transform: none;
+  }
+}
+
 .customer-churn-cta {
   padding: 72px 0 100px;
 }
