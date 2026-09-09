@@ -110,6 +110,19 @@ const performanceMetrics = [
   },
 ];
 
+const churnDistribution = [
+  {
+    label: "Non-churn-like",
+    percentage: 79.07,
+    count: "163,024",
+  },
+  {
+    label: "Churn-like",
+    percentage: 20.93,
+    count: "43,161",
+  },
+];
+
 function CustomerChurnPage() {
   return (
     <Box component="main" className="customer-churn-page">
@@ -383,6 +396,76 @@ function CustomerChurnPage() {
               </Grid>
             ))}
           </Grid>
+        </Container>
+      </section>
+
+      <section className="customer-churn-section">
+        <Container maxWidth="xl">
+          <Stack spacing={1.5} className="customer-churn-section__heading">
+            <Typography variant="overline" color="primary">
+              Churn distribution
+            </Typography>
+
+            <Typography variant="h2" component="h2">
+              Understanding the model's target distribution.
+            </Typography>
+
+            <Typography variant="body1" color="text.secondary">
+              The training data contains both churn-like and non-churn-like
+              customer behaviour. This distribution provides context for the
+              classification problem and model evaluation.
+            </Typography>
+          </Stack>
+
+          <Box className="customer-churn-distribution">
+            <Box className="customer-churn-distribution__bar">
+              <Box
+                className="customer-churn-distribution__segment customer-churn-distribution__segment--stable"
+                sx={{ width: "79.07%" }}
+              />
+              <Box
+                className="customer-churn-distribution__segment customer-churn-distribution__segment--risk"
+                sx={{ width: "20.93%" }}
+              />
+            </Box>
+
+            <Grid container spacing={2.5} sx={{ mt: 1 }}>
+              {churnDistribution.map((item) => (
+                <Grid key={item.label} size={{ xs: 12, sm: 6 }}>
+                  <Box className="customer-churn-distribution-card">
+                    <Box>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        fontWeight={600}
+                      >
+                        {item.label}
+                      </Typography>
+
+                      <Typography
+                        variant="h3"
+                        className="customer-churn-distribution-card__value"
+                      >
+                        {item.percentage.toFixed(2)}%
+                      </Typography>
+                    </Box>
+
+                    <Typography variant="body2" color="text.secondary">
+                      {item.count} records
+                    </Typography>
+                  </Box>
+                </Grid>
+              ))}
+            </Grid>
+
+            <Typography
+              variant="caption"
+              color="text.secondary"
+              className="customer-churn-distribution__note"
+            >
+              Dataset class distribution · Not a live customer population
+            </Typography>
+          </Box>
         </Container>
       </section>
 

@@ -310,6 +310,60 @@
   line-height: 1.7;
 }
 
+.customer-churn-distribution {
+  margin-top: 34px;
+}
+
+.customer-churn-distribution__bar {
+  display: flex;
+  width: 100%;
+  height: 18px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(100, 116, 139, 0.08);
+}
+
+.customer-churn-distribution__segment {
+  height: 100%;
+}
+
+.customer-churn-distribution__segment--stable {
+  background: var(--mui-palette-primary-main);
+}
+
+.customer-churn-distribution__segment--risk {
+  background: var(--mui-palette-warning-main);
+}
+
+.customer-churn-distribution-card {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  height: 100%;
+  padding: 24px 26px;
+  border: 1px solid rgba(100, 116, 139, 0.14);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] .customer-churn-distribution-card {
+  background: rgba(255, 255, 255, 0.025);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.customer-churn-distribution-card__value {
+  margin-top: 8px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.customer-churn-distribution__note {
+  display: block;
+  margin-top: 18px;
+}
+
 @media (max-width: 900px) {
   .customer-churn-hero {
     padding: 64px 0 72px;

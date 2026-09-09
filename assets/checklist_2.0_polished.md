@@ -365,13 +365,13 @@
     - [x] Model Workspace Layout
     - [x] Responsive Model Navigation
 
-- [ ] 5.3.1 Dashboard Widget
+- [x] 5.3.1 Dashboard Widget
     - [x] Model Card Integration
     - [x] Prediction Summary
-    - [ ] Risk Indicator
+    - [x] Risk Indicator
 
 - [ ] 5.3.2 Churn Analytics
-    - [ ] KPI Cards
+    - [x] KPI Cards
     - [ ] Churn Distribution
     - [ ] Risk Analytics
     - [ ] Model Insights
