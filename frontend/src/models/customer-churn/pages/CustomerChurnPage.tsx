@@ -123,6 +123,29 @@ const churnDistribution = [
   },
 ];
 
+const riskAnalytics = [
+  {
+    label: "True Negatives",
+    value: "17,838",
+    description: "Correctly identified non-churn-like cases",
+  },
+  {
+    label: "False Positives",
+    value: "6,616",
+    description: "Non-churn-like cases flagged for review",
+  },
+  {
+    label: "False Negatives",
+    value: "1,467",
+    description: "Churn-like cases not detected",
+  },
+  {
+    label: "True Positives",
+    value: "5,007",
+    description: "Correctly detected churn-like cases",
+  },
+];
+
 function CustomerChurnPage() {
   return (
     <Box component="main" className="customer-churn-page">
@@ -465,6 +488,70 @@ function CustomerChurnPage() {
             >
               Dataset class distribution · Not a live customer population
             </Typography>
+          </Box>
+        </Container>
+      </section>
+
+      <section className="customer-churn-section customer-churn-section--muted">
+        <Container maxWidth="xl">
+          <Stack spacing={1.5} className="customer-churn-section__heading">
+            <Typography variant="overline" color="primary">
+              Risk analytics
+            </Typography>
+
+            <Typography variant="h2" component="h2">
+              How the model handles churn risk.
+            </Typography>
+
+            <Typography variant="body1" color="text.secondary">
+              At the selected operating threshold, the model prioritizes
+              detecting churn-like behaviour while balancing false alerts. The
+              confusion matrix below shows its performance on the held-out test
+              set.
+            </Typography>
+          </Stack>
+
+          <Grid container spacing={2.5} sx={{ mt: 2 }}>
+            {riskAnalytics.map((metric) => (
+              <Grid key={metric.label} size={{ xs: 12, sm: 6, lg: 3 }}>
+                <Box className="customer-churn-risk-card">
+                  <Typography
+                    variant="overline"
+                    color="text.secondary"
+                    fontWeight={600}
+                  >
+                    {metric.label}
+                  </Typography>
+
+                  <Typography
+                    variant="h3"
+                    className="customer-churn-risk-card__value"
+                  >
+                    {metric.value}
+                  </Typography>
+
+                  <Typography variant="body2" color="text.secondary">
+                    {metric.description}
+                  </Typography>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+
+          <Box className="customer-churn-risk-summary">
+            <Stack spacing={1}>
+              <Typography variant="h6">Detection profile</Typography>
+
+              <Typography variant="body2" color="text.secondary">
+                The model detects 77.34% of churn-like cases at the selected
+                threshold, while 43.08% of its positive predictions are actually
+                churn-like.
+              </Typography>
+
+              <Typography variant="caption" color="text.secondary">
+                Test-set evaluation · Operating threshold: 0.63
+              </Typography>
+            </Stack>
           </Box>
         </Container>
       </section>
