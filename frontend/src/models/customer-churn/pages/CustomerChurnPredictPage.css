@@ -1,0 +1,111 @@
+.customer-churn-predict-page {
+  min-height: 100vh;
+}
+
+.customer-churn-predict-hero {
+  padding: 64px 0 54px;
+}
+
+.customer-churn-predict-back {
+  text-transform: none;
+  font-weight: 650;
+}
+
+.customer-churn-predict-heading {
+  max-width: 850px;
+}
+
+.customer-churn-predict-heading h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1;
+  font-weight: 850;
+  letter-spacing: -0.045em;
+}
+
+.customer-churn-predict-heading h1 span {
+  color: var(--mui-palette-primary-main);
+}
+
+.customer-churn-predict-heading p {
+  max-width: 760px;
+  line-height: 1.75;
+}
+
+.customer-churn-predict-form-section {
+  padding: 20px 0 100px;
+}
+
+.customer-churn-form-group {
+  padding: 30px;
+  border: 1px solid rgba(100, 116, 139, 0.14);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] .customer-churn-form-group {
+  background: rgba(255, 255, 255, 0.025);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.customer-churn-form-group__heading {
+  align-items: flex-start;
+}
+
+.customer-churn-form-group__icon {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 14px;
+  color: var(--mui-palette-primary-main);
+  background: rgba(25, 118, 210, 0.08);
+}
+
+.customer-churn-form-group h5 {
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.customer-churn-form-group p {
+  margin-top: 4px;
+  line-height: 1.6;
+}
+
+.customer-churn-form-note {
+  padding: 20px 24px;
+  border-radius: 16px;
+  border-left: 3px solid var(--mui-palette-primary-main);
+  background: rgba(25, 118, 210, 0.045);
+}
+
+[data-theme="dark"] .customer-churn-form-note {
+  background: rgba(144, 202, 249, 0.05);
+}
+
+.customer-churn-form-note strong {
+  color: var(--mui-palette-text-primary);
+}
+
+.customer-churn-form-actions {
+  justify-content: flex-end;
+}
+
+@media (max-width: 600px) {
+  .customer-churn-predict-hero {
+    padding: 42px 0 32px;
+  }
+
+  .customer-churn-predict-form-section {
+    padding-bottom: 70px;
+  }
+
+  .customer-churn-form-group {
+    padding: 22px;
+    border-radius: 20px;
+  }
+
+  .customer-churn-form-actions > button {
+    width: 100%;
+  }
+}

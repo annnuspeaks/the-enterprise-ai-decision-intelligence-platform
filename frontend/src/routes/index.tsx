@@ -9,6 +9,7 @@ import DashboardPage from "../pages/DashboardPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import CustomerSegmentationPage from "../pages/CustomerSegmentationPage";
 import CustomerChurnPage from "../models/customer-churn/pages/CustomerChurnPage";
+import CustomerChurnPredictPage from "../models/customer-churn/pages/CustomerChurnPredictPage";
 
 import ModelWorkspaceLayout from "../components/layout/ModelWorkspaceLayout/ModelWorkspaceLayout";
 
@@ -32,6 +33,10 @@ function AppRoutes() {
       {/* Model workspace */}
       <Route element={<ModelWorkspaceLayout />}>
         <Route path="/customer-churn" element={<CustomerChurnPage />} />
+        <Route
+          path="/customer-churn/predict"
+          element={<CustomerChurnPredictPage />}
+        />
       </Route>
 
       <Route path="*" element={<NotFoundPage />} />
