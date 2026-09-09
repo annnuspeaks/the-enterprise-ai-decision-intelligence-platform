@@ -7,6 +7,7 @@ import {
   Chip,
   Container,
   Grid,
+  LinearProgress,
   Stack,
   Typography,
 } from "@mui/material";
@@ -19,6 +20,10 @@ function DashboardPage() {
   const liveModels = models.filter(
     (model) => model.status === "available",
   ).length;
+
+  const modelsInDevelopment = models.length - liveModels;
+  const predictionReadiness =
+    models.length > 0 ? (liveModels / models.length) * 100 : 0;
 
   return (
     <Box component="main">
@@ -97,6 +102,132 @@ function DashboardPage() {
               </Card>
             </Grid>
           </Grid>
+
+          <Card elevation={0}>
+            <CardContent sx={{ p: { xs: 2.5, md: 3 } }}>
+              <Stack spacing={2.5}>
+                <Stack
+                  direction={{ xs: "column", sm: "row" }}
+                  spacing={1.5}
+                  sx={{
+                    alignItems: { xs: "flex-start", sm: "center" },
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <Box>
+                    <Typography
+                      variant="overline"
+                      color="primary.main"
+                      sx={{
+                        fontWeight: 800,
+                        letterSpacing: "0.08em",
+                      }}
+                    >
+                      Prediction Summary
+                    </Typography>
+
+                    <Typography
+                      variant="h5"
+                      sx={{
+                        mt: 0.25,
+                        fontWeight: 800,
+                      }}
+                    >
+                      Prediction readiness
+                    </Typography>
+
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      sx={{
+                        mt: 0.5,
+                        maxWidth: 720,
+                        lineHeight: 1.6,
+                      }}
+                    >
+                      {liveModels} of {models.length} decision models are
+                      currently available for prediction. Additional
+                      capabilities are progressing toward production readiness.
+                    </Typography>
+                  </Box>
+
+                  <Chip
+                    label={`${Math.round(predictionReadiness)}% Ready`}
+                    color="success"
+                    variant="outlined"
+                    size="small"
+                  />
+                </Stack>
+
+                <Stack spacing={1.25}>
+                  <Stack
+                    direction="row"
+                    sx={{
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Typography variant="body2" sx={{ fontWeight: 700 }}>
+                      Platform prediction readiness
+                    </Typography>
+
+                    <Typography variant="body2" color="text.secondary">
+                      {liveModels} / {models.length}
+                    </Typography>
+                  </Stack>
+
+                  <LinearProgress
+                    variant="determinate"
+                    value={predictionReadiness}
+                    sx={{
+                      height: 8,
+                      borderRadius: 999,
+                    }}
+                  />
+                </Stack>
+
+                <Grid container spacing={2}>
+                  <Grid size={{ xs: 12, sm: 6 }}>
+                    <Box
+                      sx={{
+                        p: 2,
+                        border: 1,
+                        borderColor: "divider",
+                        borderRadius: 2,
+                      }}
+                    >
+                      <Typography variant="h5" sx={{ fontWeight: 800 }}>
+                        {liveModels}
+                      </Typography>
+
+                      <Typography variant="body2" color="text.secondary">
+                        Prediction-ready models
+                      </Typography>
+                    </Box>
+                  </Grid>
+
+                  <Grid size={{ xs: 12, sm: 6 }}>
+                    <Box
+                      sx={{
+                        p: 2,
+                        border: 1,
+                        borderColor: "divider",
+                        borderRadius: 2,
+                      }}
+                    >
+                      <Typography variant="h5" sx={{ fontWeight: 800 }}>
+                        {modelsInDevelopment}
+                      </Typography>
+
+                      <Typography variant="body2" color="text.secondary">
+                        Models in development
+                      </Typography>
+                    </Box>
+                  </Grid>
+                </Grid>
+              </Stack>
+            </CardContent>
+          </Card>
 
           <Stack spacing={2}>
             <Stack
