@@ -3,7 +3,6 @@ import {
   Activity,
   ArrowLeft,
   ArrowRight,
-  BarChart3,
   Clock3,
   Layers3,
   PackageSearch,
@@ -81,21 +80,24 @@ const fieldGroups = [
     title: "Order History",
     description: "Historical ordering volume and customer order progression.",
     fields: [
-      ["total_orders", "Total Orders", "Number of historical orders."],
+      ["total_orders", "Total Orders", "Number of historical orders.", "10"],
       [
         "max_order_number",
         "Maximum Order Number",
         "Highest order sequence observed.",
+        "10",
       ],
       [
         "latest_order_number",
         "Latest Order Number",
         "Most recent order sequence in the available history.",
+        "10",
       ],
       [
         "prior_orders",
         "Prior Orders",
         "Number of prior orders used in the profile.",
+        "9",
       ],
     ],
   },
@@ -109,26 +111,31 @@ const fieldGroups = [
         "avg_days_between_orders",
         "Average Days Between Orders",
         "Average historical interval between orders.",
+        "7.5",
       ],
       [
         "median_purchase_interval",
         "Median Purchase Interval",
         "Typical historical purchase interval.",
+        "7",
       ],
       [
         "min_purchase_interval",
         "Minimum Purchase Interval",
         "Shortest observed purchase interval.",
+        "2",
       ],
       [
         "max_purchase_interval",
         "Maximum Purchase Interval",
         "Longest observed purchase interval.",
+        "21",
       ],
       [
         "std_purchase_interval",
         "Purchase Interval Variability",
         "Standard deviation of purchase intervals.",
+        "4.2",
       ],
     ],
   },
@@ -142,26 +149,31 @@ const fieldGroups = [
         "prior_order_items",
         "Prior Order Items",
         "Total items purchased across prior orders.",
+        "86",
       ],
       [
         "prior_reordered_items",
         "Prior Reordered Items",
         "Number of historically reordered items.",
+        "54",
       ],
       [
         "avg_items_per_order",
         "Average Items per Order",
         "Average number of items in each prior order.",
+        "7.8",
       ],
       [
         "reorder_rate",
         "Reorder Rate",
         "Share of prior items that were reordered.",
+        "0.63",
       ],
       [
         "products_per_order",
         "Products per Order",
         "Average unique products represented per order.",
+        "6.4",
       ],
     ],
   },
@@ -175,16 +187,19 @@ const fieldGroups = [
         "prior_unique_products",
         "Unique Products",
         "Number of distinct products purchased historically.",
+        "42",
       ],
       [
         "unique_aisles",
         "Unique Aisles",
         "Number of distinct product aisles represented.",
+        "18",
       ],
       [
         "unique_departments",
         "Unique Departments",
         "Number of distinct product departments represented.",
+        "7",
       ],
     ],
   },
@@ -197,11 +212,13 @@ const fieldGroups = [
         "dominant_department_share",
         "Dominant Department Share",
         "Share of purchases belonging to the customer's dominant department.",
+        "0.41",
       ],
       [
         "dominant_aisle_share",
         "Dominant Aisle Share",
         "Share of purchases belonging to the customer's dominant aisle.",
+        "0.18",
       ],
     ],
   },
@@ -215,21 +232,25 @@ const fieldGroups = [
         "inactivity_gap",
         "Inactivity Gap",
         "Difference between the longest and typical purchase interval.",
+        "14",
       ],
       [
         "inactivity_ratio",
         "Inactivity Ratio",
         "Longest purchase interval relative to the median interval.",
+        "3.0",
       ],
       [
         "latest_order_dow",
         "Latest Order Day",
         "Day-of-week value associated with the latest historical order.",
+        "3",
       ],
       [
         "latest_order_hour",
         "Latest Order Hour",
         "Hour-of-day value associated with the latest historical order.",
+        "14",
       ],
     ],
   },
@@ -321,25 +342,30 @@ function CustomerChurnPredictPage() {
                     </Stack>
 
                     <Grid container spacing={2.5} sx={{ mt: 1 }}>
-                      {group.fields.map(([field, label, helper]) => (
-                        <Grid key={field} size={{ xs: 12, sm: 6, lg: 4 }}>
-                          <TextField
-                            fullWidth
-                            required
-                            label={label}
-                            type="number"
-                            value={formData[field as keyof ChurnFormData]}
-                            onChange={handleChange(
-                              field as keyof ChurnFormData,
-                            )}
-                            helperText={helper}
-                            inputProps={{
-                              step: "any",
-                              min: 0,
-                            }}
-                          />
-                        </Grid>
-                      ))}
+                      {group.fields.map(
+                        ([field, label, helper, placeholder]) => (
+                          <Grid key={field} size={{ xs: 12, sm: 6, lg: 4 }}>
+                            <TextField
+                              fullWidth
+                              required
+                              label={label}
+                              placeholder={`${label} (e.g. ${placeholder})`}
+                              type="number"
+                              value={formData[field as keyof ChurnFormData]}
+                              onChange={handleChange(
+                                field as keyof ChurnFormData,
+                              )}
+                              helperText={helper}
+                              slotProps={{
+                                htmlInput: {
+                                  step: "any",
+                                  min: 0,
+                                },
+                              }}
+                            />
+                          </Grid>
+                        ),
+                      )}
                     </Grid>
                   </Box>
                 );
