@@ -20,6 +20,8 @@ import {
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 
+import { predictCustomerChurn } from "../services/customerChurnService";
+
 import "./CustomerChurnPredictPage.css";
 
 interface ChurnFormData {
@@ -269,12 +271,18 @@ function CustomerChurnPredictPage() {
       }));
     };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    const features = Object.fromEntries(
+      Object.entries(formData).map(([key, value]) => [key, Number(value)]),
+    ) as Record<string, number>;
+
+    const prediction = await predictCustomerChurn(features);
 
     navigate("/customer-churn/result", {
       state: {
-        predictionPayload: formData,
+        prediction,
       },
     });
   };
