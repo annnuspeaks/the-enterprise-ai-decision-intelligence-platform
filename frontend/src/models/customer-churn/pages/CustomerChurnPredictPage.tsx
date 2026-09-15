@@ -5,11 +5,13 @@ import {
   ArrowRight,
   Clock3,
   Layers3,
+  LoaderCircle,
   PackageSearch,
   ShoppingCart,
   Target,
 } from "lucide-react";
 import {
+  Alert,
   Box,
   Button,
   Container,
@@ -261,6 +263,8 @@ const fieldGroups = [
 function CustomerChurnPredictPage() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState<ChurnFormData>(initialFormData);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange =
     (field: keyof ChurnFormData) =>
@@ -274,17 +278,34 @@ function CustomerChurnPredictPage() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const features = Object.fromEntries(
-      Object.entries(formData).map(([key, value]) => [key, Number(value)]),
-    ) as Record<string, number>;
+    if (isLoading) {
+      return;
+    }
 
-    const prediction = await predictCustomerChurn(features);
+    setError(null);
+    setIsLoading(true);
 
-    navigate("/customer-churn/result", {
-      state: {
-        prediction,
-      },
-    });
+    try {
+      const features = Object.fromEntries(
+        Object.entries(formData).map(([key, value]) => [key, Number(value)]),
+      ) as Record<string, number>;
+
+      const prediction = await predictCustomerChurn(features);
+
+      navigate("/customer-churn/result", {
+        state: {
+          prediction,
+        },
+      });
+    } catch (error) {
+      console.error("Customer churn prediction failed:", error);
+
+      setError(
+        "We couldn't generate the churn prediction right now. Please check your inputs and try again.",
+      );
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -326,6 +347,15 @@ function CustomerChurnPredictPage() {
         <Container maxWidth="xl">
           <form onSubmit={handleSubmit}>
             <Stack spacing={4}>
+              {error && (
+                <Alert
+                  severity="error"
+                  onClose={() => setError(null)}
+                  className="customer-churn-predict-error"
+                >
+                  {error}
+                </Alert>
+              )}
               {fieldGroups.map((group) => {
                 const Icon = group.icon;
 
@@ -396,15 +426,28 @@ function CustomerChurnPredictPage() {
                   type="submit"
                   variant="contained"
                   size="large"
-                  endIcon={<ArrowRight size={19} />}
+                  disabled={isLoading}
+                  className={
+                    isLoading ? "customer-churn-predict-submit--loading" : ""
+                  }
+                  startIcon={
+                    isLoading ? (
+                      <LoaderCircle
+                        size={19}
+                        className="customer-churn-loading-icon"
+                      />
+                    ) : undefined
+                  }
+                  endIcon={!isLoading ? <ArrowRight size={19} /> : undefined}
                 >
-                  Review Prediction
+                  {isLoading ? "Analyzing Customer..." : "Review Prediction"}
                 </Button>
 
                 <Button
                   type="button"
                   variant="outlined"
                   size="large"
+                  disabled={isLoading}
                   onClick={() => setFormData(initialFormData)}
                 >
                   Clear Form

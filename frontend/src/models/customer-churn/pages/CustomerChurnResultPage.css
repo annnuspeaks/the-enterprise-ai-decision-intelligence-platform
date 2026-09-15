@@ -1,0 +1,153 @@
+.customer-churn-result-page {
+  min-height: 100vh;
+}
+
+.customer-churn-result-hero {
+  padding: 56px 0 42px;
+}
+
+.customer-churn-result-back {
+  width: fit-content;
+}
+
+.customer-churn-result-title {
+  max-width: 850px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.customer-churn-result-title span {
+  color: var(--mui-palette-primary-main);
+}
+
+.customer-churn-result-section {
+  padding: 20px 0 90px;
+}
+
+.customer-churn-result-summary,
+.customer-churn-result-card,
+.customer-churn-result-disclaimer {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.025);
+  border-radius: 20px;
+}
+
+.customer-churn-result-summary {
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.customer-churn-result-summary--high {
+  border-color: rgba(255, 82, 82, 0.35);
+}
+
+.customer-churn-result-summary--medium {
+  border-color: rgba(255, 183, 77, 0.35);
+}
+
+.customer-churn-result-summary--low {
+  border-color: rgba(76, 175, 80, 0.3);
+}
+
+.customer-churn-result-summary__icon,
+.customer-churn-result-card__icon {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
+}
+
+.customer-churn-result-summary h3 {
+  font-weight: 800;
+}
+
+.customer-churn-result-risk-chip {
+  font-weight: 700;
+}
+
+.customer-churn-result-card {
+  height: 100%;
+  padding: 28px;
+}
+
+.customer-churn-result-card--visual {
+  min-height: 320px;
+}
+
+.customer-churn-probability {
+  padding: 8px 0;
+}
+
+.customer-churn-probability__value {
+  font-weight: 850;
+  letter-spacing: -0.05em;
+}
+
+.customer-churn-result-progress {
+  position: relative;
+}
+
+.customer-churn-result-progress .MuiLinearProgress-root {
+  height: 9px;
+  border-radius: 999px;
+}
+
+.customer-churn-result-progress__threshold {
+  position: absolute;
+  top: -5px;
+  width: 2px;
+  height: 19px;
+  transform: translateX(-1px);
+  background: currentColor;
+  opacity: 0.8;
+}
+
+.customer-churn-result-stat {
+  height: 100%;
+  padding: 18px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.customer-churn-result-stat h4 {
+  margin: 7px 0;
+  font-weight: 800;
+}
+
+.customer-churn-result-card--insight,
+.customer-churn-result-card--action {
+  min-height: 220px;
+}
+
+.customer-churn-result-disclaimer {
+  padding: 18px 22px;
+}
+
+.customer-churn-result-empty {
+  min-height: 65vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 18px;
+}
+
+@media (max-width: 600px) {
+  .customer-churn-result-hero {
+    padding-top: 36px;
+  }
+
+  .customer-churn-result-summary,
+  .customer-churn-result-card {
+    padding: 22px;
+  }
+
+  .customer-churn-result-title {
+    font-size: 2.6rem;
+  }
+}

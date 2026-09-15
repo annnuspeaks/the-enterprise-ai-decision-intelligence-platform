@@ -10,6 +10,7 @@ import NotFoundPage from "../pages/NotFoundPage";
 import CustomerSegmentationPage from "../pages/CustomerSegmentationPage";
 import CustomerChurnPage from "../models/customer-churn/pages/CustomerChurnPage";
 import CustomerChurnPredictPage from "../models/customer-churn/pages/CustomerChurnPredictPage";
+import CustomerChurnResultPage from "../models/customer-churn/pages/CustomerChurnResultPage";
 
 import ModelWorkspaceLayout from "../components/layout/ModelWorkspaceLayout/ModelWorkspaceLayout";
 
@@ -33,11 +34,19 @@ function AppRoutes() {
       {/* Model workspace */}
       <Route element={<ModelWorkspaceLayout />}>
         <Route path="/customer-churn" element={<CustomerChurnPage />} />
+        
+        {/* Customer Churn Prediction page */}
         <Route
           path="/customer-churn/predict"
           element={<CustomerChurnPredictPage />}
         />
       </Route>
+
+      {/* Result pages */}
+      <Route
+        path="/customer-churn/result"
+        element={<CustomerChurnResultPage />}
+      />
 
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
