@@ -23,7 +23,8 @@ MODEL_REGISTRY = [
         key="customer_churn",
         name="Customer Churn Prediction",
         description="Predict customers who are at risk of leaving and support retention decisions.",
-        status="coming_soon",
+        status="available",
+        endpoint="/customer-churn/predict",
     ),
     ModelDefinition(
         key="customer_lifetime_value",

@@ -391,8 +391,8 @@
 
 ## 5.4 Documentation
 - [x] Model README
-- [ ] API Documentation
-- [ ] Master README
+- [x] API Documentation
+- [x] Master README
 - [ ] Screenshots
 - [ ] GitHub Release
 
