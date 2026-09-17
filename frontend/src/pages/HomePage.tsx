@@ -6,10 +6,8 @@ import {
   Database,
   Gauge,
   Network,
-  Server,
   Sparkles,
   Workflow,
-  Zap,
 } from "lucide-react";
 
 import {
@@ -296,8 +294,8 @@ function HomePage() {
                 <Grid size={{ xs: 12, md: 6 }}>
                   <Stack
                     spacing={2.2}
-                    alignItems="center"
                     sx={{
+                      alignItems: "center",
                       width: "100%",
                       transform: {
                         xs: "translateY(-4px)",
@@ -589,9 +587,9 @@ function HomePage() {
                 <Grid size={{ xs: 12, md: 6 }}>
                   <Stack
                     spacing={1.5}
-                    alignItems="center"
-                    justifyContent="center"
                     sx={{
+                      alignItems: "center",
+                      justifyContent: "center",
                       width: "100%",
                       maxWidth: 700,
                       mx: "auto",

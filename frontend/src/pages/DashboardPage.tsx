@@ -160,8 +160,10 @@ function DashboardPage() {
               <Grid size={{ xs: 12, md: 6 }}>
                 <Stack
                   spacing={1.55}
-                  alignItems={{ xs: "center", md: "flex-start" }}
-                  sx={{ textAlign: { xs: "center", md: "left" } }}
+                  sx={{
+                    alignItems: { xs: "center", md: "flex-start" },
+                    textAlign: { xs: "center", md: "left" },
+                  }}
                 >
                   <Typography
                     variant="overline"
@@ -220,9 +222,11 @@ function DashboardPage() {
                   <Stack
                     direction="row"
                     spacing={0.8}
-                    flexWrap="wrap"
-                    justifyContent={{ xs: "center", md: "flex-start" }}
-                    sx={{ pt: 0.3 }}
+                    sx={{
+                      flexWrap: "wrap",
+                      justifyContent: { xs: "center", md: "flex-start" },
+                      pt: 0.3,
+                    }}
                   >
                     <Chip
                       icon={<Layers3 size={14} />}
@@ -402,7 +406,11 @@ function DashboardPage() {
                   }}
                 >
                   <CardContent sx={{ p: { xs: 2, md: 2.35 } }}>
-                    <Stack direction="row" spacing={1.4} alignItems="center">
+                    <Stack
+                      direction="row"
+                      spacing={1.4}
+                      sx={{ alignItems: "center" }}
+                    >
                       <Box sx={iconTile}>
                         <Icon size={21} strokeWidth={2} />
                       </Box>
@@ -483,8 +491,10 @@ function DashboardPage() {
                 <Stack spacing={1.1}>
                   <Stack
                     direction="row"
-                    justifyContent="space-between"
-                    alignItems="center"
+                    sx={{
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                    }}
                   >
                     <Typography variant="body2" sx={{ fontWeight: 750 }}>
                       Platform readiness
@@ -644,8 +654,10 @@ function DashboardPage() {
                         <Stack
                           direction="row"
                           spacing={1.2}
-                          alignItems="center"
-                          justifyContent="space-between"
+                          sx={{
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                          }}
                         >
                           <Box
                             sx={{
@@ -765,7 +777,11 @@ function DashboardPage() {
           {/* Compact footer note */}
           <Card elevation={0} sx={glassCard}>
             <CardContent sx={{ p: { xs: 2, md: 2.4 } }}>
-              <Stack direction="row" spacing={1.3} alignItems="center">
+              <Stack
+                direction="row"
+                spacing={1.3}
+                sx={{ alignItems: "center" }}
+              >
                 <Box sx={{ ...iconTile, width: 42, height: 42 }}>
                   <Brain size={20} />
                 </Box>

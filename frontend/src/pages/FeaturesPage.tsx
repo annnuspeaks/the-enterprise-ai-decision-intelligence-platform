@@ -24,6 +24,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import type { Theme } from "@mui/material/styles";
 
 import { Link } from "react-router-dom";
 
@@ -55,17 +56,17 @@ const glassCardSx = {
   height: "100%",
   borderRadius: 3,
   border: 1,
-  borderColor: (theme: any) =>
+  borderColor: (theme: Theme) =>
     theme.palette.mode === "dark"
       ? "rgba(148,163,184,0.15)"
       : "rgba(37,99,235,0.11)",
-  background: (theme: any) =>
+  background: (theme: Theme) =>
     theme.palette.mode === "dark"
       ? "linear-gradient(145deg, rgba(30,41,59,0.68), rgba(15,23,42,0.42) 55%, rgba(37,99,235,0.045))"
       : "linear-gradient(145deg, rgba(255,255,255,0.86), rgba(248,250,252,0.62) 55%, rgba(239,246,255,0.72))",
   backdropFilter: "blur(16px)",
   WebkitBackdropFilter: "blur(16px)",
-  boxShadow: (theme: any) =>
+  boxShadow: (theme: Theme) =>
     theme.palette.mode === "dark"
       ? "inset 0 1px 0 rgba(255,255,255,0.055), 0 16px 38px rgba(0,0,0,0.14)"
       : "inset 0 1px 0 rgba(255,255,255,0.9), 0 16px 38px rgba(15,23,42,0.065)",
@@ -74,7 +75,7 @@ const glassCardSx = {
   "&:hover": {
     transform: "translateY(-4px)",
     borderColor: "rgba(59,130,246,0.42)",
-    boxShadow: (theme: any) =>
+    boxShadow: (theme: Theme) =>
       theme.palette.mode === "dark"
         ? "inset 0 1px 0 rgba(255,255,255,0.08), 0 18px 42px rgba(0,0,0,0.20), 0 0 24px rgba(59,130,246,0.08)"
         : "inset 0 1px 0 rgba(255,255,255,0.95), 0 18px 42px rgba(15,23,42,0.09), 0 0 24px rgba(59,130,246,0.07)",
@@ -242,8 +243,10 @@ function FeaturesPage() {
               <Grid size={{ xs: 12, md: 6 }}>
                 <Stack
                   spacing={1.8}
-                  alignItems={{ xs: "center", md: "flex-start" }}
-                  sx={{ textAlign: { xs: "center", md: "left" } }}
+                  sx={{
+                    alignItems: { xs: "center", md: "flex-start" },
+                    textAlign: { xs: "center", md: "left" },
+                  }}
                 >
                   <Typography
                     variant="overline"
@@ -302,9 +305,11 @@ function FeaturesPage() {
                   <Stack
                     direction="row"
                     spacing={0.8}
-                    flexWrap="wrap"
-                    justifyContent={{ xs: "center", md: "flex-start" }}
-                    sx={{ pt: 0.4 }}
+                    sx={{
+                      pt: 0.4,
+                      flexWrap: "wrap",
+                      justifyContent: { xs: "center", md: "flex-start" },
+                    }}
                   >
                     <Chip
                       icon={<Zap size={14} />}
@@ -343,7 +348,7 @@ function FeaturesPage() {
                         : "rgba(255,255,255,0.78)",
                     backdropFilter: "blur(18px)",
                     WebkitBackdropFilter: "blur(18px)",
-                    boxShadow: (theme: any) =>
+                    boxShadow: (theme: Theme) =>
                       theme.palette.mode === "dark"
                         ? "inset 0 1px 0 rgba(255,255,255,0.07), 0 24px 55px rgba(0,0,0,0.25), 0 0 32px rgba(59,130,246,0.08)"
                         : "inset 0 1px 0 rgba(255,255,255,0.9), 0 24px 55px rgba(15,23,42,0.12), 0 0 32px rgba(59,130,246,0.07)",
