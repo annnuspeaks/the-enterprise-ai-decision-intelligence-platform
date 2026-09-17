@@ -1,4 +1,12 @@
-import { ArrowRight, Brain } from "lucide-react";
+import {
+  Activity,
+  ArrowRight,
+  Brain,
+  CheckCircle2,
+  Gauge,
+  Layers3,
+  Sparkles,
+} from "lucide-react";
 import {
   Box,
   Button,
@@ -13,6 +21,67 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { MODEL_REGISTRY } from "../config/modelRegistry";
+import dashboardIllustration from "../assets/dashboard-analytics.png";
+
+const pageTypography = {
+  "& .MuiTypography-root": {
+    fontFamily:
+      '"Inter", "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, sans-serif',
+  },
+  "& .MuiTypography-h1, & .MuiTypography-h2, & .MuiTypography-h3, & .MuiTypography-h4, & .MuiTypography-h5, & .MuiTypography-h6":
+    {
+      fontFamily:
+        '"Space Grotesk", "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif',
+      letterSpacing: "-0.025em",
+    },
+  "& .MuiButton-root, & .MuiChip-label": {
+    fontFamily:
+      '"Space Grotesk", "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif',
+  },
+  "& .MuiTypography-overline, & .MuiTypography-caption": {
+    fontFamily:
+      '"JetBrains Mono", "Cascadia Code", "SFMono-Regular", Consolas, monospace',
+    letterSpacing: "0.055em",
+  },
+};
+
+const glassCard = {
+  borderRadius: 3.5,
+  border: 1,
+  borderColor: "rgba(148,163,184,0.15)",
+  background:
+    "linear-gradient(145deg, rgba(30,41,59,0.66), rgba(15,23,42,0.46) 58%, rgba(37,99,235,0.055))",
+  backdropFilter: "blur(16px)",
+  WebkitBackdropFilter: "blur(16px)",
+  boxShadow:
+    "inset 0 1px 0 rgba(255,255,255,0.055), 0 18px 44px rgba(0,0,0,0.16)",
+  transition:
+    "transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease",
+  "&:hover": {
+    transform: "translateY(-4px)",
+    borderColor: "rgba(96,165,250,0.34)",
+    boxShadow:
+      "inset 0 1px 0 rgba(255,255,255,0.07), 0 22px 48px rgba(0,0,0,0.21), 0 0 26px rgba(59,130,246,0.07)",
+  },
+  "@media (prefers-reduced-motion: reduce)": {
+    transition: "none",
+    "&:hover": { transform: "none" },
+  },
+};
+
+const iconTile = {
+  width: 46,
+  height: 46,
+  display: "grid",
+  placeItems: "center",
+  flexShrink: 0,
+  borderRadius: 2.5,
+  border: 1,
+  borderColor: "rgba(96,165,250,0.18)",
+  color: "primary.main",
+  background:
+    "linear-gradient(145deg, rgba(59,130,246,0.13), rgba(99,102,241,0.035))",
+};
 
 function DashboardPage() {
   const models = MODEL_REGISTRY;
@@ -26,86 +95,354 @@ function DashboardPage() {
     models.length > 0 ? (liveModels / models.length) * 100 : 0;
 
   return (
-    <Box component="main">
-      <Container maxWidth="xl">
-        <Stack spacing={5} sx={{ py: { xs: 4, md: 6 } }}>
-          <Stack spacing={1}>
-            <Typography
-              variant="h2"
-              component="h1"
-              sx={{
-                fontWeight: 800,
-                letterSpacing: "-0.03em",
-                fontSize: { xs: "2.35rem", sm: "3rem", md: "3.7rem" },
-              }}
+    <Box
+      component="main"
+      sx={{
+        ...pageTypography,
+        overflow: "hidden",
+        "& .MuiButton-root": { fontWeight: 800 },
+        "& .MuiChip-root": { fontWeight: 700 },
+      }}
+    >
+      <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
+        <Stack spacing={{ xs: 4, md: 5 }} sx={{ py: { xs: 2.5, md: 4 } }}>
+          {/* Dashboard hero */}
+          <Box
+            component="section"
+            sx={{
+              position: "relative",
+              overflow: "hidden",
+              borderRadius: 4,
+              px: { xs: 2.5, sm: 4, md: 5 },
+              py: { xs: 3, sm: 3.5, md: 4 },
+              border: 1,
+              borderColor: "rgba(148,163,184,0.15)",
+              background:
+                "linear-gradient(135deg, rgba(15,23,42,0.64), rgba(30,41,59,0.24) 55%, rgba(37,99,235,0.07))",
+              boxShadow:
+                "inset 0 1px 0 rgba(255,255,255,0.045), 0 24px 70px rgba(2,6,23,0.18)",
+              isolation: "isolate",
+              "&::before": {
+                content: '""',
+                position: "absolute",
+                width: 430,
+                height: 430,
+                right: "22%",
+                top: "50%",
+                transform: "translate(50%, -50%)",
+                borderRadius: "50%",
+                background:
+                  "radial-gradient(circle, rgba(59,130,246,0.12), rgba(99,102,241,0.035) 42%, transparent 72%)",
+                filter: "blur(8px)",
+                animation: "dashboardAmbient 7s ease-in-out infinite",
+                pointerEvents: "none",
+              },
+              "@keyframes dashboardAmbient": {
+                "0%, 100%": {
+                  transform: "translate(50%, -50%) scale(0.92)",
+                  opacity: 0.55,
+                },
+                "50%": {
+                  transform: "translate(50%, -50%) scale(1.08)",
+                  opacity: 1,
+                },
+              },
+              "@media (prefers-reduced-motion: reduce)": {
+                "&::before": { animation: "none" },
+              },
+            }}
+          >
+            <Grid
+              container
+              spacing={{ xs: 3, md: 4 }}
+              sx={{ alignItems: "center", position: "relative", zIndex: 1 }}
             >
-              Nexora Dashboard
-            </Typography>
+              <Grid size={{ xs: 12, md: 6 }}>
+                <Stack
+                  spacing={1.55}
+                  alignItems={{ xs: "center", md: "flex-start" }}
+                  sx={{ textAlign: { xs: "center", md: "left" } }}
+                >
+                  <Typography
+                    variant="overline"
+                    color="primary"
+                    sx={{ fontWeight: 800, fontSize: "0.68rem" }}
+                  >
+                    NEXORA / COMMAND CENTER
+                  </Typography>
 
-            <Typography
-              variant="h6"
-              color="text.secondary"
-              sx={{ maxWidth: 760, fontWeight: 400, lineHeight: 1.6 }}
-            >
-              Explore Nexora's eight locked AI and Machine Learning models.
-              Available models are live, while upcoming capabilities are clearly
-              marked as coming soon.
-            </Typography>
-          </Stack>
+                  <Typography
+                    variant="h1"
+                    component="h1"
+                    sx={{
+                      fontWeight: 850,
+                      letterSpacing: "-0.045em",
+                      fontSize: {
+                        xs: "2.3rem",
+                        sm: "3rem",
+                        md: "3.65rem",
+                      },
+                      lineHeight: 1.03,
+                      background:
+                        "linear-gradient(100deg, #f8fafc 0%, #dbeafe 24%, #60a5fa 54%, #a78bfa 78%, #f8fafc 100%)",
+                      backgroundSize: "220% auto",
+                      WebkitBackgroundClip: "text",
+                      backgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      color: "transparent",
+                      animation:
+                        "dashboardTitleGradient 7s ease-in-out infinite",
+                      "@keyframes dashboardTitleGradient": {
+                        "0%, 100%": { backgroundPosition: "0% 50%" },
+                        "50%": { backgroundPosition: "100% 50%" },
+                      },
+                      "@media (prefers-reduced-motion: reduce)": {
+                        animation: "none",
+                      },
+                    }}
+                  >
+                    Nexora Dashboard
+                  </Typography>
 
+                  <Typography
+                    variant="body1"
+                    color="text.secondary"
+                    sx={{
+                      maxWidth: 570,
+                      fontSize: { xs: "0.95rem", sm: "1rem" },
+                      lineHeight: 1.62,
+                    }}
+                  >
+                    One command view for Nexora's AI and Machine Learning
+                    decision models.
+                  </Typography>
+
+                  <Stack
+                    direction="row"
+                    spacing={0.8}
+                    flexWrap="wrap"
+                    justifyContent={{ xs: "center", md: "flex-start" }}
+                    sx={{ pt: 0.3 }}
+                  >
+                    <Chip
+                      icon={<Layers3 size={14} />}
+                      label={`${models.length} Models`}
+                      size="small"
+                      variant="outlined"
+                      color="primary"
+                    />
+                    <Chip
+                      icon={<CheckCircle2 size={14} />}
+                      label={`${liveModels} Live`}
+                      size="small"
+                      variant="outlined"
+                      color="success"
+                    />
+                    <Chip
+                      icon={<Gauge size={14} />}
+                      label={`${Math.round(predictionReadiness)}% Ready`}
+                      size="small"
+                      variant="outlined"
+                    />
+                  </Stack>
+                </Stack>
+              </Grid>
+
+              <Grid size={{ xs: 12, md: 6 }}>
+                <Card
+                  elevation={0}
+                  sx={{
+                    ...glassCard,
+                    maxWidth: 530,
+                    mx: "auto",
+                    overflow: "hidden",
+                    animation:
+                      "dashboardIllustrationFloat 6s ease-in-out infinite, dashboardIllustrationGlow 5s ease-in-out infinite",
+                    "@keyframes dashboardIllustrationFloat": {
+                      "0%, 100%": { transform: "translateY(0)" },
+                      "50%": { transform: "translateY(-6px)" },
+                    },
+                    "@keyframes dashboardIllustrationGlow": {
+                      "0%, 100%": {
+                        boxShadow:
+                          "inset 0 1px 0 rgba(255,255,255,0.055), 0 22px 52px rgba(0,0,0,0.22), 0 0 18px rgba(59,130,246,0.03)",
+                      },
+                      "50%": {
+                        boxShadow:
+                          "inset 0 1px 0 rgba(255,255,255,0.08), 0 25px 58px rgba(0,0,0,0.27), 0 0 32px rgba(59,130,246,0.12)",
+                      },
+                    },
+                    "@media (prefers-reduced-motion: reduce)": {
+                      animation: "none",
+                    },
+                    "&:hover": {
+                      transform: "translateY(-8px) scale(1.01)",
+                    },
+                  }}
+                >
+                  <Box
+                    sx={{
+                      minHeight: { xs: 250, sm: 315, md: 365 },
+                      p: { xs: 1.5, sm: 2.5, md: 3 },
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      position: "relative",
+                      overflow: "hidden",
+                      "&::before": {
+                        content: '""',
+                        position: "absolute",
+                        width: 260,
+                        height: 260,
+                        borderRadius: "50%",
+                        background:
+                          "radial-gradient(circle, rgba(59,130,246,0.12), transparent 68%)",
+                        animation:
+                          "dashboardImageAura 5s ease-in-out infinite",
+                      },
+                      "@keyframes dashboardImageAura": {
+                        "0%, 100%": {
+                          transform: "scale(0.88)",
+                          opacity: 0.42,
+                        },
+                        "50%": {
+                          transform: "scale(1.08)",
+                          opacity: 0.85,
+                        },
+                      },
+                      "@media (prefers-reduced-motion: reduce)": {
+                        "&::before": { animation: "none" },
+                      },
+                    }}
+                  >
+                    <Box
+                      component="img"
+                      src={dashboardIllustration}
+                      alt="Flat vector illustration of analytics dashboard design"
+                      sx={{
+                        position: "relative",
+                        zIndex: 1,
+                        width: "100%",
+                        maxWidth: 480,
+                        maxHeight: { xs: 255, sm: 310, md: 350 },
+                        objectFit: "contain",
+                        display: "block",
+                        filter:
+                          "drop-shadow(0 18px 28px rgba(15,23,42,0.25))",
+                        transition:
+                          "transform 260ms ease, filter 260ms ease",
+                        "&:hover": {
+                          transform: "scale(1.025)",
+                          filter:
+                            "drop-shadow(0 22px 34px rgba(15,23,42,0.31))",
+                        },
+                        "@media (prefers-reduced-motion: reduce)": {
+                          transition: "none",
+                        },
+                      }}
+                    />
+
+                    <Typography
+                      variant="caption"
+                      sx={{
+                        position: "absolute",
+                        left: { xs: 13, sm: 17 },
+                        bottom: { xs: 10, sm: 14 },
+                        zIndex: 2,
+                        fontWeight: 800,
+                        color: "text.secondary",
+                        letterSpacing: "0.06em",
+                      }}
+                    >
+                      DECISION INTELLIGENCE CONTROL
+                    </Typography>
+                  </Box>
+                </Card>
+              </Grid>
+            </Grid>
+          </Box>
+
+          {/* KPI strip */}
           <Grid container spacing={2}>
-            <Grid size={{ xs: 12, sm: 4 }}>
-              <Card elevation={0} sx={{ height: "100%" }}>
-                <CardContent>
-                  <Typography variant="body2" color="text.secondary">
-                    AI Models
-                  </Typography>
-                  <Typography variant="h4" sx={{ mt: 0.5, fontWeight: 800 }}>
-                    {models.length}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Locked platform architecture
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-
-            <Grid size={{ xs: 12, sm: 4 }}>
-              <Card elevation={0} sx={{ height: "100%" }}>
-                <CardContent>
-                  <Typography variant="body2" color="text.secondary">
-                    Live Models
-                  </Typography>
-                  <Typography variant="h4" sx={{ mt: 0.5, fontWeight: 800 }}>
-                    {liveModels}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Currently available
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-
-            <Grid size={{ xs: 12, sm: 4 }}>
-              <Card elevation={0} sx={{ height: "100%" }}>
-                <CardContent>
-                  <Typography variant="body2" color="text.secondary">
-                    Platform Status
-                  </Typography>
-                  <Typography variant="h4" sx={{ mt: 0.5, fontWeight: 800 }}>
-                    Active
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Expanding model capabilities
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
+            {[
+              {
+                label: "AI Models",
+                value: models.length,
+                detail: "Locked architecture",
+                Icon: Brain,
+              },
+              {
+                label: "Live Models",
+                value: liveModels,
+                detail: "Currently available",
+                Icon: Activity,
+              },
+              {
+                label: "Platform Status",
+                value: "Active",
+                detail: "Capabilities expanding",
+                Icon: Sparkles,
+              },
+            ].map(({ label, value, detail, Icon }, index) => (
+              <Grid key={label} size={{ xs: 12, sm: 4 }}>
+                <Card
+                  elevation={0}
+                  sx={{
+                    ...glassCard,
+                    animation:
+                      "dashboardKpiReveal 550ms cubic-bezier(0.22,1,0.36,1) both",
+                    animationDelay: `${index * 80}ms`,
+                    "@keyframes dashboardKpiReveal": {
+                      from: { opacity: 0, transform: "translateY(12px)" },
+                      to: { opacity: 1, transform: "translateY(0)" },
+                    },
+                    "@media (prefers-reduced-motion: reduce)": {
+                      animation: "none",
+                    },
+                  }}
+                >
+                  <CardContent sx={{ p: { xs: 2, md: 2.35 } }}>
+                    <Stack direction="row" spacing={1.4} alignItems="center">
+                      <Box sx={iconTile}>
+                        <Icon size={21} strokeWidth={2} />
+                      </Box>
+                      <Box sx={{ minWidth: 0 }}>
+                        <Typography
+                          variant="caption"
+                          color="text.secondary"
+                          sx={{ fontWeight: 800 }}
+                        >
+                          {label}
+                        </Typography>
+                        <Typography
+                          variant="h4"
+                          sx={{
+                            mt: 0.15,
+                            fontWeight: 850,
+                            lineHeight: 1,
+                          }}
+                        >
+                          {value}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          color="text.secondary"
+                          sx={{ mt: 0.55 }}
+                        >
+                          {detail}
+                        </Typography>
+                      </Box>
+                    </Stack>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
           </Grid>
 
-          <Card elevation={0}>
-            <CardContent sx={{ p: { xs: 2.5, md: 3 } }}>
-              <Stack spacing={2.5}>
+          {/* Prediction readiness */}
+          <Card elevation={0} sx={glassCard}>
+            <CardContent sx={{ p: { xs: 2.3, md: 3 } }}>
+              <Stack spacing={2.4}>
                 <Stack
                   direction={{ xs: "column", sm: "row" }}
                   spacing={1.5}
@@ -117,37 +454,21 @@ function DashboardPage() {
                   <Box>
                     <Typography
                       variant="overline"
-                      color="primary.main"
-                      sx={{
-                        fontWeight: 800,
-                        letterSpacing: "0.08em",
-                      }}
+                      color="primary"
+                      sx={{ fontWeight: 800 }}
                     >
-                      Prediction Summary
+                      PREDICTION SUMMARY
                     </Typography>
-
                     <Typography
-                      variant="h5"
+                      variant="h4"
+                      component="h2"
                       sx={{
                         mt: 0.25,
-                        fontWeight: 800,
+                        fontWeight: 850,
+                        fontSize: { xs: "1.65rem", sm: "2rem" },
                       }}
                     >
                       Prediction readiness
-                    </Typography>
-
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                      sx={{
-                        mt: 0.5,
-                        maxWidth: 720,
-                        lineHeight: 1.6,
-                      }}
-                    >
-                      {liveModels} of {models.length} decision models are
-                      currently available for prediction. Additional
-                      capabilities are progressing toward production readiness.
                     </Typography>
                   </Box>
 
@@ -159,18 +480,15 @@ function DashboardPage() {
                   />
                 </Stack>
 
-                <Stack spacing={1.25}>
+                <Stack spacing={1.1}>
                   <Stack
                     direction="row"
-                    sx={{
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                    }}
+                    justifyContent="space-between"
+                    alignItems="center"
                   >
-                    <Typography variant="body2" sx={{ fontWeight: 700 }}>
-                      Platform prediction readiness
+                    <Typography variant="body2" sx={{ fontWeight: 750 }}>
+                      Platform readiness
                     </Typography>
-
                     <Typography variant="body2" color="text.secondary">
                       {liveModels} / {models.length}
                     </Typography>
@@ -182,24 +500,34 @@ function DashboardPage() {
                     sx={{
                       height: 8,
                       borderRadius: 999,
+                      backgroundColor: "rgba(96,165,250,0.08)",
+                      "& .MuiLinearProgress-bar": {
+                        borderRadius: 999,
+                        background:
+                          "linear-gradient(90deg, #2563eb, #60a5fa, #6366f1)",
+                      },
                     }}
                   />
                 </Stack>
 
-                <Grid container spacing={2}>
+                <Grid container spacing={1.5}>
                   <Grid size={{ xs: 12, sm: 6 }}>
                     <Box
                       sx={{
-                        p: 2,
+                        p: 1.8,
+                        borderRadius: 2.5,
                         border: 1,
-                        borderColor: "divider",
-                        borderRadius: 2,
+                        borderColor: "rgba(96,165,250,0.13)",
+                        background:
+                          "linear-gradient(135deg, rgba(59,130,246,0.07), rgba(99,102,241,0.025))",
                       }}
                     >
-                      <Typography variant="h5" sx={{ fontWeight: 800 }}>
+                      <Typography
+                        variant="h5"
+                        sx={{ fontWeight: 850, color: "primary.main" }}
+                      >
                         {liveModels}
                       </Typography>
-
                       <Typography variant="body2" color="text.secondary">
                         Prediction-ready models
                       </Typography>
@@ -209,16 +537,19 @@ function DashboardPage() {
                   <Grid size={{ xs: 12, sm: 6 }}>
                     <Box
                       sx={{
-                        p: 2,
+                        p: 1.8,
+                        borderRadius: 2.5,
                         border: 1,
-                        borderColor: "divider",
-                        borderRadius: 2,
+                        borderColor: "rgba(148,163,184,0.12)",
+                        background: "rgba(255,255,255,0.018)",
                       }}
                     >
-                      <Typography variant="h5" sx={{ fontWeight: 800 }}>
+                      <Typography
+                        variant="h5"
+                        sx={{ fontWeight: 850 }}
+                      >
                         {modelsInDevelopment}
                       </Typography>
-
                       <Typography variant="body2" color="text.secondary">
                         Models in development
                       </Typography>
@@ -229,32 +560,41 @@ function DashboardPage() {
             </CardContent>
           </Card>
 
+          {/* Model explorer */}
           <Stack spacing={2}>
             <Stack
               direction={{ xs: "column", sm: "row" }}
               spacing={1.5}
               sx={{
-                alignItems: "center",
+                alignItems: { xs: "flex-start", sm: "center" },
                 justifyContent: "space-between",
-                gap: 1,
-                minWidth: 0,
               }}
             >
               <Box>
                 <Typography
+                  variant="overline"
+                  color="primary"
+                  sx={{ fontWeight: 800 }}
+                >
+                  MODEL EXPLORER
+                </Typography>
+                <Typography
                   variant="h4"
                   component="h2"
-                  sx={{ fontWeight: 800 }}
+                  sx={{
+                    mt: 0.3,
+                    fontWeight: 850,
+                    fontSize: { xs: "1.65rem", sm: "2.1rem" },
+                  }}
                 >
                   AI & Machine Learning Models
                 </Typography>
                 <Typography
                   variant="body2"
                   color="text.secondary"
-                  sx={{ mt: 0.5 }}
+                  sx={{ mt: 0.35 }}
                 >
-                  Eight specialized models under one decision intelligence
-                  platform.
+                  Eight specialized models under one platform.
                 </Typography>
               </Box>
 
@@ -266,8 +606,8 @@ function DashboardPage() {
               />
             </Stack>
 
-            <Grid container spacing={3}>
-              {models.map((model) => {
+            <Grid container spacing={2}>
+              {models.map((model, index) => {
                 const available =
                   model.status === "available" && Boolean(model.route);
 
@@ -276,19 +616,20 @@ function DashboardPage() {
                     <Card
                       elevation={0}
                       sx={{
+                        ...glassCard,
                         height: "100%",
                         display: "flex",
                         flexDirection: "column",
-                        border: 1,
-                        borderColor: "divider",
-                        transition:
-                          "transform 180ms ease, border-color 180ms ease",
-                        "&:hover": available
-                          ? {
-                              transform: "translateY(-3px)",
-                              borderColor: "primary.main",
-                            }
-                          : undefined,
+                        animation:
+                          "dashboardModelReveal 600ms cubic-bezier(0.22,1,0.36,1) both",
+                        animationDelay: `${index * 65}ms`,
+                        "@keyframes dashboardModelReveal": {
+                          from: { opacity: 0, transform: "translateY(14px)" },
+                          to: { opacity: 1, transform: "translateY(0)" },
+                        },
+                        "@media (prefers-reduced-motion: reduce)": {
+                          animation: "none",
+                        },
                       }}
                     >
                       <CardContent
@@ -296,38 +637,47 @@ function DashboardPage() {
                           display: "flex",
                           flexDirection: "column",
                           flexGrow: 1,
-                          gap: { xs: 1.25, sm: 1.5 },
-                          p: { xs: 2, sm: 2.5 },
+                          gap: 1.3,
+                          p: { xs: 2, sm: 2.25 },
                         }}
                       >
                         <Stack
                           direction="row"
-                          spacing={1.5}
-                          sx={{
-                            alignItems: "center",
-                            justifyContent: "space-between",
-                            gap: 1,
-                            minWidth: 0,
-                          }}
+                          spacing={1.2}
+                          alignItems="center"
+                          justifyContent="space-between"
                         >
                           <Box
                             sx={{
-                              color: "primary.main",
-                              display: "flex",
-                              alignItems: "center",
-                              flexShrink: 0,
+                              ...iconTile,
+                              width: 44,
+                              height: 44,
+                              animation:
+                                "dashboardModelIcon 3.8s ease-in-out infinite",
+                              animationDelay: `${index * 0.12}s`,
+                              "@keyframes dashboardModelIcon": {
+                                "0%, 100%": { transform: "translateY(0)" },
+                                "50%": {
+                                  transform: "translateY(-2px) scale(1.035)",
+                                  boxShadow:
+                                    "0 0 20px rgba(59,130,246,0.13)",
+                                },
+                              },
+                              "@media (prefers-reduced-motion: reduce)": {
+                                animation: "none",
+                              },
                             }}
                           >
-                            <model.icon size={28} strokeWidth={2} />{" "}
+                            <model.icon size={22} strokeWidth={2} />
                           </Box>
 
                           <Chip
                             label={
                               model.status === "available"
-                                ? "Available"
+                                ? "Live"
                                 : model.status === "deferred"
                                   ? "Deferred"
-                                  : "Coming Soon"
+                                  : "Soon"
                             }
                             size="small"
                             color={available ? "success" : "default"}
@@ -337,9 +687,10 @@ function DashboardPage() {
 
                         <Typography
                           variant="h6"
+                          component="h3"
                           sx={{
-                            fontWeight: 800,
-                            fontSize: { xs: "1rem", sm: "1.1rem" },
+                            fontWeight: 820,
+                            fontSize: { xs: "1rem", sm: "1.06rem" },
                             lineHeight: 1.3,
                           }}
                         >
@@ -350,7 +701,7 @@ function DashboardPage() {
                           variant="body2"
                           color="text.secondary"
                           sx={{
-                            lineHeight: 1.6,
+                            lineHeight: 1.55,
                             flexGrow: 1,
                             fontSize: { xs: "0.82rem", sm: "0.875rem" },
                           }}
@@ -363,8 +714,34 @@ function DashboardPage() {
                             component={Link}
                             to={model.route}
                             variant="contained"
-                            endIcon={<ArrowRight size={18} strokeWidth={2} />}
-                            sx={{ alignSelf: "flex-start", mt: 1 }}
+                            endIcon={<ArrowRight size={17} strokeWidth={2} />}
+                            sx={{
+                              alignSelf: "flex-start",
+                              mt: 0.6,
+                              minHeight: 42,
+                              px: 2,
+                              borderRadius: 2.2,
+                              textTransform: "none",
+                              background:
+                                "linear-gradient(135deg, #2563eb 0%, #3b82f6 55%, #6366f1 100%)",
+                              boxShadow:
+                                "0 8px 22px rgba(37,99,235,0.2), inset 0 1px 0 rgba(255,255,255,0.2)",
+                              transition:
+                                "transform 180ms ease, box-shadow 180ms ease",
+                              "&:hover": {
+                                background:
+                                  "linear-gradient(135deg, #3b82f6 0%, #6366f1 100%)",
+                                transform: "translateY(-2px)",
+                                boxShadow:
+                                  "0 12px 28px rgba(37,99,235,0.3), 0 0 20px rgba(99,102,241,0.14)",
+                              },
+                              "& .MuiButton-endIcon": {
+                                transition: "transform 180ms ease",
+                              },
+                              "&:hover .MuiButton-endIcon": {
+                                transform: "translateX(3px)",
+                              },
+                            }}
                           >
                             Open Model
                           </Button>
@@ -372,10 +749,9 @@ function DashboardPage() {
                           <Typography
                             variant="caption"
                             color="text.secondary"
-                            sx={{ mt: 1 }}
+                            sx={{ mt: 0.6 }}
                           >
-                            Model interface will be available as development
-                            progresses.
+                            Coming through the development pipeline.
                           </Typography>
                         )}
                       </CardContent>
@@ -386,18 +762,16 @@ function DashboardPage() {
             </Grid>
           </Stack>
 
-          <Card elevation={0}>
-            <CardContent sx={{ p: { xs: 2.5, md: 3 } }}>
-              <Stack
-                direction="row"
-                spacing={1.5}
-                sx={{ alignItems: "center" }}
-              >
-                <Brain size={22} strokeWidth={2} />
+          {/* Compact footer note */}
+          <Card elevation={0} sx={glassCard}>
+            <CardContent sx={{ p: { xs: 2, md: 2.4 } }}>
+              <Stack direction="row" spacing={1.3} alignItems="center">
+                <Box sx={{ ...iconTile, width: 42, height: 42 }}>
+                  <Brain size={20} />
+                </Box>
                 <Typography variant="body2" color="text.secondary">
-                  Nexora's model architecture is locked to eight decision
-                  intelligence capabilities; models become live as their
-                  individual development reaches production readiness.
+                  Nexora's eight-model architecture becomes live as each
+                  individual capability reaches production readiness.
                 </Typography>
               </Stack>
             </CardContent>

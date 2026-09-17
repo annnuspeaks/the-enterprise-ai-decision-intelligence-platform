@@ -394,9 +394,57 @@
 - [x] API Documentation
 - [x] Master README
 - [ ] Screenshots
-- [ ] GitHub Release
+- [x] GitHub Release
 
 ---
+
+---
+
+# Phase A: UI Polish
+
+## A.1 — Landing Page Visual Refresh
+- [x] Remove training-dataset-derived customer records from landing-page visual
+- [x] Replace customer-data card with an animated flat/vector visual
+- [x] Redesign landing-page cards with premium glassmorphism
+- [x] Enlarge and subtly animate card icons
+- [x] Redesign CTA buttons (Explore Dashboard / Explore Models, etc.)
+- [x] Preserve existing responsiveness completely
+
+## A.2 — Global Page Design System
+- [ ] Redesign generic page titles into a classy/glassy visual style
+- [ ] Reduce unnecessary page subtitles and paragraphs
+- [ ] Apply consistent glassmorphism to internal cards
+- [ ] Establish consistent icon sizing, spacing, borders, glow and micro-interactions
+- [ ] Maintain one consistent Nexora visual language across all pages
+
+## A.3 — Content Simplification
+- [ ] Review every page's textual content
+- [ ] Remove unnecessary/excessive text
+- [ ] Convert useful information into visual/compact UI where appropriate
+- [ ] Remove training/development customer records presented as real entities
+- [ ] Keep only content that helps explain Nexora or its actual capabilities
+
+## A.4 — Page-by-Page Visual Polish
+- [ ] Home
+- [ ] About
+- [ ] Features
+- [ ] Technology
+- [ ] Dashboard
+- [ ] Contact
+- [ ] Existing Model 01 — Customer Segmentation
+- [ ] Existing Model 02 — Customer Churn Prediction
+
+## A.5 — Final UI Validation
+- [ ] Verify desktop layout
+- [ ] Verify mobile/tablet responsiveness is unchanged
+- [ ] Verify navigation and routing
+- [ ] Verify API/model functionality remains unchanged
+- [ ] Verify no development/debug content remains in presentation UI
+- [ ] Verify overall visual consistency
+- [ ] Final UI review
+
+## Phase A Status
+- [ ] UI Polish Complete
 
 # 🔵 PHASE 6 — ML Model 3: Customer Lifetime Value Prediction
 
