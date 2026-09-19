@@ -1,4 +1,5 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 import HomePage from "../pages/HomePage";
 import AboutPage from "../pages/AboutPage";
@@ -14,42 +15,59 @@ import CustomerChurnResultPage from "../models/customer-churn/pages/CustomerChur
 
 import ModelWorkspaceLayout from "../components/layout/ModelWorkspaceLayout/ModelWorkspaceLayout";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [pathname]);
+
+  return null;
+}
+
 function AppRoutes() {
   return (
-    <Routes>
-      {/* Global application pages */}
-      <Route path="/" element={<HomePage />} />
-      <Route path="/about" element={<AboutPage />} />
-      <Route path="/features" element={<FeaturesPage />} />
-      <Route path="/technology" element={<TechnologyPage />} />
-      <Route path="/dashboard" element={<DashboardPage />} />
-      <Route path="/contact" element={<ContactPage />} />
+    <>
+      <ScrollToTop />
+      <Routes>
+        {/* Global application pages */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/features" element={<FeaturesPage />} />
+        <Route path="/technology" element={<TechnologyPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/contact" element={<ContactPage />} />
 
-      {/* Existing segmentation workspace */}
-      <Route
-        path="/customer-segmentation"
-        element={<CustomerSegmentationPage />}
-      />
-
-      {/* Model workspace */}
-      <Route element={<ModelWorkspaceLayout />}>
-        <Route path="/customer-churn" element={<CustomerChurnPage />} />
-        
-        {/* Customer Churn Prediction page */}
+        {/* Existing segmentation workspace */}
         <Route
-          path="/customer-churn/predict"
-          element={<CustomerChurnPredictPage />}
+          path="/customer-segmentation"
+          element={<CustomerSegmentationPage />}
         />
-      </Route>
 
-      {/* Result pages */}
-      <Route
-        path="/customer-churn/result"
-        element={<CustomerChurnResultPage />}
-      />
+        {/* Model workspace */}
+        <Route element={<ModelWorkspaceLayout />}>
+          <Route path="/customer-churn" element={<CustomerChurnPage />} />
 
-      <Route path="*" element={<NotFoundPage />} />
-    </Routes>
+          {/* Customer Churn Prediction page */}
+          <Route
+            path="/customer-churn/predict"
+            element={<CustomerChurnPredictPage />}
+          />
+        </Route>
+
+        {/* Result pages */}
+        <Route
+          path="/customer-churn/result"
+          element={<CustomerChurnResultPage />}
+        />
+
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </>
   );
 }
 

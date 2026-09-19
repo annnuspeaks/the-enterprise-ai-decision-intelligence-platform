@@ -1,4 +1,3 @@
-// import { Github, Linkedin, Mail } from "lucide-react";
 import { Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import "./Footer.css";
@@ -8,10 +7,17 @@ const Footer = () => {
 
   return (
     <footer className="nexora-footer" id="contact">
+      <div className="nexora-footer__glow nexora-footer__glow--one" />
+      <div className="nexora-footer__glow nexora-footer__glow--two" />
+
       <div className="nexora-footer__inner">
         <div className="nexora-footer__top">
           <div className="nexora-footer__brand">
-            <Link to="/" aria-label="Nexora Home">
+            <Link
+              to="/"
+              aria-label="Nexora Home"
+              className="nexora-footer__brand-link"
+            >
               <img
                 src={
                   new URL("../../../assets/nexora-logo.png", import.meta.url)
@@ -22,22 +28,34 @@ const Footer = () => {
               />
             </Link>
 
-            <p>
-              Enterprise AI Decision Intelligence for customer and business
-              analytics.
-            </p>
+            <div className="nexora-footer__brand-copy">
+              <span className="nexora-footer__eyebrow">
+                ENTERPRISE AI · DECISION INTELLIGENCE
+              </span>
+              <p>
+                Enterprise AI Decision Intelligence for customer and business
+                analytics.
+              </p>
+            </div>
+
+            <div className="nexora-footer__brand-status">
+              <span className="nexora-footer__status-dot" />
+              <span>Decision intelligence platform</span>
+            </div>
           </div>
 
           <div className="nexora-footer__column">
             <h3>Quick Links</h3>
-            <a href="/#about">About</a>
-            <a href="/#features">Features</a>
-            <a href="/#technology">Technology</a>
+
+            <Link to="/about">About</Link>
+            <Link to="/features">Features</Link>
+            <Link to="/technology">Technology</Link>
             <Link to="/dashboard">Dashboard</Link>
           </div>
 
           <div className="nexora-footer__column">
             <h3>Our Other Products</h3>
+
             <a
               href="https://fraudmatrix.vercel.app/"
               target="_blank"
@@ -45,6 +63,7 @@ const Footer = () => {
             >
               Fraudmatrix | Fraud Detection System
             </a>
+
             <a
               href="https://churnmatrix.vercel.app/"
               target="_blank"
@@ -52,6 +71,7 @@ const Footer = () => {
             >
               Churnmatrix | Customer Churn Prediction
             </a>
+
             <span>MLOps Automated Training &amp; Deployment Pipeline</span>
             <span>RAG AI Assistant</span>
             <span>Recommendation System</span>
@@ -65,7 +85,9 @@ const Footer = () => {
               href="mailto:annu.speaks@outlook.com"
               className="nexora-footer__contact"
             >
-              <Mail size={17} strokeWidth={1.8} />
+              <span className="nexora-footer__contact-icon">
+                <Mail size={19} strokeWidth={1.9} />
+              </span>
               <span>annu.speaks@outlook.com</span>
             </a>
 
@@ -76,21 +98,22 @@ const Footer = () => {
               className="nexora-footer__contact"
               aria-label="Location: India"
             >
-              <svg
-                viewBox="0 0 24 24"
-                width="17"
-                height="17"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" />
-                <circle cx="12" cy="10" r="2.5" />
-              </svg>
-
+              <span className="nexora-footer__contact-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="19"
+                  height="19"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" />
+                  <circle cx="12" cy="10" r="2.5" />
+                </svg>
+              </span>
               <span>India</span>
             </a>
 
@@ -103,8 +126,8 @@ const Footer = () => {
               >
                 <svg
                   viewBox="0 0 24 24"
-                  width="19"
-                  height="19"
+                  width="22"
+                  height="22"
                   fill="currentColor"
                   aria-hidden="true"
                 >
@@ -120,8 +143,8 @@ const Footer = () => {
               >
                 <svg
                   viewBox="0 0 24 24"
-                  width="19"
-                  height="19"
+                  width="22"
+                  height="22"
                   fill="currentColor"
                   aria-hidden="true"
                 >
@@ -137,8 +160,8 @@ const Footer = () => {
               >
                 <svg
                   viewBox="0 0 24 24"
-                  width="19"
-                  height="19"
+                  width="22"
+                  height="22"
                   fill="currentColor"
                   aria-hidden="true"
                 >
@@ -153,15 +176,14 @@ const Footer = () => {
                 aria-label="WhatsApp"
                 className="nexora-footer__whatsapp"
               >
-                {/* WhatsApp icon */}
                 <svg
                   viewBox="0 0 24 24"
-                  width="19"
-                  height="19"
+                  width="22"
+                  height="22"
                   fill="currentColor"
                   aria-hidden="true"
                 >
-                  <path d="M12 2.25a9.72 9.72 0 0 0-8.43 14.56L2.25 21.75l5.12-1.3A9.75 9.75 0 1 0 12 2.25Zm0 17.45a7.7 7.7 0 0 1-3.92-1.07l-.28-.17-3.04.77.81-2.96-.18-.3A7.7 7.7 0 1 1 12 19.7Zm4.22-5.78c-.23-.12-1.36-.67-1.57-.75-.21-.08-.36-.12-.51.12-.15.23-.59.75-.72.9-.13.16-.27.17-.5.06-.23-.12-.96-.35-1.83-1.11-.68-.6-1.14-1.34-1.27-1.57-.13-.23-.01-.35.1-.46.1-.1.23-.27.35-.4.12-.14.15-.23.23-.39.08-.16.04-.29-.02-.41-.06-.12-.51-1.24-.7-1.7-.18-.44-.37-.38-.51-.39h-.43c-.15 0-.4.06-.61.29-.21.23-.8.78-.8 1.9s.82 2.2.93 2.35c.12.15 1.62 2.48 3.93 3.48.55.24.98.38 1.31.49.55.18 1.05.16 1.45.1.44-.07 1.36-.56 1.55-1.1.19-.54.19-1 .13-1.1-.05-.1-.2-.16-.43-.28Z" />
+                  <path d="M12 2.25a9.72 9.72 0 0 0-8.43 14.56L2.25 21.75l5.12-1.3A9.75 9.75 0 1 0 12 2.25Zm0 17.45a7.7 7.7 0 0 1-3.92-1.07l-.28-.17-3.04.77.81-2.96-.18-.3A7.7 7.7 0 1 1 12 19.7Zm4.22-5.78c-.23-.12-1.36-.67-1.57-.75-.21-.08-.36-.12-.51.12-.15.23-.59.75-.72.9-.13.16-.27.17-.5.06-.23-.12-.96-.35-1.83-1.11-.68-.6-1.14-1.34-1.27-1.57-.13-.23-.01-.35.1-.46.1-.1.23-.27.35-.4.12-.14.15-.23.23-.39.08-.16.04-.29-.02-.41-.06-.12-.51-1.24-.7-1.7-.18-.44-.37-.38-.51-.39h-.43c-.15 0-.4.06-.61.29-.21.23-.8.78-.8 1.9s.82 2.2.93 2.35c.12.15 1.62 2.48 3.93 3.48.55.24.98.38 1.31.49.55.18 1.36-.56 1.55-1.1.19-.54.19-1 .13-1.1-.05-.1-.2-.16-.43-.28Z" />
                 </svg>
               </a>
             </div>

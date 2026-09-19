@@ -53,32 +53,32 @@ const glassCardSx = {
   borderColor: (theme: Theme) =>
     theme.palette.mode === "dark"
       ? "rgba(148,163,184,0.15)"
-      : "rgba(37,99,235,0.11)",
+      : "rgba(15,23,42,0.10)",
   background: (theme: Theme) =>
     theme.palette.mode === "dark"
-      ? "linear-gradient(145deg, rgba(30,41,59,0.68), rgba(15,23,42,0.42) 55%, rgba(37,99,235,0.045))"
-      : "linear-gradient(145deg, rgba(255,255,255,0.86), rgba(248,250,252,0.62) 55%, rgba(239,246,255,0.72))",
+      ? "linear-gradient(145deg, rgba(30,41,59,0.68), rgba(15,23,42,0.48) 58%, rgba(37,99,235,0.055))"
+      : "linear-gradient(145deg, rgba(255,255,255,0.94), rgba(248,250,252,0.84) 58%, rgba(239,246,255,0.72))",
   backdropFilter: "blur(16px)",
   WebkitBackdropFilter: "blur(16px)",
   boxShadow: (theme: Theme) =>
     theme.palette.mode === "dark"
-      ? "inset 0 1px 0 rgba(255,255,255,0.055), 0 16px 38px rgba(0,0,0,0.14)"
-      : "inset 0 1px 0 rgba(255,255,255,0.9), 0 16px 38px rgba(15,23,42,0.065)",
+      ? "inset 0 1px 0 rgba(255,255,255,0.055), 0 16px 38px rgba(0,0,0,0.16)"
+      : "inset 0 1px 0 rgba(255,255,255,0.92), 0 10px 28px rgba(15,23,42,0.085), 0 2px 7px rgba(15,23,42,0.035)",
   transition:
-    "transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease",
+    "transform 200ms cubic-bezier(0.22,1,0.36,1), border-color 200ms ease, box-shadow 200ms ease",
   "&:hover": {
-    transform: "translateY(-4px)",
-    borderColor: "rgba(59,130,246,0.42)",
+    transform: "translateY(-3px)",
+    borderColor: "rgba(59,130,246,0.28)",
     boxShadow: (theme: Theme) =>
       theme.palette.mode === "dark"
-        ? "inset 0 1px 0 rgba(255,255,255,0.08), 0 18px 42px rgba(0,0,0,0.20), 0 0 24px rgba(59,130,246,0.08)"
-        : "inset 0 1px 0 rgba(255,255,255,0.95), 0 18px 42px rgba(15,23,42,0.09), 0 0 24px rgba(59,130,246,0.07)",
+        ? "inset 0 1px 0 rgba(255,255,255,0.08), 0 20px 44px rgba(0,0,0,0.22), 0 0 24px rgba(59,130,246,0.08)"
+        : "inset 0 1px 0 rgba(255,255,255,0.96), 0 16px 34px rgba(15,23,42,0.12), 0 0 22px rgba(59,130,246,0.055)",
   },
   "@media (prefers-reduced-motion: reduce)": {
     transition: "none",
     "&:hover": { transform: "none" },
   },
-};
+};;
 
 const iconBoxSx = {
   width: 50,

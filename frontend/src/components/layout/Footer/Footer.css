@@ -1,184 +1,642 @@
+/* =========================================================
+   Nexora — Premium Footer
+   Theme-aware • Glass • Responsive • Animated
+   ========================================================= */
+
 .nexora-footer {
+  position: relative;
+  isolation: isolate;
   width: 100%;
-  margin-top: 72px;
+  margin-top: 84px;
+  overflow: hidden;
   border-top: 1px solid rgba(15, 23, 42, 0.08);
-  background: rgba(248, 250, 252, 0.94);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(96, 165, 250, 0.08), transparent 28%),
+    radial-gradient(circle at 92% 20%, rgba(129, 140, 248, 0.07), transparent 25%),
+    linear-gradient(180deg, rgba(248, 250, 252, 0.97), rgba(241, 245, 249, 0.99));
   color: #0f172a;
   transition:
-    background-color 180ms ease,
-    border-color 180ms ease,
-    color 180ms ease;
+    background 240ms ease,
+    border-color 240ms ease,
+    color 240ms ease;
 }
 
 [data-theme="dark"] .nexora-footer {
-  border-top-color: rgba(255, 255, 255, 0.08);
-  background: rgba(5, 8, 18, 0.72);
-  color: #ffffff;
+  border-top-color: rgba(148, 163, 184, 0.1);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(59, 130, 246, 0.12), transparent 28%),
+    radial-gradient(circle at 92% 20%, rgba(99, 102, 241, 0.1), transparent 26%),
+    linear-gradient(180deg, rgba(5, 9, 20, 0.98), rgba(3, 6, 14, 1));
+  color: #f8fafc;
+}
+
+.nexora-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(96, 165, 250, 0.035) 50%,
+      transparent
+    );
+  opacity: 0.9;
+}
+
+.nexora-footer__glow {
+  position: absolute;
+  z-index: -1;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.14;
+  pointer-events: none;
+  animation: footerFloat 9s ease-in-out infinite alternate;
+}
+
+.nexora-footer__glow--one {
+  top: 30px;
+  left: -170px;
+  background: #60a5fa;
+}
+
+.nexora-footer__glow--two {
+  right: -180px;
+  bottom: 20px;
+  background: #818cf8;
+  animation-delay: -4s;
 }
 
 .nexora-footer__inner {
+  position: relative;
+  z-index: 1;
   width: min(1400px, calc(100% - 48px));
   margin: 0 auto;
 }
 
+/* ---------------------------------------------------------
+   Top layout
+   --------------------------------------------------------- */
+
 .nexora-footer__top {
   display: grid;
-  grid-template-columns: 1.3fr 0.8fr 1.4fr 0.9fr;
-  gap: 40px;
-  padding: 52px 0 42px;
+  grid-template-columns: 1.25fr 0.72fr 1.35fr 0.95fr;
+  gap: 28px;
+  padding: 58px 0 48px;
+}
+
+.nexora-footer__brand,
+.nexora-footer__column {
+  min-width: 0;
 }
 
 .nexora-footer__brand {
-  max-width: 360px;
+  max-width: 390px;
+}
+
+.nexora-footer__brand-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 210px;
+  min-height: 72px;
+  padding: 8px 20px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 22px 22px 22px 8px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 14px 34px rgba(15, 23, 42, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  text-decoration: none;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+[data-theme="dark"] .nexora-footer__brand-link {
+  border-color: rgba(148, 163, 184, 0.12);
+  background: rgba(15, 23, 42, 0.5);
+  box-shadow:
+    0 16px 38px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.nexora-footer__brand-link:hover {
+  transform: translateY(-3px);
+  border-color: rgba(59, 130, 246, 0.24);
+  box-shadow:
+    0 18px 40px rgba(15, 23, 42, 0.09),
+    0 0 28px rgba(59, 130, 246, 0.06);
+}
+
+.nexora-footer__logo {
+  width: 230px;
+  max-width: 100%;
+  height: 54px;
+  object-fit: contain;
+  display: block;
+}
+
+.nexora-footer__brand-copy {
+  margin-top: 20px;
+}
+
+.nexora-footer__eyebrow {
+  display: inline-block;
+  margin-bottom: 9px;
+  color: #2563eb;
+  font-family:
+    "JetBrains Mono",
+    "Cascadia Code",
+    "SFMono-Regular",
+    Consolas,
+    monospace;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+[data-theme="dark"] .nexora-footer__eyebrow {
+  color: #93c5fd;
 }
 
 .nexora-footer__brand p {
-  margin: 18px 0 0;
+  max-width: 350px;
+  margin: 0;
   color: rgba(15, 23, 42, 0.58);
-  font-size: 0.88rem;
-  line-height: 1.7;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  font-size: 0.86rem;
+  line-height: 1.75;
 }
 
 [data-theme="dark"] .nexora-footer__brand p {
-  color: rgba(255, 255, 255, 0.58);
+  color: rgba(248, 250, 252, 0.58);
 }
+
+.nexora-footer__brand-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 17px;
+  padding: 7px 11px;
+  border: 1px solid rgba(59, 130, 246, 0.12);
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.05);
+  color: rgba(15, 23, 42, 0.56);
+  font-family:
+    "Inter",
+    system-ui,
+    sans-serif;
+  font-size: 0.7rem;
+  font-weight: 650;
+}
+
+[data-theme="dark"] .nexora-footer__brand-status {
+  border-color: rgba(96, 165, 250, 0.12);
+  background: rgba(96, 165, 250, 0.06);
+  color: rgba(248, 250, 252, 0.56);
+}
+
+.nexora-footer__status-dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #60a5fa;
+  box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.1);
+  animation: footerPulse 2.4s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------
+   Columns / links
+   --------------------------------------------------------- */
 
 .nexora-footer__column {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 11px;
+  gap: 9px;
 }
 
 .nexora-footer__column h3 {
-  margin: 0 0 7px;
+  margin: 0 0 10px;
   color: rgba(15, 23, 42, 0.92);
-  font-size: 0.92rem;
+  font-family:
+    "Space Grotesk",
+    "Inter",
+    system-ui,
+    sans-serif;
+  font-size: 0.88rem;
   font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 [data-theme="dark"] .nexora-footer__column h3 {
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(248, 250, 252, 0.94);
 }
 
 .nexora-footer__column a,
-.nexora-footer__column span {
-  color: rgba(15, 23, 42, 0.58);
-  font-size: 0.84rem;
-  line-height: 1.5;
+.nexora-footer__column > span {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  color: rgba(15, 23, 42, 0.57);
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.55;
   text-decoration: none;
-  transition: color 180ms ease;
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
 }
 
 [data-theme="dark"] .nexora-footer__column a,
-[data-theme="dark"] .nexora-footer__column span {
-  color: rgba(255, 255, 255, 0.58);
+[data-theme="dark"] .nexora-footer__column > span {
+  color: rgba(248, 250, 252, 0.58);
+}
+
+.nexora-footer__column a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 1px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #60a5fa, #818cf8);
+  transition: width 200ms ease;
 }
 
 .nexora-footer__column a:hover {
-  color: #1976d2;
+  color: #2563eb;
+  transform: translateX(3px);
+}
+
+[data-theme="dark"] .nexora-footer__column a:hover {
+  color: #93c5fd;
+}
+
+.nexora-footer__column a:hover::before {
+  width: 100%;
+}
+
+/* ---------------------------------------------------------
+   Connect
+   --------------------------------------------------------- */
+
+.nexora-footer__connect {
+  padding-left: 4px;
 }
 
 .nexora-footer__contact {
   display: inline-flex !important;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  width: 100% !important;
+  max-width: 250px;
 }
 
-.nexora-footer__contact span {
+.nexora-footer__contact::before {
+  display: none !important;
+}
+
+.nexora-footer__contact-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  border: 1px solid rgba(59, 130, 246, 0.12);
+  border-radius: 12px;
+  background: rgba(59, 130, 246, 0.055);
+  color: #2563eb;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease,
+    box-shadow 220ms ease;
+}
+
+[data-theme="dark"] .nexora-footer__contact-icon {
+  border-color: rgba(96, 165, 250, 0.14);
+  background: rgba(96, 165, 250, 0.07);
+  color: #93c5fd;
+}
+
+.nexora-footer__contact:hover {
+  transform: translateX(0) !important;
+}
+
+.nexora-footer__contact:hover .nexora-footer__contact-icon {
+  transform: translateY(-2px) rotate(-4deg);
+  border-color: rgba(59, 130, 246, 0.3);
+  background: rgba(59, 130, 246, 0.1);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.1);
+}
+
+.nexora-footer__contact span:last-child {
   min-width: 0;
   overflow-wrap: anywhere;
 }
 
+/* Social icons are intentionally larger and more interactive. */
 .nexora-footer__socials {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 4px;
+  margin-top: 9px;
 }
 
 .nexora-footer__socials a {
+  position: relative;
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 15px;
   color: rgba(15, 23, 42, 0.72) !important;
-  background: rgba(15, 23, 42, 0.03);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.82),
+      rgba(226, 232, 240, 0.55)
+    );
+  box-shadow:
+    0 7px 18px rgba(15, 23, 42, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  transition:
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease,
+    box-shadow 220ms ease;
 }
 
 [data-theme="dark"] .nexora-footer__socials a {
-  border-color: rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.78) !important;
-  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(148, 163, 184, 0.13);
+  color: rgba(248, 250, 252, 0.82) !important;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(30, 41, 59, 0.7),
+      rgba(15, 23, 42, 0.52)
+    );
+  box-shadow:
+    0 9px 22px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.045);
+}
+
+.nexora-footer__socials a::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(96, 165, 250, 0.2) 50%,
+    transparent 65%
+  );
+  transform: translateX(-65%) rotate(8deg);
+  transition: transform 500ms ease;
+  pointer-events: none;
+}
+
+.nexora-footer__socials a svg {
+  position: relative;
+  z-index: 1;
+  transition:
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 220ms ease;
 }
 
 .nexora-footer__socials a:hover {
-  color: #1976d2 !important;
-  border-color: rgba(25, 118, 210, 0.35);
-  transform: translateY(-2px);
+  color: #2563eb !important;
+  border-color: rgba(59, 130, 246, 0.32);
+  background: rgba(59, 130, 246, 0.08);
+  transform: translateY(-5px);
+  box-shadow:
+    0 14px 26px rgba(59, 130, 246, 0.12),
+    0 0 0 4px rgba(59, 130, 246, 0.045);
 }
 
 [data-theme="dark"] .nexora-footer__socials a:hover {
-  color: #90caf9 !important;
+  color: #93c5fd !important;
+  border-color: rgba(96, 165, 250, 0.34);
+  background: rgba(96, 165, 250, 0.1);
+  box-shadow:
+    0 15px 28px rgba(0, 0, 0, 0.3),
+    0 0 24px rgba(59, 130, 246, 0.1);
 }
 
-[data-theme="dark"] .nexora-footer__column a:hover {
-  color: #90caf9;
+.nexora-footer__socials a:hover::before {
+  transform: translateX(65%) rotate(8deg);
 }
 
-.nexora-footer__logo {
-  width: 300px;
+.nexora-footer__socials a:hover svg {
+  transform: scale(1.13) rotate(-4deg);
 }
+
+.nexora-footer__socials a:active {
+  transform: translateY(-1px) scale(0.96);
+}
+
+.nexora-footer__whatsapp:hover svg {
+  animation: footerWiggle 500ms ease;
+}
+
+/* ---------------------------------------------------------
+   Bottom bar
+   --------------------------------------------------------- */
 
 .nexora-footer__bottom {
-  min-height: 68px;
+  position: relative;
+  min-height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   border-top: 1px solid rgba(15, 23, 42, 0.08);
-  color: rgba(15, 23, 42, 0.48);
-  font-size: 0.78rem;
+  color: rgba(15, 23, 42, 0.46);
+  font-family:
+    "Inter",
+    system-ui,
+    sans-serif;
+  font-size: 0.74rem;
+  line-height: 1.5;
 }
 
 [data-theme="dark"] .nexora-footer__bottom {
   border-top-color: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.48);
+  color: rgba(248, 250, 252, 0.46);
 }
 
-@media (max-width: 900px) {
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+
+@media (max-width: 1050px) {
   .nexora-footer__top {
-    grid-template-columns: 1fr 1fr;
-    gap: 36px;
+    grid-template-columns: 1.25fr 0.8fr 1.25fr;
   }
 
-  .nexora-footer__brand {
+  .nexora-footer__connect {
     grid-column: 1 / -1;
+    padding-left: 0;
+  }
+
+  .nexora-footer__connect .nexora-footer__socials {
+    margin-top: 4px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 760px) {
+  .nexora-footer {
+    margin-top: 64px;
+  }
+
   .nexora-footer__inner {
     width: min(100% - 32px, 1400px);
   }
 
   .nexora-footer__top {
+    grid-template-columns: 1fr 1fr;
+    gap: 34px 28px;
+    padding: 44px 0 38px;
+  }
+
+  .nexora-footer__brand {
+    grid-column: 1 / -1;
+    max-width: 100%;
+  }
+
+  .nexora-footer__brand-link {
+    min-width: 190px;
+  }
+
+  .nexora-footer__logo {
+    width: 205px;
+  }
+
+  .nexora-footer__bottom {
+    min-height: auto;
+    padding: 19px 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 520px) {
+  .nexora-footer__inner {
+    width: calc(100% - 24px);
+  }
+
+  .nexora-footer__top {
     grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 40px 0 32px;
+    gap: 29px;
+    padding: 38px 0 32px;
   }
 
   .nexora-footer__brand {
     grid-column: auto;
   }
 
-  .nexora-footer__bottom {
-    min-height: auto;
-    padding: 20px 0;
-    flex-direction: column;
-    align-items: flex-start;
+  .nexora-footer__brand-link {
+    width: 100%;
+    min-width: 0;
+    min-height: 68px;
+    justify-content: flex-start;
+    padding-inline: 16px;
+  }
+
+  .nexora-footer__logo {
+    width: 190px;
+    height: 48px;
+  }
+
+  .nexora-footer__column {
+    gap: 8px;
+  }
+
+  .nexora-footer__socials {
+    gap: 9px;
+  }
+
+  .nexora-footer__socials a {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nexora-footer,
+  .nexora-footer *,
+  .nexora-footer *::before,
+  .nexora-footer *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes footerFloat {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(28px, 14px, 0) scale(1.08);
+  }
+}
+
+@keyframes footerPulse {
+  0%,
+  100% {
+    opacity: 0.72;
+    transform: scale(0.92);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes footerWiggle {
+  0%,
+  100% {
+    transform: scale(1.13) rotate(-4deg);
+  }
+
+  35% {
+    transform: scale(1.18) rotate(5deg);
+  }
+
+  70% {
+    transform: scale(1.13) rotate(-2deg);
   }
 }

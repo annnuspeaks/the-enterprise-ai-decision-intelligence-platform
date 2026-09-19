@@ -21,6 +21,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import type { Theme } from "@mui/material/styles";
 
 import { Link } from "react-router-dom";
 
@@ -212,6 +213,40 @@ function DecisionIntelligenceIllustration() {
     </Box>
   );
 }
+
+const homeSecondaryCardSx = {
+  height: "100%",
+  borderRadius: 3,
+  border: 1,
+  borderColor: (theme: Theme) =>
+    theme.palette.mode === "dark"
+      ? "rgba(148,163,184,0.15)"
+      : "rgba(15,23,42,0.10)",
+  background: (theme: Theme) =>
+    theme.palette.mode === "dark"
+      ? "linear-gradient(145deg, rgba(30,41,59,0.68), rgba(15,23,42,0.48) 58%, rgba(37,99,235,0.055))"
+      : "linear-gradient(145deg, rgba(255,255,255,0.94), rgba(248,250,252,0.84) 58%, rgba(239,246,255,0.72))",
+  backdropFilter: "blur(14px)",
+  WebkitBackdropFilter: "blur(14px)",
+  boxShadow: (theme: Theme) =>
+    theme.palette.mode === "dark"
+      ? "inset 0 1px 0 rgba(255,255,255,0.055), 0 14px 34px rgba(0,0,0,0.16)"
+      : "inset 0 1px 0 rgba(255,255,255,0.92), 0 9px 25px rgba(15,23,42,0.075), 0 2px 6px rgba(15,23,42,0.03)",
+  transition:
+    "transform 200ms cubic-bezier(0.22,1,0.36,1), border-color 200ms ease, box-shadow 200ms ease",
+  "&:hover": {
+    transform: "translateY(-3px)",
+    borderColor: "rgba(59,130,246,0.28)",
+    boxShadow: (theme: Theme) =>
+      theme.palette.mode === "dark"
+        ? "inset 0 1px 0 rgba(255,255,255,0.08), 0 18px 40px rgba(0,0,0,0.21), 0 0 22px rgba(59,130,246,0.07)"
+        : "inset 0 1px 0 rgba(255,255,255,0.96), 0 15px 32px rgba(15,23,42,0.11), 0 0 20px rgba(59,130,246,0.05)",
+  },
+  "@media (prefers-reduced-motion: reduce)": {
+    transition: "none",
+    "&:hover": { transform: "none" },
+  },
+};
 
 function HomePage() {
   return (
@@ -1112,35 +1147,7 @@ function HomePage() {
                     <Grid key={name} size={{ xs: 6, sm: 4, md: 3 }}>
                       <Card
                         elevation={0}
-                        sx={{
-                          height: "100%",
-                          borderRadius: 2.5,
-                          border: 1,
-                          borderColor: (theme) =>
-                            theme.palette.mode === "dark"
-                              ? "rgba(255,255,255,0.10)"
-                              : "rgba(15,23,42,0.08)",
-                          background: (theme) =>
-                            theme.palette.mode === "dark"
-                              ? "linear-gradient(145deg, rgba(30,41,59,0.68), rgba(15,23,42,0.46) 48%, rgba(2,6,23,0.56))"
-                              : "linear-gradient(145deg, rgba(255,255,255,0.82), rgba(248,250,252,0.62) 48%, rgba(241,245,249,0.72))",
-                          backdropFilter: "blur(14px)",
-                          WebkitBackdropFilter: "blur(14px)",
-                          boxShadow: (theme) =>
-                            theme.palette.mode === "dark"
-                              ? "inset 0 1px 0 rgba(255,255,255,0.06)"
-                              : "inset 0 1px 0 rgba(255,255,255,0.82)",
-                          transition:
-                            "transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease",
-                          "&:hover": {
-                            transform: "translateY(-2px)",
-                            borderColor: "primary.main",
-                            boxShadow: (theme) =>
-                              theme.palette.mode === "dark"
-                                ? "inset 0 1px 0 rgba(255,255,255,0.08), 0 12px 28px rgba(0,0,0,0.16)"
-                                : "inset 0 1px 0 rgba(255,255,255,0.9), 0 12px 28px rgba(15,23,42,0.08)",
-                          },
-                        }}
+                        sx={{ ...homeSecondaryCardSx }}
                       >
                         <CardContent sx={{ p: 2 }}>
                           <Stack spacing={0.75}>
@@ -1225,36 +1232,7 @@ function HomePage() {
                     <Grid key={step.number} size={{ xs: 12, sm: 6, lg: 3 }}>
                       <Card
                         elevation={0}
-                        sx={{
-                          height: "100%",
-                          borderRadius: 3,
-                          border: 1,
-                          borderColor: (theme) =>
-                            theme.palette.mode === "dark"
-                              ? "rgba(255,255,255,0.10)"
-                              : "rgba(15,23,42,0.08)",
-                          background: (theme) =>
-                            theme.palette.mode === "dark"
-                              ? "linear-gradient(145deg, rgba(30,41,59,0.68), rgba(15,23,42,0.46) 48%, rgba(2,6,23,0.56))"
-                              : "linear-gradient(145deg, rgba(255,255,255,0.82), rgba(248,250,252,0.62) 48%, rgba(241,245,249,0.72))",
-                          backdropFilter: "blur(14px)",
-                          WebkitBackdropFilter: "blur(14px)",
-                          boxShadow: (theme) =>
-                            theme.palette.mode === "dark"
-                              ? "inset 0 1px 0 rgba(255,255,255,0.06)"
-                              : "inset 0 1px 0 rgba(255,255,255,0.82)",
-                          position: "relative",
-                          transition:
-                            "transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease",
-                          "&:hover": {
-                            transform: "translateY(-3px)",
-                            borderColor: "primary.main",
-                            boxShadow: (theme) =>
-                              theme.palette.mode === "dark"
-                                ? "inset 0 1px 0 rgba(255,255,255,0.08), 0 14px 30px rgba(0,0,0,0.16)"
-                                : "inset 0 1px 0 rgba(255,255,255,0.9), 0 14px 30px rgba(15,23,42,0.08)",
-                          },
-                        }}
+                        sx={{ ...homeSecondaryCardSx, position: "relative" }}
                       >
                         <CardContent sx={{ p: 2.5 }}>
                           <Stack
@@ -1432,7 +1410,7 @@ function HomePage() {
                           },
                         }}
                       >
-                        <CardContent sx={{ p: 2.5 }}>
+                        <CardContent sx={{ ...homeSecondaryCardSx }}>
                           <Box
                             sx={{
                               width: 56,
@@ -1524,7 +1502,38 @@ function HomePage() {
                   overflow: "hidden",
                 }}
               >
-                <CardContent sx={{ p: { xs: 2.5, md: 4 } }}>
+                <CardContent sx={{
+                  borderRadius: 3,
+                  border: 1,
+                  borderColor: (theme: Theme) =>
+                    theme.palette.mode === "dark"
+                      ? "rgba(148,163,184,0.15)"
+                      : "rgba(15,23,42,0.10)",
+                  background: (theme: Theme) =>
+                    theme.palette.mode === "dark"
+                      ? "linear-gradient(145deg, rgba(30,41,59,0.68), rgba(15,23,42,0.48) 58%, rgba(37,99,235,0.055))"
+                      : "linear-gradient(145deg, rgba(255,255,255,0.94), rgba(248,250,252,0.84) 58%, rgba(239,246,255,0.72))",
+                  backdropFilter: "blur(18px)",
+                  WebkitBackdropFilter: "blur(18px)",
+                  boxShadow: (theme: Theme) =>
+                    theme.palette.mode === "dark"
+                      ? "inset 0 1px 0 rgba(255,255,255,0.055), 0 14px 34px rgba(0,0,0,0.16)"
+                      : "inset 0 1px 0 rgba(255,255,255,0.92), 0 9px 25px rgba(15,23,42,0.075), 0 2px 6px rgba(15,23,42,0.03)",
+                  transition: "transform 200ms cubic-bezier(0.22,1,0.36,1), border-color 200ms ease, box-shadow 200ms ease",
+                  overflow: "hidden",
+                  "&:hover": {
+                    transform: "translateY(-3px)",
+                    borderColor: "rgba(59,130,246,0.28)",
+                    boxShadow: (theme: Theme) =>
+                      theme.palette.mode === "dark"
+                        ? "inset 0 1px 0 rgba(255,255,255,0.08), 0 18px 40px rgba(0,0,0,0.21), 0 0 22px rgba(59,130,246,0.07)"
+                        : "inset 0 1px 0 rgba(255,255,255,0.96), 0 15px 32px rgba(15,23,42,0.11), 0 0 20px rgba(59,130,246,0.05)",
+                  },
+                  "@media (prefers-reduced-motion: reduce)": {
+                    transition: "none",
+                    "&:hover": { transform: "none" },
+                  },
+                }}>
                   <Stack
                     direction={{ xs: "column", md: "row" }}
                     spacing={3}

@@ -192,17 +192,53 @@
   border: 1px solid rgba(148,163,184,0.15);
   border-radius: 22px;
   background:
-    linear-gradient(145deg, rgba(30,41,59,0.66), rgba(15,23,42,0.46) 58%, rgba(37,99,235,0.055));
+    linear-gradient(145deg, rgba(255,255,255,0.94), rgba(248,250,252,0.84) 58%, rgba(239,246,255,0.72));
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.055), 0 18px 44px rgba(0,0,0,0.16);
-  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.92),
+    0 10px 28px rgba(15,23,42,0.085),
+    0 2px 7px rgba(15,23,42,0.035);
+  transition:
+    transform 200ms cubic-bezier(0.22,1,0.36,1),
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+[data-theme="dark"] .churn-glass-card {
+  border-color: rgba(148,163,184,0.15);
+  background:
+    linear-gradient(145deg, rgba(30,41,59,0.68), rgba(15,23,42,0.48) 58%, rgba(37,99,235,0.055));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.055),
+    0 16px 38px rgba(0,0,0,0.16);
 }
 
 .churn-glass-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
+  border-color: rgba(59,130,246,0.28);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.96),
+    0 16px 34px rgba(15,23,42,0.12),
+    0 0 22px rgba(59,130,246,0.055);
+}
+
+[data-theme="dark"] .churn-glass-card:hover {
   border-color: rgba(96,165,250,0.34);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), 0 22px 48px rgba(0,0,0,0.21), 0 0 26px rgba(59,130,246,0.07);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 20px 44px rgba(0,0,0,0.22),
+    0 0 24px rgba(59,130,246,0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .churn-glass-card {
+    transition: none;
+  }
+
+  .churn-glass-card:hover {
+    transform: none;
+  }
 }
 
 .churn-icon-tile {
@@ -306,6 +342,59 @@
   border-color: rgba(96,165,250,0.70);
 }
 
+
+
+/* Secondary form panels — same card language as the rest of Nexora. */
+.customer-churn-form-group {
+  padding: clamp(18px, 2.4vw, 26px);
+  border: 1px solid rgba(15,23,42,0.10);
+  border-radius: 22px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.94), rgba(248,250,252,0.84) 58%, rgba(239,246,255,0.72));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.92),
+    0 9px 25px rgba(15,23,42,0.07),
+    0 2px 6px rgba(15,23,42,0.03);
+  transition:
+    transform 200ms cubic-bezier(0.22,1,0.36,1),
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+[data-theme="dark"] .customer-churn-form-group {
+  border-color: rgba(148,163,184,0.13);
+  background:
+    linear-gradient(145deg, rgba(30,41,59,0.58), rgba(15,23,42,0.42));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.045),
+    0 14px 32px rgba(0,0,0,0.16);
+}
+
+.customer-churn-form-group:hover {
+  transform: translateY(-2px);
+  border-color: rgba(59,130,246,0.24);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.96),
+    0 14px 30px rgba(15,23,42,0.10),
+    0 0 18px rgba(59,130,246,0.045);
+}
+
+[data-theme="dark"] .customer-churn-form-group:hover {
+  border-color: rgba(96,165,250,0.28);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    0 18px 38px rgba(0,0,0,0.21);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .customer-churn-form-group {
+    transition: none;
+  }
+
+  .customer-churn-form-group:hover {
+    transform: none;
+  }
+}
 @media (max-width: 900px) {
   .churn-illustration-card { min-height: 310px; }
   .churn-cta { align-items: flex-start; flex-direction: column; }

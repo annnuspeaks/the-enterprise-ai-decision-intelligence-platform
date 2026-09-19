@@ -1,123 +1,288 @@
+/* =========================================================
+   Nexora — Premium Floating Navbar
+   Theme-aware • Responsive • Existing TSX compatible
+   ========================================================= */
+
 .nexora-navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
   width: 100%;
-  background: rgba(255, 255, 255, 0.92);
-  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  padding: 12px 0;
+  background: transparent;
   color: #0f172a;
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
   transition:
-    background-color 180ms ease,
-    border-color 180ms ease,
-    color 180ms ease;
+    color 220ms ease,
+    padding 220ms ease;
 }
 
 [data-theme="dark"] .nexora-navbar {
-  background: rgba(5, 8, 18, 0.86);
-  border-bottom-color: rgba(255, 255, 255, 0.08);
-  color: #ffffff;
+  color: #f8fafc;
 }
 
 .nexora-navbar__inner {
-  width: min(1400px, calc(100% - 48px));
-  min-height: 76px;
+  width: min(1440px, calc(100% - 40px));
+  min-height: 68px;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 14px;
 }
 
+/* ---------------------------------------------------------
+   Brand / Logo
+   --------------------------------------------------------- */
+
 .nexora-navbar__brand {
+  position: relative;
+  flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
-  min-width: max-content;
+  justify-content: center;
+  min-width: 170px;
+  height: 58px;
+  padding: 6px 18px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 20px 20px 20px 8px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(248, 250, 252, 0.84)
+    );
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
   color: inherit;
   text-decoration: none;
+  overflow: hidden;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease;
+}
+
+[data-theme="dark"] .nexora-navbar__brand {
+  border-color: rgba(148, 163, 184, 0.12);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(17, 24, 39, 0.96),
+      rgba(8, 13, 26, 0.9)
+    );
+  box-shadow:
+    0 12px 34px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.nexora-navbar__brand::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 25%,
+    rgba(96, 165, 250, 0.14) 50%,
+    transparent 75%
+  );
+  transform: translateX(-120%);
+  transition: transform 600ms ease;
+  pointer-events: none;
+}
+
+.nexora-navbar__brand:hover {
+  transform: translateY(-1px);
+  border-color: rgba(59, 130, 246, 0.28);
+  box-shadow:
+    0 14px 34px rgba(15, 23, 42, 0.1),
+    0 0 0 1px rgba(59, 130, 246, 0.04);
+}
+
+[data-theme="dark"] .nexora-navbar__brand:hover {
+  border-color: rgba(96, 165, 250, 0.28);
+  box-shadow:
+    0 16px 38px rgba(0, 0, 0, 0.34),
+    0 0 24px rgba(59, 130, 246, 0.07);
+}
+
+.nexora-navbar__brand:hover::after {
+  transform: translateX(120%);
 }
 
 .nexora-navbar__logo {
-  width: 196px;
-  height: 58px;
+  width: 154px;
+  height: 48px;
   object-fit: contain;
   display: block;
+  position: relative;
+  z-index: 1;
 }
 
+/* ---------------------------------------------------------
+   Main navigation — screenshot-inspired pill
+   --------------------------------------------------------- */
+
 .nexora-navbar__nav {
+  flex: 1 1 auto;
+  min-width: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 7px;
+  gap: 4px;
   margin-left: auto;
+  padding: 7px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px) saturate(135%);
+  -webkit-backdrop-filter: blur(20px) saturate(135%);
+}
+
+[data-theme="dark"] .nexora-navbar__nav {
+  border-color: rgba(148, 163, 184, 0.12);
+  background: rgba(10, 15, 28, 0.78);
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.045);
 }
 
 .nexora-navbar__link {
+  position: relative;
   appearance: none;
   border: 0;
   background: transparent;
-  color: rgba(15, 23, 42, 0.76);
+  color: rgba(15, 23, 42, 0.68);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 40px;
-  padding: 0 13px;
-  border-radius: 9px;
-  font: inherit;
-  font-size: 0.88rem;
-  font-weight: 600;
+  min-height: 42px;
+  padding: 0 15px;
+  border-radius: 999px;
+  font-family:
+    "Space Grotesk",
+    "Inter",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  font-size: 0.86rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
   text-decoration: none;
   cursor: pointer;
+  white-space: nowrap;
   transition:
     color 180ms ease,
-    background-color 180ms ease;
+    background 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
 }
 
 [data-theme="dark"] .nexora-navbar__link {
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(248, 250, 252, 0.72);
+}
+
+.nexora-navbar__link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #60a5fa, #818cf8);
+  transform: translateX(-50%);
+  transition:
+    width 220ms ease,
+    opacity 220ms ease;
+  opacity: 0;
 }
 
 .nexora-navbar__link:hover {
   color: #0f172a;
-  background: rgba(15, 23, 42, 0.055);
+  background: rgba(59, 130, 246, 0.07);
+  transform: translateY(-1px);
 }
 
 [data-theme="dark"] .nexora-navbar__link:hover {
   color: #ffffff;
-  background: rgba(255, 255, 255, 0.055);
+  background: rgba(96, 165, 250, 0.09);
 }
 
-/* Active route is text-only; no light rectangular border. */
+.nexora-navbar__link:hover::after {
+  width: 22px;
+  opacity: 0.7;
+}
+
 .nexora-navbar__link.active,
 .nexora-navbar__link.is-active {
-  color: #1976d2;
-  background: transparent;
-  border: 0;
-  box-shadow: none;
+  color: #2563eb;
+  background: rgba(59, 130, 246, 0.09);
+  box-shadow:
+    inset 0 0 0 1px rgba(59, 130, 246, 0.06),
+    0 3px 12px rgba(59, 130, 246, 0.05);
 }
 
 [data-theme="dark"] .nexora-navbar__link.active,
 [data-theme="dark"] .nexora-navbar__link.is-active {
-  color: #90caf9;
+  color: #93c5fd;
+  background: rgba(96, 165, 250, 0.1);
+  box-shadow:
+    inset 0 0 0 1px rgba(96, 165, 250, 0.07),
+    0 4px 14px rgba(59, 130, 246, 0.07);
+}
+
+.nexora-navbar__link.active::after,
+.nexora-navbar__link.is-active::after {
+  width: 22px;
+  opacity: 1;
 }
 
 .nexora-navbar__link:focus,
 .nexora-navbar__link:focus-visible {
   outline: none;
-  box-shadow: none;
 }
 
 .nexora-navbar__link:focus-visible {
-  outline: 2px solid rgba(96, 165, 250, 0.9);
-  outline-offset: 2px;
+  box-shadow:
+    0 0 0 2px rgba(59, 130, 246, 0.24),
+    inset 0 0 0 1px rgba(59, 130, 246, 0.08);
 }
 
+/* ---------------------------------------------------------
+   Actions / Theme toggle
+   --------------------------------------------------------- */
+
 .nexora-navbar__actions {
-  margin-left: 8px;
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 10px;
+  gap: 8px;
+  margin-left: 0;
+  padding: 7px;
+  min-height: 54px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px) saturate(135%);
+  -webkit-backdrop-filter: blur(20px) saturate(135%);
+}
+
+[data-theme="dark"] .nexora-navbar__actions {
+  border-color: rgba(148, 163, 184, 0.12);
+  background: rgba(10, 15, 28, 0.78);
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.045);
 }
 
 .nexora-navbar__desktop-theme {
@@ -126,22 +291,36 @@
   justify-content: center;
 }
 
-.nexora-navbar__mobile-theme {
-  display: none;
+/* Keep ThemeToggle itself untouched; wrapper gives it the navbar treatment. */
+.nexora-navbar__desktop-theme > * {
+  transition: transform 180ms ease;
 }
+
+.nexora-navbar__desktop-theme:hover > * {
+  transform: scale(1.04);
+}
+
+/* ---------------------------------------------------------
+   Mobile menu button
+   --------------------------------------------------------- */
 
 .nexora-navbar__menu-button {
   display: none;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   align-items: center;
   justify-content: center;
   padding: 0;
-  border: 1px solid rgba(15, 23, 42, 0.14);
-  border-radius: 9px;
-  background: rgba(15, 23, 42, 0.04);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.045);
   color: #0f172a;
   cursor: pointer;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
 [data-theme="dark"] .nexora-navbar__menu-button {
@@ -150,89 +329,148 @@
   color: #ffffff;
 }
 
+.nexora-navbar__menu-button:hover {
+  transform: translateY(-1px);
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.24);
+  box-shadow: 0 7px 18px rgba(59, 130, 246, 0.08);
+}
+
+.nexora-navbar__menu-button:focus,
+.nexora-navbar__menu-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.14);
+}
+
+/* ---------------------------------------------------------
+   Mobile navigation
+   --------------------------------------------------------- */
+
 .nexora-navbar__mobile-nav {
   display: none;
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 1120px) {
   .nexora-navbar__inner {
-    width: min(100% - 32px, 1400px);
-    gap: 16px;
+    width: min(100% - 28px, 1440px);
+    gap: 10px;
+  }
+
+  .nexora-navbar__brand {
+    min-width: 148px;
+    padding-inline: 14px;
+  }
+
+  .nexora-navbar__logo {
+    width: 136px;
+  }
+
+  .nexora-navbar__link {
+    padding-inline: 11px;
+    font-size: 0.82rem;
   }
 
   .nexora-navbar__nav {
     gap: 2px;
   }
-
-  .nexora-navbar__link {
-    padding: 0 9px;
-    font-size: 0.82rem;
-  }
 }
 
-@media (max-width: 780px) {
+@media (max-width: 880px) {
+  .nexora-navbar {
+    padding: 9px 0;
+  }
+
   .nexora-navbar__inner {
-    min-height: 68px;
+    min-height: 62px;
+  }
+
+  .nexora-navbar__brand {
+    min-width: 132px;
+    height: 54px;
   }
 
   .nexora-navbar__logo {
-    width: 82px;
-    height: 52px;
+    width: 120px;
+    height: 44px;
   }
 
   .nexora-navbar__nav {
+    gap: 0;
+    padding: 5px;
+  }
+
+  .nexora-navbar__link {
+    min-height: 40px;
+    padding-inline: 8px;
+    font-size: 0.78rem;
+  }
+
+  .nexora-navbar__actions {
+    padding: 5px;
+    min-height: 50px;
+  }
+}
+
+@media (max-width: 760px) {
+  .nexora-navbar {
+    padding: 8px 0;
+  }
+
+  .nexora-navbar__inner {
+    width: calc(100% - 20px);
+    min-height: 58px;
+  }
+
+  .nexora-navbar__brand {
+    min-width: 0;
+    width: auto;
+    height: 52px;
+    padding: 5px 12px;
+    border-radius: 17px 17px 17px 7px;
+  }
+
+  .nexora-navbar__logo {
+    width: 104px;
+    height: 42px;
+  }
+
+  .nexora-navbar__nav,
+  .nexora-navbar__desktop-theme {
     display: none;
   }
 
   .nexora-navbar__actions {
     margin-left: auto;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
-
-  .nexora-navbar__desktop-theme {
-    display: none;
+    min-height: 48px;
+    padding: 4px;
+    border-radius: 999px;
   }
 
   .nexora-navbar__menu-button {
     display: inline-flex;
   }
 
-  .nexora-navbar__mobile-theme {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 46px;
-    margin-top: 5px;
-    padding: 0 14px;
-    border-top: 1px solid rgba(15, 23, 42, 0.08);
-    color: rgba(15, 23, 42, 0.82);
-    font-size: 0.9rem;
-    font-weight: 600;
-  }
-
-  [data-theme="dark"] .nexora-navbar__mobile-theme {
-    border-top-color: rgba(255, 255, 255, 0.08);
-    color: rgba(255, 255, 255, 0.86);
-  }
-
   .nexora-navbar__mobile-nav {
     position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+    top: calc(100% - 1px);
+    left: 10px;
+    right: 10px;
     display: flex;
     flex-direction: column;
     gap: 5px;
-    padding: 10px 16px 16px;
-    background: rgba(255, 255, 255, 0.96);
-    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    padding: 10px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow:
+      0 18px 44px rgba(15, 23, 42, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(22px) saturate(140%);
+    -webkit-backdrop-filter: blur(22px) saturate(140%);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-8px);
+    transform: translateY(-10px) scale(0.985);
+    transform-origin: top center;
     pointer-events: none;
     transition:
       opacity 180ms ease,
@@ -241,104 +479,134 @@
   }
 
   [data-theme="dark"] .nexora-navbar__mobile-nav {
-    background: rgba(5, 8, 18, 0.96);
-    border-bottom-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(148, 163, 184, 0.12);
+    background: rgba(8, 13, 26, 0.95);
+    box-shadow:
+      0 20px 48px rgba(0, 0, 0, 0.34),
+      inset 0 1px 0 rgba(255, 255, 255, 0.045);
   }
 
   .nexora-navbar__mobile-nav.is-open {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
     pointer-events: auto;
   }
 
   .nexora-navbar__mobile-link {
+    position: relative;
     min-height: 46px;
     display: flex;
     align-items: center;
-    padding: 0 14px;
-    border-radius: 9px;
-    color: rgba(15, 23, 42, 0.82);
+    padding: 0 15px;
+    border-radius: 14px;
+    color: rgba(15, 23, 42, 0.78);
     text-decoration: none;
+    font-family:
+      "Space Grotesk",
+      "Inter",
+      system-ui,
+      sans-serif;
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 650;
+    transition:
+      color 180ms ease,
+      background 180ms ease,
+      transform 180ms ease;
   }
 
   [data-theme="dark"] .nexora-navbar__mobile-link {
-    color: rgba(255, 255, 255, 0.86);
+    color: rgba(248, 250, 252, 0.82);
   }
 
   .nexora-navbar__mobile-link:hover {
-    background: rgba(15, 23, 42, 0.055);
+    color: #2563eb;
+    background: rgba(59, 130, 246, 0.08);
+    transform: translateX(3px);
   }
 
   [data-theme="dark"] .nexora-navbar__mobile-link:hover {
-    background: rgba(255, 255, 255, 0.055);
-  }
-}
-
-/* =========================================================
-   Nexora — Header Responsive Polish
-   ========================================================= */
-
-@media (max-width: 1050px) {
-  .nexora-navbar__inner {
-    width: calc(100% - 32px);
-    gap: 14px;
+    color: #93c5fd;
+    background: rgba(96, 165, 250, 0.09);
   }
 
-  .nexora-navbar__logo {
-    width: 88px;
-    height: 54px;
+  .nexora-navbar__mobile-link.is-active {
+    color: #2563eb;
+    background: rgba(59, 130, 246, 0.09);
+    box-shadow: inset 2px 0 0 #60a5fa;
   }
 
-  .nexora-navbar__nav {
-    gap: 0;
+  [data-theme="dark"] .nexora-navbar__mobile-link.is-active {
+    color: #93c5fd;
+    background: rgba(96, 165, 250, 0.1);
+    box-shadow: inset 2px 0 0 #60a5fa;
   }
 
-  .nexora-navbar__link {
-    padding-inline: 8px;
+  .nexora-navbar__mobile-theme {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 46px;
+    margin-top: 4px;
+    padding: 0 14px;
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
+    color: rgba(15, 23, 42, 0.72);
+    font-family:
+      "Inter",
+      system-ui,
+      sans-serif;
     font-size: 0.82rem;
-  }
-}
-
-@media (max-width: 780px) {
-  .nexora-navbar__inner {
-    width: calc(100% - 24px);
-    min-height: 68px;
+    font-weight: 650;
   }
 
-  .nexora-navbar__logo {
-    width: 82px;
-    height: 52px;
-  }
-
-  .nexora-navbar__nav {
-    display: none;
-  }
-
-  .nexora-navbar__actions {
-    margin-left: auto;
-  }
-
-  .nexora-navbar__menu-button {
-    display: inline-flex;
+  [data-theme="dark"] .nexora-navbar__mobile-theme {
+    border-top-color: rgba(255, 255, 255, 0.08);
+    color: rgba(248, 250, 252, 0.76);
   }
 }
 
 @media (max-width: 420px) {
   .nexora-navbar__inner {
-    width: calc(100% - 20px);
-    min-height: 64px;
+    width: calc(100% - 14px);
+  }
+
+  .nexora-navbar__brand {
+    height: 49px;
+    padding-inline: 9px;
   }
 
   .nexora-navbar__logo {
-    width: 76px;
-    height: 48px;
+    width: 96px;
+    height: 40px;
+  }
+
+  .nexora-navbar__actions {
+    min-height: 45px;
   }
 
   .nexora-navbar__menu-button {
-    width: 38px;
-    height: 38px;
+    width: 39px;
+    height: 39px;
+  }
+
+  .nexora-navbar__mobile-nav {
+    left: 7px;
+    right: 7px;
+    border-radius: 19px;
+  }
+}
+
+/* ---------------------------------------------------------
+   Accessibility
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .nexora-navbar,
+  .nexora-navbar *,
+  .nexora-navbar *::before,
+  .nexora-navbar *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
