@@ -86,7 +86,7 @@ function CustomerChurnResultPage() {
   return (
     <Box component="main" className="customer-churn-result-page">
       <section className="customer-churn-result-hero">
-        <Container maxWidth="xl">
+        <Container maxWidth="xl" className="customer-churn-container">
           <Stack spacing={2.5}>
             <Button
               component={Link}
