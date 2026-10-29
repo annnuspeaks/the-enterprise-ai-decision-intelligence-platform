@@ -121,9 +121,9 @@ Nexora is planned around **eight AI/ML capabilities**.
 |---|---|---|
 | 01 | **Customer Segmentation** | ✅ Available |
 | 02 | **Customer Churn Prediction** | ✅ Available |
-| 03 | **Customer Lifetime Value (CLV) Prediction** | 🔜 Coming Soon |
-| 04 | **Purchase Propensity Prediction** | ⏸️ Deferred |
-| 05 | **Anomaly Detection** | ⏸️ Deferred |
+| 03 | **Customer Lifetime Value (CLV) Prediction** | ✅ Available |
+| 04 | **Purchase Propensity Prediction** | ✅ Available |
+| 05 | **Anomaly Detection** | 🔜 Coming Soon |
 | 06 | **Sales & Demand Forecasting** | 🔜 Coming Soon |
 | 07 | **Recommendation System** | 🔜 Coming Soon |
 | 08 | **Dynamic Risk Scoring** | 🔜 Coming Soon |
