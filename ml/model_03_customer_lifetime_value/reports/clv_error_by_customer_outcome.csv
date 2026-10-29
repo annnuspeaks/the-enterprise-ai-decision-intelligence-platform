@@ -1,0 +1,9 @@
+model,customer_segment,customers,MAE,RMSE
+Random forest,Positive future value,536,1471.0522596528897,6437.848577705548
+Ridge regression,Positive future value,536,1525.7423765978908,4342.759275460098
+HistGradientBoosting,Positive future value,536,1534.0002245270484,6560.960620817106
+Dummy mean baseline,Positive future value,536,2361.659279393624,12341.797961662458
+Random forest,Zero future value,318,564.2542604205479,1216.5092484140098
+HistGradientBoosting,Zero future value,318,608.6347813565707,1960.2145213347023
+Ridge regression,Zero future value,318,808.5200315960059,3068.3044791010093
+Dummy mean baseline,Zero future value,318,1690.9586204572097,1690.95862045721

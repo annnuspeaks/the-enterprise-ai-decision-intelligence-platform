@@ -7,10 +7,10 @@ interface ModelNavigationProps {
   activeModel?: string;
 }
 
-const getStatusLabel = (status: string) => {
+const getStatusLabel = (status: string, hasRoute: boolean) => {
   if (status === "available") return "Live";
   if (status === "deferred") return "Deferred";
-  return "Coming soon";
+  return hasRoute ? "Preview" : "Coming soon";
 };
 
 function ModelNavigation({ activeModel }: ModelNavigationProps) {
@@ -38,7 +38,10 @@ function ModelNavigation({ activeModel }: ModelNavigationProps) {
           {MODEL_NAVIGATION.map((model) => {
             const Icon = model.icon;
             const isActive = activeModel === model.key;
-            const isAvailable = model.status === "available" && Boolean(model.route);
+            // A routed model can be opened even if it is still marked as a preview.
+            // Deferred models remain disabled until they are explicitly enabled.
+            const isAvailable =
+              Boolean(model.route) && model.status !== "deferred";
 
             if (!isAvailable) {
               return (
@@ -49,7 +52,7 @@ function ModelNavigation({ activeModel }: ModelNavigationProps) {
                   }`}
                   role="listitem"
                   aria-disabled="true"
-                  title={`${model.name} — ${getStatusLabel(model.status)}`}
+                  title={`${model.name} — ${getStatusLabel(model.status, Boolean(model.route))}`}
                 >
                   <span className="model-nav-hex__shape">
                     <Icon size={19} strokeWidth={1.9} />
@@ -67,12 +70,13 @@ function ModelNavigation({ activeModel }: ModelNavigationProps) {
                 className={`model-nav-hex${isActive ? " model-nav-hex--active" : ""}`}
                 role="listitem"
                 aria-label={model.name}
+                aria-current={isActive ? "page" : undefined}
               >
                 <span className="model-nav-hex__shape">
                   <Icon size={20} strokeWidth={1.9} />
                   <span className="model-nav-hex__name">{model.shortName}</span>
                   <span className="model-nav-hex__status">
-                    {getStatusLabel(model.status)}
+                    {getStatusLabel(model.status, Boolean(model.route))}
                   </span>
                 </span>
               </NavLink>

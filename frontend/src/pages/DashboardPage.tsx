@@ -120,9 +120,12 @@ const iconTile = {
 function DashboardPage() {
   const models = MODEL_REGISTRY;
 
-  const liveModels = models.filter(
-    (model) => model.status === "available",
-  ).length;
+  // CLV's prediction API and result workflow are now implemented, so count it
+  // as live on the dashboard without changing the shared registry or other UI.
+  const isLiveModel = (model: (typeof models)[number]) =>
+    model.status === "available" || model.key === "customer_lifetime_value";
+
+  const liveModels = models.filter(isLiveModel).length;
 
   const modelsInDevelopment = models.length - liveModels;
   const predictionReadiness =
@@ -652,8 +655,7 @@ function DashboardPage() {
 
             <Grid container spacing={2}>
               {models.map((model, index) => {
-                const available =
-                  model.status === "available" && Boolean(model.route);
+                const available = isLiveModel(model) && Boolean(model.route);
 
                 return (
                   <Grid key={model.key} size={{ xs: 12, sm: 6, lg: 3 }}>
@@ -719,7 +721,7 @@ function DashboardPage() {
 
                           <Chip
                             label={
-                              model.status === "available"
+                              available
                                 ? "Live"
                                 : model.status === "deferred"
                                   ? "Deferred"

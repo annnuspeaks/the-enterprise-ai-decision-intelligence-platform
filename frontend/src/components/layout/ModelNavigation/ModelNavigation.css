@@ -199,16 +199,16 @@
 
   .model-navigation__scroll {
     width: 100%;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 5px;
-    overflow-x: hidden;
+    overflow-x: auto;
     padding: 5px 0;
   }
 
   .model-nav-hex {
-    flex: 1 1 0;
-    min-width: 0;
-    max-width: 92px;
+    flex: 0 0 84px;
+    min-width: 84px;
+    max-width: 84px;
     height: 66px;
   }
 

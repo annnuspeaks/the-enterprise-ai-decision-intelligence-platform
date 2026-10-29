@@ -2,6 +2,7 @@ from fastapi import APIRouter
 
 from app.api.routes import (
     customer_churn,
+    customer_lifetime_value,
     customer_segmentation,
     health,
     model_registry,
@@ -20,4 +21,7 @@ api_router.include_router(
 )
 api_router.include_router(
     model_registry.router
+)
+api_router.include_router(
+    customer_lifetime_value.router
 )

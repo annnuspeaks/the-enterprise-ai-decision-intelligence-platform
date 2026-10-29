@@ -5,7 +5,9 @@ function ModelWorkspaceLayout() {
   const location = useLocation();
   const activeModel = location.pathname.startsWith("/customer-churn")
     ? "customer_churn"
-    : undefined;
+    : location.pathname.startsWith("/customer-lifetime-value")
+      ? "customer_lifetime_value"
+      : undefined;
 
   return (
     <>

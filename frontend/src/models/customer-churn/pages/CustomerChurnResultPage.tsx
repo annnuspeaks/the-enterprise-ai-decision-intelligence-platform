@@ -129,10 +129,16 @@ function CustomerChurnResultPage() {
               <Stack
                 direction={{ xs: "column", md: "row" }}
                 spacing={3}
-                alignItems={{ xs: "flex-start", md: "center" }}
-                justifyContent="space-between"
+                sx={{
+                  alignItems: { xs: "flex-start", md: "center" },
+                  justifyContent: "space-between",
+                }}
               >
-                <Stack direction="row" spacing={2} alignItems="center">
+                <Stack
+                  direction="row"
+                  spacing={2}
+                  sx={{ alignItems: "center" }}
+                >
                   <Box className="customer-churn-result-summary__icon">
                     {isChurnLike ? (
                       <CircleAlert size={30} strokeWidth={1.8} />
@@ -165,7 +171,11 @@ function CustomerChurnResultPage() {
               <Grid size={{ xs: 12, md: 5 }}>
                 <Box className="customer-churn-result-card customer-churn-result-card--visual">
                   <Stack spacing={2.5}>
-                    <Stack direction="row" spacing={1.5} alignItems="center">
+                    <Stack
+                      direction="row"
+                      spacing={1.5}
+                      sx={{ alignItems: "center" }}
+                    >
                       <Box className="customer-churn-result-card__icon">
                         <ShieldCheck size={21} strokeWidth={1.8} />
                       </Box>
@@ -189,8 +199,10 @@ function CustomerChurnResultPage() {
                     <Box>
                       <Stack
                         direction="row"
-                        justifyContent="space-between"
-                        sx={{ mb: 1 }}
+                        sx={{
+                          mb: 1,
+                          justifyContent: "space-between",
+                        }}
                       >
                         <Typography variant="body2" color="text.secondary">
                           Probability
@@ -220,7 +232,11 @@ function CustomerChurnResultPage() {
               <Grid size={{ xs: 12, md: 7 }}>
                 <Box className="customer-churn-result-card">
                   <Stack spacing={2.5}>
-                    <Stack direction="row" spacing={1.5} alignItems="center">
+                    <Stack
+                      direction="row"
+                      spacing={1.5}
+                      sx={{ alignItems: "center" }}
+                    >
                       <Box className="customer-churn-result-card__icon">
                         <Target size={21} strokeWidth={1.8} />
                       </Box>

@@ -95,6 +95,4 @@ export const MODEL_REGISTRY: ModelDefinition[] = [
   },
 ];
 
-export const MODEL_NAVIGATION = MODEL_REGISTRY.filter(
-  (model) => model.key !== "customer_segmentation",
-);
+export const MODEL_NAVIGATION = MODEL_REGISTRY;

@@ -1,0 +1,31 @@
+/* Customer Lifetime Value — Prediction Page */
+.clv-predict-page{min-height:100%;padding:clamp(20px,3vw,36px) 0 64px;color:var(--text-primary,#eef2ff)}
+.clv-predict-container{width:min(1120px,calc(100% - 40px));margin:0 auto}
+.clv-predict-back{display:inline-flex!important;align-items:center;gap:8px!important;margin:0 0 22px!important;padding:8px 12px!important;border-radius:10px!important;color:#b8c7e8!important;text-transform:none!important;font-weight:600!important}
+.clv-predict-back:hover{background:rgba(96,165,250,.1)!important;color:#fff!important}
+.clv-predict-hero{position:relative;overflow:hidden;margin-bottom:24px;padding:clamp(24px,4vw,38px);border:1px solid rgba(148,163,184,.2);border-radius:28px;background:radial-gradient(circle at 90% 0%,rgba(99,102,241,.2),transparent 34%),linear-gradient(135deg,rgba(15,29,57,.96),rgba(18,25,48,.94));box-shadow:0 20px 60px rgba(2,6,23,.2)}
+.clv-predict-hero:after{position:absolute;right:-65px;bottom:-105px;width:250px;height:250px;border:1px solid rgba(96,165,250,.14);border-radius:50%;box-shadow:0 0 0 28px rgba(96,165,250,.025),0 0 0 58px rgba(99,102,241,.025);content:"";pointer-events:none}
+.clv-predict-eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:12px;color:#93c5fd;font-family:"JetBrains Mono",monospace;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.clv-predict-title{margin:0 0 12px!important;color:#f8fafc;font-family:"Space Grotesk","Inter",sans-serif!important;font-size:clamp(1.8rem,4vw,2.6rem)!important;font-weight:700!important;letter-spacing:-.045em!important;line-height:1.12!important}
+.clv-predict-description{max-width:760px;margin:0!important;color:#bdc9df;font-size:.98rem!important;line-height:1.75!important}
+.clv-predict-note{display:flex;align-items:flex-start;gap:10px;margin-top:20px;padding:12px 14px;border:1px solid rgba(96,165,250,.2);border-radius:12px;background:rgba(37,99,235,.09);color:#c9d8f2;font-size:.84rem;line-height:1.6}
+.clv-predict-form-card{padding:clamp(20px,3.4vw,34px);border:1px solid rgba(148,163,184,.2);border-radius:24px;background:linear-gradient(145deg,rgba(15,23,42,.96),rgba(17,25,46,.94));box-shadow:0 16px 44px rgba(2,6,23,.16)}
+.clv-predict-form-heading{display:flex;align-items:center;gap:12px;margin:0 0 20px;color:#f1f5f9;font-family:"Space Grotesk","Inter",sans-serif;font-size:1.08rem;font-weight:700}
+.clv-predict-step{display:inline-flex;flex:0 0 32px;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid rgba(96,165,250,.3);border-radius:10px;background:rgba(59,130,246,.14);color:#93c5fd;font-family:"JetBrains Mono",monospace;font-size:.78rem}
+.clv-predict-input .MuiInputLabel-root{color:#aebbd0}.clv-predict-input .MuiInputLabel-root.Mui-focused{color:#93c5fd}
+.clv-predict-input .MuiOutlinedInput-root{border-radius:13px;background:rgba(2,6,23,.24);color:#f1f5f9;transition:background 160ms ease,box-shadow 160ms ease}
+.clv-predict-input .MuiOutlinedInput-notchedOutline{border-color:rgba(148,163,184,.28)}
+.clv-predict-input .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline{border-color:rgba(147,197,253,.62)}
+.clv-predict-input .MuiOutlinedInput-root.Mui-focused{background:rgba(30,58,138,.13);box-shadow:0 0 0 3px rgba(59,130,246,.1)}
+.clv-predict-input .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline{border-color:#60a5fa;border-width:1px}
+.clv-predict-input .MuiFormHelperText-root{margin-left:2px;color:#91a1ba;font-size:.72rem;line-height:1.5}.clv-predict-input .MuiFormHelperText-root.Mui-error{color:#fca5a5}
+.clv-predict-disclaimer{margin-top:22px!important;color:#91a1ba;font-size:.8rem!important;line-height:1.65!important}
+.clv-predict-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:12px;margin-top:26px}
+.clv-predict-reset{min-height:48px!important;padding:10px 18px!important;border:1px solid rgba(148,163,184,.32)!important;border-radius:12px!important;color:#d6e0ef!important;text-transform:none!important;font-weight:650!important}
+.clv-predict-reset:hover{border-color:rgba(147,197,253,.65)!important;background:rgba(148,163,184,.08)!important}
+.clv-predict-submit{min-width:190px!important;min-height:48px!important;padding:11px 20px!important;border-radius:12px!important;background:linear-gradient(110deg,#2563eb,#4f46e5 58%,#7c3aed)!important;box-shadow:0 8px 24px rgba(79,70,229,.25)!important;color:#fff!important;text-transform:none!important;font-weight:700!important;transition:transform 160ms ease,box-shadow 160ms ease,filter 160ms ease!important}
+.clv-predict-submit:hover{box-shadow:0 12px 30px rgba(79,70,229,.35)!important;filter:brightness(1.08);transform:translateY(-1px)}
+.clv-predict-submit.Mui-disabled{background:rgba(71,85,105,.55)!important;box-shadow:none!important;color:#9aa8bd!important}
+.clv-predict-error{margin-top:18px!important;border-radius:12px!important}
+@media(max-width:640px){.clv-predict-container{width:min(calc(100% - 28px),1120px)}.clv-predict-page{padding-top:18px}.clv-predict-hero{margin-bottom:18px;border-radius:20px}.clv-predict-form-card{border-radius:20px}.clv-predict-actions{flex-direction:column-reverse}.clv-predict-reset,.clv-predict-submit{width:100%}}
+@media(prefers-reduced-motion:reduce){.clv-predict-input .MuiOutlinedInput-root,.clv-predict-submit{transition:none!important}.clv-predict-submit:hover{transform:none}}

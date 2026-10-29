@@ -1,0 +1,765 @@
+.customer-lifetime-value-page { overflow: hidden; }
+.clv-hero { position: relative; padding: clamp(48px, 6vw, 88px) 0 clamp(54px, 7vw, 100px); }
+.clv-hero__content { max-width: 760px; }
+.clv-hero__eyebrow { align-self: flex-start; border-color: rgba(25,118,210,.42) !important; color: var(--mui-palette-primary-main) !important; font-weight: 700 !important; letter-spacing: .025em; }
+.clv-hero__title { max-width: 850px; font-size: clamp(2.8rem, 5.7vw, 5.45rem) !important; line-height: .99 !important; font-weight: 850 !important; letter-spacing: -.06em !important; }
+.clv-hero__title span { display: block; color: var(--mui-palette-primary-main); }
+.clv-hero__subtitle { max-width: 680px; line-height: 1.35 !important; font-weight: 600 !important; letter-spacing: -.025em !important; }
+.clv-hero__description { max-width: 680px; line-height: 1.8 !important; }
+.clv-hero__actions { margin-top: 6px; }
+.clv-hero__actions .MuiButton-root { min-height: 48px; border-radius: 12px; text-transform: none; font-weight: 750; }
+.clv-hero__badges { margin-top: 2px; }
+.clv-hero__badges .MuiChip-root { border-color: rgba(100,116,139,.24); font-weight: 650; }
+.clv-hero__visual { min-height: 450px; position: relative; display: grid; place-items: center; isolation: isolate; }
+.clv-hero__glow { position: absolute; z-index: -1; width: 78%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(25,118,210,.16), rgba(25,118,210,.045) 48%, transparent 72%); filter: blur(8px); }
+.clv-hero__artwork { display: block; width: 100%; max-width: 680px; max-height: 540px; object-fit: contain; filter: drop-shadow(0 24px 35px rgba(15,23,42,.12)); }
+.clv-hero__visual-caption { position: absolute; left: 50%; bottom: 4px; transform: translateX(-50%); display: flex; align-items: center; gap: 9px; width: max-content; max-width: 96%; padding: 11px 15px; border: 1px solid rgba(100,116,139,.18); border-radius: 999px; background: var(--mui-palette-background-paper); box-shadow: 0 8px 28px rgba(15,23,42,.08); color: var(--mui-palette-text-secondary); font-size: .78rem; font-weight: 650; }
+.clv-hero__visual-caption svg { color: var(--mui-palette-primary-main); flex-shrink: 0; }
+.clv-hero__visual-caption b { color: var(--mui-palette-primary-main); padding: 0 4px; }
+.clv-trust-strip { padding: 24px 0; border-top: 1px solid rgba(100,116,139,.13); border-bottom: 1px solid rgba(100,116,139,.13); background: rgba(100,116,139,.035); }
+.clv-trust-item { min-height: 62px; display: flex; align-items: center; justify-content: center; gap: 13px; }
+.clv-trust-item > svg { color: var(--mui-palette-primary-main); flex-shrink: 0; }
+.clv-trust-item strong, .clv-trust-item span { display: block; }
+.clv-trust-item strong { font-size: .92rem; font-weight: 800; }
+.clv-trust-item span { margin-top: 3px; color: var(--mui-palette-text-secondary); font-size: .77rem; }
+.clv-section { padding: clamp(64px, 7vw, 100px) 0; }
+.clv-section--soft { border-top: 1px solid rgba(100,116,139,.1); border-bottom: 1px solid rgba(100,116,139,.1); background: rgba(100,116,139,.035); }
+.clv-section__heading { max-width: 850px; }
+.clv-section__heading h2 { font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.06; font-weight: 830; letter-spacing: -.045em; }
+.clv-section__heading p { max-width: 760px; line-height: 1.75; }
+.clv-feature-card, .clv-step-card, .clv-input-card { height: 100%; padding: 27px; border: 1px solid rgba(100,116,139,.16); border-radius: 22px; background: var(--mui-palette-background-paper); transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease; }
+.clv-feature-card:hover, .clv-input-card:hover { transform: translateY(-4px); border-color: rgba(25,118,210,.35); box-shadow: 0 16px 38px rgba(15,23,42,.07); }
+[data-theme="dark"] .clv-feature-card, [data-theme="dark"] .clv-step-card, [data-theme="dark"] .clv-input-card { background: rgba(255,255,255,.025); border-color: rgba(255,255,255,.09); }
+.clv-feature-card__icon { width: 48px; height: 48px; margin-bottom: 20px; display: grid; place-items: center; border-radius: 15px; color: var(--mui-palette-primary-main); background: rgba(25,118,210,.09); }
+.clv-feature-card h3 { margin-bottom: 9px; font-weight: 800; letter-spacing: -.02em; }
+.clv-feature-card p, .clv-step-card p { line-height: 1.75; }
+.clv-step-card { display: flex; flex-direction: column; gap: 14px; }
+.clv-step-card__number { color: var(--mui-palette-primary-main); font-size: .82rem; font-weight: 850; letter-spacing: .14em; }
+.clv-step-card h3 { font-weight: 800; letter-spacing: -.025em; }
+.clv-input-card__heading { display: flex; align-items: center; gap: 11px; margin-bottom: 22px; }
+.clv-input-card__heading svg { color: var(--mui-palette-primary-main); }
+.clv-input-card__heading h3 { font-weight: 800; }
+.clv-input-card__item { display: flex; align-items: center; gap: 10px; color: var(--mui-palette-text-secondary); font-size: .9rem; }
+.clv-input-card__item span { width: 7px; height: 7px; border-radius: 50%; background: var(--mui-palette-primary-main); flex-shrink: 0; }
+.clv-definition-note { display: flex; align-items: flex-start; gap: 15px; margin-top: 25px; padding: 23px 25px; border: 1px solid rgba(25,118,210,.2); border-radius: 18px; background: rgba(25,118,210,.045); }
+.clv-definition-note__icon { width: 40px; height: 40px; display: grid; place-items: center; flex-shrink: 0; border-radius: 12px; color: var(--mui-palette-primary-main); background: rgba(25,118,210,.1); }
+.clv-definition-note h3 { margin-bottom: 5px; font-weight: 800; }
+.clv-definition-note p { line-height: 1.75; }
+.clv-bottom-cta { padding: 0 0 clamp(64px, 7vw, 100px); }
+.clv-bottom-cta__inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: clamp(26px, 4vw, 44px); border: 1px solid rgba(25,118,210,.2); border-radius: 26px; background: radial-gradient(circle at 95% 15%, rgba(25,118,210,.12), transparent 36%), rgba(25,118,210,.025); }
+.clv-bottom-cta__inner h2 { margin: 6px 0 10px; font-size: clamp(1.7rem, 3.4vw, 2.6rem); line-height: 1.1; font-weight: 830; letter-spacing: -.04em; }
+.clv-bottom-cta__inner p { max-width: 720px; line-height: 1.7; }
+.clv-bottom-cta__inner .MuiButton-root { min-width: 180px; min-height: 48px; border-radius: 12px; text-transform: none; font-weight: 750; }
+@media (max-width: 900px) { .clv-hero__visual { min-height: 340px; } .clv-bottom-cta__inner { align-items: flex-start; flex-direction: column; } }
+@media (max-width: 600px) { .clv-hero { padding-top: 42px; } .clv-hero__visual { min-height: 270px; } .clv-hero__visual-caption { font-size: .68rem; padding: 9px 12px; } .clv-trust-item { justify-content: flex-start; padding: 4px 8px; } .clv-feature-card, .clv-step-card, .clv-input-card { padding: 23px; } .clv-definition-note { padding: 19px; } }
+@media (prefers-reduced-motion: reduce) { .clv-feature-card, .clv-input-card { transition: none; } .clv-feature-card:hover, .clv-input-card:hover { transform: none; } }
+
+
+/* Keyboard focus visibility for the landing-page calls to action. */
+.clv-hero__actions .MuiButton-root:focus-visible,
+.clv-bottom-cta__inner .MuiButton-root:focus-visible {
+  outline: 3px solid var(--mui-palette-primary-main);
+  outline-offset: 3px;
+}
+
+.clv-hero__artwork {
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  .clv-hero__visual-caption {
+    white-space: normal;
+    width: max-content;
+    text-align: center;
+  }
+}
+
+
+/* Model 03 visual polish: align the CLV landing page with the Customer Churn workspace. */
+.customer-lifetime-value-page {
+  --clv-border: rgba(148, 163, 184, 0.15);
+  --clv-blue: #60a5fa;
+}
+
+.customer-lifetime-value-page .MuiTypography-root {
+  font-family: "Inter", "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+}
+
+.customer-lifetime-value-page .MuiTypography-h1,
+.customer-lifetime-value-page .MuiTypography-h2,
+.customer-lifetime-value-page .MuiTypography-h3,
+.customer-lifetime-value-page .MuiTypography-h4,
+.customer-lifetime-value-page .MuiTypography-h5,
+.customer-lifetime-value-page .MuiTypography-h6 {
+  font-family: "Space Grotesk", "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
+  letter-spacing: -0.025em;
+}
+
+.customer-lifetime-value-page .MuiTypography-overline,
+.customer-lifetime-value-page .MuiTypography-caption {
+  font-family: "JetBrains Mono", "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+  letter-spacing: 0.055em;
+}
+
+/* Bordered glass hero block, matching the Model 02 landing page. */
+.clv-hero > .MuiContainer-root {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(20px, 4vw, 34px);
+  border: 1px solid var(--clv-border);
+  border-radius: 28px;
+  background:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.68), rgba(30, 41, 59, 0.28) 55%, rgba(37, 99, 235, 0.07));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.045),
+    0 24px 70px rgba(2, 6, 23, 0.18);
+}
+
+.clv-hero__content > .MuiChip-root {
+  align-self: flex-start;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.clv-gradient-title {
+  font-weight: 850 !important;
+  letter-spacing: -0.045em !important;
+  line-height: 1.04 !important;
+  font-size: clamp(2.35rem, 5vw, 3.8rem) !important;
+  background: linear-gradient(100deg, #f8fafc 0%, #dbeafe 25%, #60a5fa 54%, #a78bfa 78%, #f8fafc 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: clvTitleGradient 7s ease-in-out infinite;
+}
+
+.clv-hero__title span {
+  display: block;
+  color: inherit;
+}
+
+@keyframes clvTitleGradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.clv-hero__subtitle {
+  line-height: 1.5 !important;
+}
+
+.clv-hero__description {
+  line-height: 1.65 !important;
+}
+
+/* Give the artwork its own subtle glass card and scale it down slightly. */
+.clv-hero__visual {
+  min-height: 350px;
+  overflow: hidden;
+  padding: clamp(12px, 2vw, 24px);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.11), transparent 62%),
+    rgba(15, 23, 42, 0.25);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 20px 48px rgba(0, 0, 0, 0.18);
+  animation: clvIllustrationFloat 6s ease-in-out infinite, clvIllustrationGlow 5s ease-in-out infinite;
+}
+
+.clv-hero__artwork {
+  width: 100%;
+  max-width: 560px;
+  max-height: 340px;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 30px rgba(15, 23, 42, 0.28));
+  transition: transform 260ms ease, filter 260ms ease;
+}
+
+.clv-hero__visual:hover .clv-hero__artwork {
+  transform: scale(1.02);
+  filter: drop-shadow(0 22px 36px rgba(15, 23, 42, 0.34));
+}
+
+.clv-hero__visual-caption {
+  bottom: 11px;
+  max-width: calc(100% - 28px);
+  background: rgba(15, 23, 42, 0.82);
+  border-color: rgba(148, 163, 184, 0.14);
+  color: rgba(148, 163, 184, 0.85);
+  white-space: normal;
+  text-align: center;
+}
+
+.clv-hero__actions .MuiButton-contained,
+.clv-bottom-cta__inner .MuiButton-contained {
+  color: #fff;
+  background: linear-gradient(100deg, #2563eb 0%, #4f46e5 52%, #7c3aed 100%);
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  font-weight: 800;
+}
+
+.clv-hero__actions .MuiButton-root,
+.clv-bottom-cta__inner .MuiButton-root {
+  text-transform: none;
+}
+
+@keyframes clvIllustrationFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes clvIllustrationGlow {
+  0%, 100% {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 20px 48px rgba(0, 0, 0, 0.18), 0 0 16px rgba(59, 130, 246, 0.025);
+  }
+  50% {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 24px 56px rgba(0, 0, 0, 0.23), 0 0 30px rgba(59, 130, 246, 0.10);
+  }
+}
+
+@media (max-width: 900px) {
+  .clv-hero__visual { min-height: 310px; }
+}
+
+@media (max-width: 600px) {
+  .clv-hero > .MuiContainer-root { border-radius: 22px; }
+  .clv-hero__visual { min-height: 270px; }
+  .clv-hero__artwork { max-height: 250px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clv-gradient-title,
+  .clv-hero__visual { animation: none; }
+  .clv-hero__artwork { transition: none; }
+  .clv-hero__visual:hover .clv-hero__artwork { transform: none; }
+}
+
+
+/* Final polish: reduce the gap below the shared model-navigation bar. */
+.customer-lifetime-value-page .clv-hero {
+  padding-top: 22px;
+  padding-bottom: 46px;
+}
+.customer-lifetime-value-page .clv-hero > .MuiContainer-root {
+  max-width: 1320px;
+}
+
+/* Apply the Model 02 dark-glass visual language consistently to every section. */
+.customer-lifetime-value-page .clv-trust-strip {
+  border-color: rgba(148, 163, 184, 0.12);
+  background: rgba(9, 14, 25, 0.52);
+}
+.customer-lifetime-value-page .clv-section {
+  padding-top: clamp(48px, 5.5vw, 76px);
+  padding-bottom: clamp(48px, 5.5vw, 76px);
+}
+.customer-lifetime-value-page .clv-section--soft {
+  border-color: rgba(148, 163, 184, 0.12);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(37, 99, 235, 0.055), transparent 35%),
+    rgba(9, 14, 25, 0.38);
+}
+.customer-lifetime-value-page .clv-section__heading .MuiTypography-overline {
+  color: #60a5fa !important;
+  font-weight: 750;
+}
+.customer-lifetime-value-page .clv-section__heading h2,
+.customer-lifetime-value-page .clv-bottom-cta__inner h2 {
+  color: #f1f5f9;
+  font-family: "Space Grotesk", "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+.customer-lifetime-value-page .clv-section__heading p,
+.customer-lifetime-value-page .clv-feature-card p,
+.customer-lifetime-value-page .clv-step-card p,
+.customer-lifetime-value-page .clv-bottom-cta__inner p,
+.customer-lifetime-value-page .clv-definition-note p {
+  color: #aab6c8 !important;
+  line-height: 1.75;
+}
+.customer-lifetime-value-page .clv-feature-card,
+.customer-lifetime-value-page .clv-step-card,
+.customer-lifetime-value-page .clv-input-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 20px;
+  background:
+    linear-gradient(145deg, rgba(23, 31, 47, 0.96), rgba(13, 19, 31, 0.96));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.025), 0 16px 36px rgba(0,0,0,0.12);
+}
+.customer-lifetime-value-page .clv-feature-card:hover,
+.customer-lifetime-value-page .clv-input-card:hover,
+.customer-lifetime-value-page .clv-step-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(96, 165, 250, 0.4);
+  box-shadow: 0 18px 42px rgba(0,0,0,0.22), 0 0 22px rgba(59,130,246,0.06);
+}
+.customer-lifetime-value-page .clv-feature-card h3,
+.customer-lifetime-value-page .clv-step-card h3,
+.customer-lifetime-value-page .clv-input-card__heading h3,
+.customer-lifetime-value-page .clv-definition-note h3 {
+  color: #e7edf7;
+  font-family: "Space Grotesk", "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
+}
+.customer-lifetime-value-page .clv-feature-card__icon {
+  color: #60a5fa;
+  border: 1px solid rgba(96,165,250,0.18);
+  background: linear-gradient(145deg, rgba(37,99,235,0.18), rgba(124,58,237,0.1));
+}
+.customer-lifetime-value-page .clv-step-card__number,
+.customer-lifetime-value-page .clv-input-card__heading svg,
+.customer-lifetime-value-page .clv-input-card__item span {
+  color: #60a5fa;
+}
+.customer-lifetime-value-page .clv-definition-note {
+  border-color: rgba(96,165,250,0.22);
+  background: linear-gradient(120deg, rgba(37,99,235,0.09), rgba(124,58,237,0.035));
+}
+.customer-lifetime-value-page .clv-definition-note__icon {
+  color: #93c5fd;
+  background: rgba(37,99,235,0.16);
+}
+.customer-lifetime-value-page .clv-bottom-cta__inner {
+  border-color: rgba(96,165,250,0.24);
+  background:
+    radial-gradient(circle at 95% 15%, rgba(37,99,235,0.16), transparent 38%),
+    linear-gradient(135deg, rgba(18,27,43,0.96), rgba(13,19,31,0.96));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.035), 0 20px 50px rgba(0,0,0,0.16);
+}
+.customer-lifetime-value-page .clv-hero__actions .MuiButton-contained,
+.customer-lifetime-value-page .clv-bottom-cta__inner .MuiButton-contained {
+  background: linear-gradient(105deg, #2563eb 0%, #4f46e5 55%, #7c3aed 100%);
+}
+.customer-lifetime-value-page .clv-hero__actions .MuiButton-outlined {
+  color: #60a5fa;
+  border-color: rgba(96,165,250,0.4);
+}
+.customer-lifetime-value-page .clv-hero__actions .MuiButton-outlined:hover {
+  border-color: #60a5fa;
+  background: rgba(37,99,235,0.08);
+}
+.customer-lifetime-value-page .clv-hero__badges .MuiChip-root {
+  color: #cbd5e1;
+  border-color: rgba(148,163,184,0.25);
+  background: rgba(15,23,42,0.35);
+}
+.customer-lifetime-value-page .clv-trust-item strong { color: #e2e8f0; }
+.customer-lifetime-value-page .clv-trust-item span { color: #9eacc0; }
+
+@media (max-width: 900px) {
+  .customer-lifetime-value-page .clv-hero { padding-top: 18px; padding-bottom: 36px; }
+}
+@media (max-width: 600px) {
+  .customer-lifetime-value-page .clv-hero { padding-top: 12px; padding-bottom: 28px; }
+  .customer-lifetime-value-page .clv-section { padding-top: 42px; padding-bottom: 42px; }
+  .customer-lifetime-value-page .clv-bottom-cta { padding-bottom: 42px; }
+}
+
+
+/* Visual parity pass: align CLV workspace with the Customer Churn hero. */
+.customer-lifetime-value-page {
+  overflow: hidden;
+  --clv-border: rgba(148, 163, 184, 0.15);
+  --clv-blue: #60a5fa;
+}
+.customer-lifetime-value-page .MuiTypography-root {
+  font-family: "Inter", "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+}
+.customer-lifetime-value-page .MuiTypography-h1,
+.customer-lifetime-value-page .MuiTypography-h2,
+.customer-lifetime-value-page .MuiTypography-h3,
+.customer-lifetime-value-page .MuiTypography-h4,
+.customer-lifetime-value-page .MuiTypography-h5,
+.customer-lifetime-value-page .MuiTypography-h6 {
+  font-family: "Space Grotesk", "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
+  letter-spacing: -0.025em;
+}
+.customer-lifetime-value-page .MuiTypography-overline,
+.customer-lifetime-value-page .MuiTypography-caption {
+  font-family: "JetBrains Mono", "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+  letter-spacing: 0.055em;
+}
+.customer-lifetime-value-page .clv-hero {
+  position: relative;
+  overflow: hidden;
+  max-width: calc(100% - 48px);
+  margin: 24px auto 0;
+  padding: clamp(20px, 4vw, 34px);
+  border: 1px solid var(--clv-border);
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(15,23,42,.68), rgba(30,41,59,.28) 55%, rgba(37,99,235,.07));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.045), 0 24px 70px rgba(2,6,23,.18);
+}
+.customer-lifetime-value-page .clv-hero > .MuiContainer-root {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+.customer-lifetime-value-page .clv-hero__content {
+  max-width: none;
+  align-items: flex-start;
+}
+.customer-lifetime-value-page .clv-hero__eyebrow {
+  align-self: flex-start;
+  width: fit-content;
+  max-width: 100%;
+  margin-bottom: 2px;
+  color: #60a5fa !important;
+  border-color: rgba(96,165,250,.45) !important;
+  background: rgba(15,23,42,.28);
+  font-weight: 700 !important;
+  letter-spacing: .025em;
+}
+.customer-lifetime-value-page .clv-hero__title {
+  max-width: 850px;
+  font-size: clamp(2.35rem, 5vw, 3.8rem) !important;
+  line-height: 1.04 !important;
+  font-weight: 850 !important;
+  letter-spacing: -.045em !important;
+  background: linear-gradient(100deg, #f8fafc 0%, #dbeafe 25%, #60a5fa 54%, #a78bfa 78%, #f8fafc 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: clvTitleGradient 7s ease-in-out infinite;
+}
+.customer-lifetime-value-page .clv-hero__title span {
+  display: inline;
+  color: inherit;
+  background: none;
+}
+@keyframes clvTitleGradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.customer-lifetime-value-page .clv-hero__subtitle {
+  max-width: 650px;
+  line-height: 1.5 !important;
+  font-weight: 700 !important;
+  letter-spacing: -.02em !important;
+}
+.customer-lifetime-value-page .clv-hero__description {
+  max-width: 650px;
+  line-height: 1.65 !important;
+}
+.customer-lifetime-value-page .clv-hero__actions { margin-top: 2px; }
+.customer-lifetime-value-page .clv-hero__actions .MuiButton-root,
+.customer-lifetime-value-page .clv-bottom-cta__inner .MuiButton-root {
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 10px;
+  text-transform: none;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  font-weight: 800;
+}
+.customer-lifetime-value-page .clv-hero__actions .MuiButton-contained,
+.customer-lifetime-value-page .clv-bottom-cta__inner .MuiButton-contained {
+  color: #fff !important;
+  background: linear-gradient(100deg, #2563eb 0%, #4f46e5 52%, #7c3aed 100%) !important;
+  box-shadow: 0 10px 28px rgba(37,99,235,.24), inset 0 1px 0 rgba(255,255,255,.14);
+}
+.customer-lifetime-value-page .clv-hero__actions .MuiButton-outlined {
+  color: #60a5fa !important;
+  border-color: rgba(96,165,250,.4) !important;
+}
+.customer-lifetime-value-page .clv-hero__badges { margin-top: 2px; }
+.customer-lifetime-value-page .clv-hero__badges .MuiChip-root {
+  color: #cbd5e1;
+  border-color: rgba(148,163,184,.25);
+  background: rgba(15,23,42,.35);
+}
+.customer-lifetime-value-page .clv-hero__visual {
+  min-height: 350px;
+  padding: clamp(12px, 2vw, 24px);
+  border: 1px solid rgba(148,163,184,.14);
+  border-radius: 24px;
+  background: radial-gradient(circle at 50% 50%, rgba(59,130,246,.11), transparent 62%), rgba(15,23,42,.25);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04), 0 20px 48px rgba(0,0,0,.18);
+}
+.customer-lifetime-value-page .clv-hero__artwork {
+  width: 100%;
+  max-width: 560px;
+  max-height: 340px;
+  filter: drop-shadow(0 18px 30px rgba(15,23,42,.28));
+}
+.customer-lifetime-value-page .clv-hero__visual-caption {
+  bottom: 11px;
+  background: rgba(15,23,42,.82);
+  border-color: rgba(148,163,184,.14);
+  color: rgba(148,163,184,.78);
+  box-shadow: none;
+}
+.customer-lifetime-value-page .clv-trust-strip {
+  margin-top: 24px;
+  border-top-color: rgba(148,163,184,.13);
+  border-bottom-color: rgba(148,163,184,.13);
+  background: rgba(15,23,42,.24);
+}
+.customer-lifetime-value-page .clv-section {
+  padding: clamp(42px, 5vw, 64px) 0;
+}
+.customer-lifetime-value-page .clv-section--soft {
+  border-color: rgba(148,163,184,.1);
+  background: rgba(15,23,42,.22);
+}
+.customer-lifetime-value-page .clv-section__heading h2 {
+  color: #e7edf7;
+  font-family: "Space Grotesk", "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
+  font-size: clamp(1.85rem, 3.5vw, 2.9rem);
+  line-height: 1.08;
+  font-weight: 850;
+  letter-spacing: -.04em;
+}
+.customer-lifetime-value-page .clv-section__heading .MuiTypography-overline { color: #60a5fa; }
+.customer-lifetime-value-page .clv-feature-card,
+.customer-lifetime-value-page .clv-step-card,
+.customer-lifetime-value-page .clv-input-card {
+  border-color: rgba(148,163,184,.15);
+  border-radius: 22px;
+  background: linear-gradient(145deg, rgba(30,41,59,.68), rgba(15,23,42,.48) 58%, rgba(37,99,235,.055));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.055), 0 16px 38px rgba(0,0,0,.16);
+}
+.customer-lifetime-value-page .clv-feature-card h3,
+.customer-lifetime-value-page .clv-step-card h3,
+.customer-lifetime-value-page .clv-input-card__heading h3 {
+  color: #e7edf7;
+  font-family: "Space Grotesk", "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
+  font-weight: 820;
+}
+.customer-lifetime-value-page .clv-feature-card p,
+.customer-lifetime-value-page .clv-step-card p,
+.customer-lifetime-value-page .clv-input-card__item {
+  color: #aab6c8;
+  line-height: 1.7;
+}
+@media (max-width: 900px) {
+  .customer-lifetime-value-page .clv-hero { max-width: calc(100% - 32px); padding: 24px; }
+  .customer-lifetime-value-page .clv-hero__visual { min-height: 310px; }
+}
+@media (max-width: 600px) {
+  .customer-lifetime-value-page .clv-hero { max-width: calc(100% - 24px); margin-top: 12px; padding: 20px; border-radius: 22px; }
+  .customer-lifetime-value-page .clv-hero__visual { min-height: 270px; }
+  .customer-lifetime-value-page .clv-section { padding: 38px 0; }
+  .customer-lifetime-value-page .clv-hero__actions { width: 100%; }
+  .customer-lifetime-value-page .clv-hero__actions .MuiButton-root { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .customer-lifetime-value-page .clv-hero__title { animation: none; }
+  .customer-lifetime-value-page .clv-feature-card,
+  .customer-lifetime-value-page .clv-step-card,
+  .customer-lifetime-value-page .clv-input-card { transition: none; }
+}
+
+
+/* Correct the hero structure: one glass panel, matching Model 02.
+   The panel belongs to the section itself, not the inner MUI Container. */
+.customer-lifetime-value-page .clv-hero {
+  box-sizing: border-box;
+  width: calc(100% - 48px);
+  max-width: 1320px;
+  margin: 24px auto 0;
+  padding: clamp(20px, 4vw, 34px);
+  border: 1px solid var(--clv-border);
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.68), rgba(30, 41, 59, 0.28) 55%, rgba(37, 99, 235, 0.07));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045), 0 24px 70px rgba(2, 6, 23, 0.18);
+}
+
+.customer-lifetime-value-page .clv-hero > .MuiContainer-root {
+  max-width: none;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+@media (max-width: 600px) {
+  .customer-lifetime-value-page .clv-hero {
+    width: calc(100% - 28px);
+    margin-top: 16px;
+    padding: 20px 16px;
+    border-radius: 22px;
+  }
+}
+
+/* Model 03 landing-page polish: compact identity badge, breathing room,
+   refined calls to action, and consistent feature chips. */
+.customer-lifetime-value-page .clv-hero__content {
+  gap: 0;
+}
+.customer-lifetime-value-page .clv-hero__eyebrow.MuiChip-root {
+  min-height: 30px;
+  height: auto;
+  max-width: 100%;
+  padding: 2px 8px;
+  border: 1px solid rgba(96, 165, 250, 0.32) !important;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.09);
+  color: #93c5fd !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.035);
+}
+.customer-lifetime-value-page .clv-hero__eyebrow .MuiChip-label {
+  padding: 0 5px;
+  font-size: .68rem;
+  line-height: 1.35;
+  font-weight: 750;
+  letter-spacing: .075em;
+  white-space: normal;
+}
+.customer-lifetime-value-page .clv-hero__eyebrow .MuiChip-icon {
+  margin-left: 3px;
+  margin-right: 1px;
+  color: #60a5fa;
+}
+.customer-lifetime-value-page .clv-hero__title {
+  margin-top: 5px;
+  margin-bottom: 3px;
+  line-height: 1.08 !important;
+  text-wrap: balance;
+}
+.customer-lifetime-value-page .clv-hero__subtitle {
+  margin-top: 7px;
+  font-size: clamp(1.08rem, 1.8vw, 1.35rem) !important;
+  line-height: 1.55 !important;
+  font-weight: 650 !important;
+}
+.customer-lifetime-value-page .clv-hero__description {
+  margin-top: 4px;
+  max-width: 620px;
+  line-height: 1.75 !important;
+  font-size: .98rem;
+}
+.customer-lifetime-value-page .clv-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 13px;
+}
+.customer-lifetime-value-page .clv-hero__actions .MuiButton-root,
+.customer-lifetime-value-page .clv-bottom-cta__inner .MuiButton-root {
+  min-height: 48px;
+  padding: 0 21px;
+  border-radius: 13px;
+  font-size: .94rem;
+  font-weight: 750;
+  letter-spacing: .005em;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+.customer-lifetime-value-page .clv-hero__actions .MuiButton-contained {
+  background: linear-gradient(110deg, #2563eb 0%, #4f46e5 55%, #7c3aed 100%) !important;
+  box-shadow: 0 8px 22px rgba(37,99,235,.22), inset 0 1px 0 rgba(255,255,255,.16);
+}
+.customer-lifetime-value-page .clv-hero__actions .MuiButton-contained:hover {
+  background: linear-gradient(110deg, #1d4ed8 0%, #4338ca 55%, #6d28d9 100%) !important;
+  box-shadow: 0 12px 28px rgba(37,99,235,.3);
+  transform: translateY(-2px);
+}
+.customer-lifetime-value-page .clv-hero__actions .MuiButton-outlined {
+  border: 1px solid rgba(148,163,184,.32) !important;
+  background: rgba(15,23,42,.22);
+  color: #dbeafe !important;
+}
+.customer-lifetime-value-page .clv-hero__actions .MuiButton-outlined:hover {
+  border-color: rgba(96,165,250,.65) !important;
+  background: rgba(59,130,246,.10);
+  transform: translateY(-2px);
+}
+.customer-lifetime-value-page .clv-hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 18px;
+}
+.customer-lifetime-value-page .clv-hero__badges .MuiChip-root {
+  min-height: 32px;
+  height: auto;
+  border: 1px solid rgba(148,163,184,.20);
+  border-radius: 10px;
+  background: rgba(15,23,42,.42);
+  color: #d5deeb;
+  font-size: .78rem;
+  font-weight: 650;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+.customer-lifetime-value-page .clv-hero__badges .MuiChip-root:hover {
+  border-color: rgba(96,165,250,.48);
+  background: rgba(37,99,235,.10);
+  transform: translateY(-1px);
+}
+.customer-lifetime-value-page .clv-hero__badges .MuiChip-icon {
+  margin-left: 9px;
+  color: #7dd3fc;
+}
+.customer-lifetime-value-page .clv-hero__badges .MuiChip-label {
+  padding-left: 7px;
+  padding-right: 11px;
+}
+.customer-lifetime-value-page .clv-hero__actions .MuiButton-root:focus-visible,
+.customer-lifetime-value-page .clv-hero__badges .MuiChip-root:focus-visible {
+  outline: 3px solid #60a5fa;
+  outline-offset: 3px;
+}
+@media (max-width: 900px) {
+  .customer-lifetime-value-page .clv-hero__content { gap: 0; }
+  .customer-lifetime-value-page .clv-hero__title { font-size: clamp(2.25rem, 6vw, 3.25rem) !important; }
+}
+@media (max-width: 600px) {
+  .customer-lifetime-value-page .clv-hero__eyebrow .MuiChip-label {
+    font-size: .62rem;
+    letter-spacing: .055em;
+  }
+  .customer-lifetime-value-page .clv-hero__title {
+    font-size: clamp(2rem, 9vw, 2.7rem) !important;
+    line-height: 1.1 !important;
+  }
+  .customer-lifetime-value-page .clv-hero__description { font-size: .93rem; }
+  .customer-lifetime-value-page .clv-hero__actions { gap: 10px; margin-top: 12px; }
+  .customer-lifetime-value-page .clv-hero__actions .MuiButton-root { width: 100%; }
+  .customer-lifetime-value-page .clv-hero__badges { gap: 8px; margin-top: 15px; }
+  .customer-lifetime-value-page .clv-hero__badges .MuiChip-root { max-width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .customer-lifetime-value-page .clv-hero__actions .MuiButton-root,
+  .customer-lifetime-value-page .clv-hero__badges .MuiChip-root { transition: none; }
+  .customer-lifetime-value-page .clv-hero__actions .MuiButton-root:hover,
+  .customer-lifetime-value-page .clv-hero__badges .MuiChip-root:hover { transform: none; }
+}
+
+
+/* Final targeted alignment with Model 02 (Customer Churn). */
+.customer-lifetime-value-page .clv-hero {
+  padding-top: clamp(42px, 4.8vw, 62px);
+}
+.customer-lifetime-value-page .clv-hero__eyebrow.MuiChip-root {
+  align-self: flex-start;
+  min-height: 26px;
+  padding: 0 8px;
+  border: 1px solid rgba(59, 130, 246, 0.72) !important;
+  border-radius: 999px;
+  background: linear-gradient(100deg, rgba(37, 99, 235, 0.16), rgba(124, 58, 237, 0.12)) !important;
+  color: #93c5fd !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+}
+.customer-lifetime-value-page .clv-hero__eyebrow .MuiChip-label {
+  padding: 0 3px;
+  font-size: .68rem;
+  line-height: 1.2;
+  letter-spacing: .035em;
+  font-weight: 750;
+  white-space: nowrap;
+}
+.customer-lifetime-value-page .clv-hero__eyebrow .MuiChip-icon {
+  margin-left: 0;
+  margin-right: 2px;
+  color: #60a5fa;
+}
+@media (max-width: 600px) {
+  .customer-lifetime-value-page .clv-hero { padding-top: 26px; }
+  .customer-lifetime-value-page .clv-hero__eyebrow .MuiChip-label { white-space: normal; }
+}

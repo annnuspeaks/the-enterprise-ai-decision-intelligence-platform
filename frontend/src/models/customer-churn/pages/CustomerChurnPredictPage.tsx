@@ -14,6 +14,7 @@ import {
   Alert,
   Box,
   Button,
+  Chip,
   Container,
   Grid,
   Stack,
@@ -288,7 +289,7 @@ function CustomerChurnPredictPage() {
     try {
       const features = Object.fromEntries(
         Object.entries(formData).map(([key, value]) => [key, Number(value)]),
-      ) as Record<string, number>;
+      ) as unknown as Parameters<typeof predictCustomerChurn>[0];
 
       const prediction = await predictCustomerChurn(features);
 
@@ -311,9 +312,87 @@ function CustomerChurnPredictPage() {
   return (
     <Box component="main" className="customer-churn-predict-page">
       <Box component="section" className="churn-predict-hero">
-        <Grid container spacing={{xs:3,md:4}} alignItems="center">
-          <Grid size={{xs:12,md:7}}><Stack spacing={1.4}><Button component={Link} to="/customer-churn" startIcon={<ArrowLeft size={17}/>} className="churn-back-button">Back to Churn Overview</Button><Typography variant="overline" color="primary">MODEL 02 / LIVE INFERENCE</Typography><Typography variant="h1" component="h1" className="churn-gradient-title">Evaluate a customer profile.</Typography><Typography variant="body1" color="text.secondary" className="churn-hero-description">Provide the customer's historical behavioural signals required by the churn model. Nexora will use these parameters to generate the prediction in the next stage.</Typography><Stack direction="row" spacing={1} flexWrap="wrap"><Chip icon={<Layers3 size={14}/>} label="23 input features" size="small" variant="outlined"/><Chip icon={<Target size={14}/>} label="Random Forest" size="small" variant="outlined"/></Stack></Stack></Grid>
-          <Grid size={{xs:12,md:5}}><Box className="churn-predict-visual"><Box className="churn-predict-visual__ring churn-predict-visual__ring--one"/><Box className="churn-predict-visual__ring churn-predict-visual__ring--two"/><Box className="churn-predict-visual__core"><Activity size={34}/></Box><Box className="churn-predict-visual__signal churn-predict-visual__signal--a">23 FEATURES</Box><Box className="churn-predict-visual__signal churn-predict-visual__signal--b">LIVE INFERENCE</Box><Box className="churn-predict-visual__signal churn-predict-visual__signal--c">RISK SIGNAL</Box><Typography variant="caption" className="churn-predict-visual__caption">CODED VECTOR PLACEHOLDER · FLAT SVG CAN BE DROPPED HERE</Typography></Box></Grid>
+        <Grid
+          container
+          spacing={{ xs: 3, md: 4 }}
+          sx={{ alignItems: "center" }}
+        >
+          <Grid size={{ xs: 12, md: 7 }}>
+            <Stack spacing={1.4}>
+              <Button
+                component={Link}
+                to="/customer-churn"
+                startIcon={<ArrowLeft size={17} />}
+                className="churn-back-button"
+              >
+                Back to Churn Overview
+              </Button>
+              <Typography variant="overline" color="primary">
+                MODEL 02 / LIVE INFERENCE
+              </Typography>
+              <Typography
+                variant="h1"
+                component="h1"
+                className="churn-gradient-title"
+              >
+                Evaluate a customer profile.
+              </Typography>
+              <Typography
+                variant="body1"
+                color="text.secondary"
+                className="churn-hero-description"
+              >
+                Provide the customer's historical behavioural signals required
+                by the churn model. Nexora will use these parameters to generate
+                the prediction in the next stage.
+              </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  flexWrap: "wrap",
+                  gap: 1,
+                }}
+              >
+                <Chip
+                  icon={<Layers3 size={14} />}
+                  label="23 input features"
+                  size="small"
+                  variant="outlined"
+                />
+                <Chip
+                  icon={<Target size={14} />}
+                  label="Random Forest"
+                  size="small"
+                  variant="outlined"
+                />
+              </Box>
+            </Stack>
+          </Grid>
+          <Grid size={{ xs: 12, md: 5 }}>
+            <Box className="churn-predict-visual">
+              <Box className="churn-predict-visual__ring churn-predict-visual__ring--one" />
+              <Box className="churn-predict-visual__ring churn-predict-visual__ring--two" />
+              <Box className="churn-predict-visual__core">
+                <Activity size={34} />
+              </Box>
+              <Box className="churn-predict-visual__signal churn-predict-visual__signal--a">
+                23 FEATURES
+              </Box>
+              <Box className="churn-predict-visual__signal churn-predict-visual__signal--b">
+                LIVE INFERENCE
+              </Box>
+              <Box className="churn-predict-visual__signal churn-predict-visual__signal--c">
+                RISK SIGNAL
+              </Box>
+              <Typography
+                variant="caption"
+                className="churn-predict-visual__caption"
+              >
+                CODED VECTOR PLACEHOLDER · FLAT SVG CAN BE DROPPED HERE
+              </Typography>
+            </Box>
+          </Grid>
         </Grid>
       </Box>
       <section className="customer-churn-predict-form-section">

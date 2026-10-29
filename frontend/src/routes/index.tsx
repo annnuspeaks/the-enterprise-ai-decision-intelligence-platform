@@ -12,6 +12,9 @@ import CustomerSegmentationPage from "../pages/CustomerSegmentationPage";
 import CustomerChurnPage from "../models/customer-churn/pages/CustomerChurnPage";
 import CustomerChurnPredictPage from "../models/customer-churn/pages/CustomerChurnPredictPage";
 import CustomerChurnResultPage from "../models/customer-churn/pages/CustomerChurnResultPage";
+import CustomerLifetimeValuePage from "../models/customer-lifetime-value/pages/CustomerLifetimeValuePage";
+import CustomerLifetimeValuePredictPage from "../models/customer-lifetime-value/pages/CustomerLifetimeValuePredictPage";
+import CustomerLifetimeValueResultPage from "../models/customer-lifetime-value/pages/CustomerLifetimeValueResultPage";
 
 import ModelWorkspaceLayout from "../components/layout/ModelWorkspaceLayout/ModelWorkspaceLayout";
 
@@ -51,6 +54,14 @@ function AppRoutes() {
         {/* Model workspace */}
         <Route element={<ModelWorkspaceLayout />}>
           <Route path="/customer-churn" element={<CustomerChurnPage />} />
+          <Route
+            path="/customer-lifetime-value"
+            element={<CustomerLifetimeValuePage />}
+          />
+          <Route
+            path="/customer-lifetime-value/predict"
+            element={<CustomerLifetimeValuePredictPage />}
+          />
 
           {/* Customer Churn Prediction page */}
           <Route
@@ -63,6 +74,10 @@ function AppRoutes() {
         <Route
           path="/customer-churn/result"
           element={<CustomerChurnResultPage />}
+        />
+        <Route
+          path="/customer-lifetime-value/result"
+          element={<CustomerLifetimeValueResultPage />}
         />
 
         <Route path="*" element={<NotFoundPage />} />
