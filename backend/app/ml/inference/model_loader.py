@@ -110,3 +110,50 @@ def load_customer_lifetime_value_metadata():
 
     with open(CLV_METADATA_PATH, "r", encoding="utf-8") as file:
         return json.load(file)
+
+# Purchase Propensity model
+
+PURCHASE_PROPENSITY_MODEL_PATH = (
+    Path(__file__).resolve().parents[3]
+    / "models"
+    / "purchase_propensity"
+    / "purchase_propensity_pipeline.joblib"
+)
+
+PURCHASE_PROPENSITY_METADATA_PATH = (
+    Path(__file__).resolve().parents[3]
+    / "models"
+    / "purchase_propensity"
+    / "model_metadata.json"
+)
+
+
+@lru_cache(maxsize=1)
+def load_purchase_propensity_model():
+    """Load and cache the trained purchase propensity pipeline."""
+
+    if not PURCHASE_PROPENSITY_MODEL_PATH.exists():
+        raise FileNotFoundError(
+            "Purchase propensity model not found: "
+            f"{PURCHASE_PROPENSITY_MODEL_PATH}"
+        )
+
+    return joblib.load(PURCHASE_PROPENSITY_MODEL_PATH)
+
+
+@lru_cache(maxsize=1)
+def load_purchase_propensity_metadata():
+    """Load and cache purchase propensity model metadata."""
+
+    if not PURCHASE_PROPENSITY_METADATA_PATH.exists():
+        raise FileNotFoundError(
+            "Purchase propensity metadata not found: "
+            f"{PURCHASE_PROPENSITY_METADATA_PATH}"
+        )
+
+    with open(
+        PURCHASE_PROPENSITY_METADATA_PATH,
+        "r",
+        encoding="utf-8",
+    ) as file:
+        return json.load(file)

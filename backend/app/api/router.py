@@ -6,6 +6,7 @@ from app.api.routes import (
     customer_segmentation,
     health,
     model_registry,
+    purchase_propensity,
     root,
 )
 
@@ -24,4 +25,7 @@ api_router.include_router(
 )
 api_router.include_router(
     customer_lifetime_value.router
+)
+api_router.include_router(
+    purchase_propensity.router
 )

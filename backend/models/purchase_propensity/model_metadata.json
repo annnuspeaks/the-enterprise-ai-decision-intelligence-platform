@@ -1,0 +1,26 @@
+{
+  "target": "Revenue",
+  "target_definition": "whether the current browsing session resulted in a purchase",
+  "excluded_features": ["PageValues"],
+  "selected_model": "Random Forest",
+  "selection_metric": "average_precision_pr_auc",
+  "evaluation": {
+    "evaluation_type": "stratified_holdout_test",
+    "test_size": 0.2,
+    "random_state": 42,
+    "accuracy": 0.7996722654649734,
+    "precision_default_threshold": 0.37701149425287356,
+    "recall_default_threshold": 0.4293193717277487,
+    "f1_default_threshold": 0.401468788249694,
+    "roc_auc": 0.7827441267936196,
+    "pr_auc_average_precision": 0.3655355944504557
+  },
+  "decision_threshold": {
+    "value": 0.4,
+    "selection_basis": "highest_f1_among_reviewed_thresholds",
+    "precision": 0.32421875,
+    "recall": 0.6518324607329843,
+    "f1": 0.4330434782608696
+  },
+  "note": "Preliminary holdout evaluation. Metrics are based on the existing evaluation reports. Review feature availability, potential leakage, threshold costs, and reproducibility before production use."
+}
