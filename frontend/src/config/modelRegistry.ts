@@ -47,7 +47,8 @@ export const MODEL_REGISTRY: ModelDefinition[] = [
     key: "customer_lifetime_value",
     name: "Customer Lifetime Value",
     shortName: "CLV",
-    description: "Estimate the long-term economic value of individual customers.",
+    description:
+      "Estimate the long-term economic value of individual customers.",
     status: "coming_soon",
     icon: Gauge,
     route: "/customer-lifetime-value",
@@ -56,9 +57,11 @@ export const MODEL_REGISTRY: ModelDefinition[] = [
     key: "purchase_propensity",
     name: "Purchase Propensity",
     shortName: "Propensity",
-    description: "Estimate the likelihood that a customer will make a purchase.",
-    status: "deferred",
+    description:
+      "Estimate the likelihood that a customer will make a purchase.",
+    status: "available",
     icon: ShoppingCart,
+    route: "/purchase-propensity",
   },
   {
     key: "anomaly_detection",
@@ -89,7 +92,8 @@ export const MODEL_REGISTRY: ModelDefinition[] = [
     key: "dynamic_risk_scoring",
     name: "Dynamic Risk Scoring",
     shortName: "Risk Scoring",
-    description: "Combine customer signals to produce dynamic business risk scores.",
+    description:
+      "Combine customer signals to produce dynamic business risk scores.",
     status: "coming_soon",
     icon: BarChart3,
   },

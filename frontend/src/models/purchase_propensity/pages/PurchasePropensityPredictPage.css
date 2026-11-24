@@ -1,0 +1,270 @@
+/* =========================================================
+   NEXORA — MODEL 04 / PURCHASE PROPENSITY
+   Prediction form: premium dark-glass design system
+   ========================================================= */
+
+.pp-form-page {
+  position: relative;
+  min-height: 70vh;
+  padding-block: clamp(34px, 5vw, 68px) clamp(56px, 7vw, 92px);
+  isolation: isolate;
+}
+
+.pp-form-page::before {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 50%;
+  width: min(1000px, 100%);
+  height: 480px;
+  content: "";
+  pointer-events: none;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(ellipse at 18% 15%, rgba(37, 99, 235, .10), transparent 48%),
+    radial-gradient(ellipse at 84% 8%, rgba(124, 58, 237, .10), transparent 43%);
+  filter: blur(12px);
+}
+
+.pp-form-page > .MuiContainer-root {
+  position: relative;
+}
+
+.pp-form-title {
+  margin: 8px 0 14px !important;
+  font-family: "Space Grotesk", "Inter", sans-serif !important;
+  font-size: clamp(2.65rem, 5.2vw, 4.65rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.03 !important;
+  letter-spacing: -.065em !important;
+  color: var(--mui-palette-text-primary);
+}
+
+.pp-form-title span {
+  color: transparent;
+  background: linear-gradient(100deg, #60a5fa 0%, #818cf8 55%, #a78bfa 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pp-form-page .MuiTypography-overline {
+  color: #60a5fa;
+  font-family: "JetBrains Mono", monospace;
+  font-size: .72rem;
+  font-weight: 750;
+  letter-spacing: .12em;
+}
+
+.pp-form-page .MuiTypography-body1,
+.pp-form-page .MuiTypography-body2 {
+  line-height: 1.7;
+}
+
+.pp-form-group {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  padding: clamp(20px, 2.5vw, 30px);
+  border: 1px solid rgba(148, 163, 184, .17);
+  border-radius: 22px !important;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(99, 102, 241, .065), transparent 52%),
+    linear-gradient(145deg, rgba(20, 28, 43, .91), rgba(12, 18, 29, .95)) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .11);
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.pp-form-group::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  content: "";
+  background: linear-gradient(90deg, #3b82f6, #818cf8, #c4b5fd, transparent 90%);
+  opacity: .8;
+}
+
+.pp-form-group:hover {
+  border-color: rgba(96, 165, 250, .32);
+  box-shadow: 0 20px 46px rgba(0, 0, 0, .15);
+}
+
+.pp-form-group h5,
+.pp-form-group .MuiTypography-h5 {
+  margin-bottom: 5px;
+  font-family: "Space Grotesk", "Inter", sans-serif !important;
+  font-weight: 750 !important;
+  letter-spacing: -.035em !important;
+  color: var(--mui-palette-text-primary);
+}
+
+.pp-form-group__description {
+  margin-top: 5px !important;
+  margin-bottom: 18px !important;
+  line-height: 1.65 !important;
+  color: var(--mui-palette-text-secondary);
+  font-size: .92rem !important;
+}
+
+.pp-form-group .MuiTextField-root {
+  margin-top: 5px;
+}
+
+.pp-form-group .MuiInputLabel-root {
+  font-weight: 600;
+  letter-spacing: -.01em;
+}
+
+.pp-form-group .MuiInputLabel-root.Mui-focused {
+  color: #93c5fd;
+}
+
+.pp-form-group .MuiOutlinedInput-root {
+  min-height: 52px;
+  border-radius: 13px;
+  background: rgba(2, 6, 23, .24);
+  transition: background 160ms ease, box-shadow 160ms ease;
+}
+
+.pp-form-group .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(148, 163, 184, .24);
+  transition: border-color 160ms ease;
+}
+
+.pp-form-group .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(96, 165, 250, .52);
+}
+
+.pp-form-group .MuiOutlinedInput-root.Mui-focused {
+  background: rgba(30, 58, 138, .10);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, .09);
+}
+
+.pp-form-group .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #60a5fa;
+  border-width: 1.5px;
+}
+
+.pp-form-group .MuiInputBase-input {
+  font-family: "Inter", sans-serif;
+  font-size: .94rem;
+  font-weight: 500;
+}
+
+.pp-form-group .MuiInputBase-input::placeholder {
+  color: #94a3b8;
+  opacity: .78;
+}
+
+.pp-form-group .MuiSelect-select {
+  display: flex;
+  align-items: center;
+  min-height: 1.4375em;
+}
+
+.pp-form-group .MuiSelect-icon {
+  color: #94a3b8;
+}
+
+.pp-form-group .MuiFormHelperText-root {
+  margin-left: 2px;
+  margin-right: 2px;
+  line-height: 1.5;
+  color: var(--mui-palette-text-secondary);
+  font-size: .76rem;
+}
+
+.pp-form-page .MuiAlert-root {
+  border: 1px solid rgba(248, 113, 113, .25);
+  border-radius: 14px;
+}
+
+.pp-form-page .MuiButton-root {
+  min-height: 48px;
+  padding: 11px 20px;
+  border-radius: 12px;
+  text-transform: none;
+  font-weight: 750;
+  letter-spacing: -.015em;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.pp-form-page .MuiButton-contained {
+  color: #fff;
+  background: linear-gradient(110deg, #2563eb, #6366f1 65%, #7c3aed);
+  box-shadow: 0 9px 25px rgba(79, 70, 229, .23);
+}
+
+.pp-form-page .MuiButton-contained:hover {
+  background: linear-gradient(110deg, #1d4ed8, #4f46e5 65%, #6d28d9);
+  box-shadow: 0 13px 30px rgba(79, 70, 229, .33);
+  transform: translateY(-2px);
+}
+
+.pp-form-page .MuiButton-outlined {
+  border-color: rgba(148, 163, 184, .30);
+}
+
+.pp-form-page .MuiButton-outlined:hover {
+  border-color: rgba(96, 165, 250, .62);
+  background: rgba(59, 130, 246, .08);
+}
+
+.pp-form-page .MuiButton-root:focus-visible {
+  outline: 3px solid rgba(96, 165, 250, .5);
+  outline-offset: 3px;
+}
+
+/* Match the app's light theme if it is enabled */
+[data-theme="light"] .pp-form-group {
+  border-color: rgba(100, 116, 139, .19);
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(99, 102, 241, .045), transparent 52%),
+    linear-gradient(145deg, #fff, #f8fafc) !important;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, .055);
+}
+
+[data-theme="light"] .pp-form-group .MuiOutlinedInput-root {
+  background: rgba(248, 250, 252, .88);
+}
+
+[data-theme="light"] .pp-form-group .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(100, 116, 139, .28);
+}
+
+[data-theme="light"] .pp-form-group .MuiInputBase-input::placeholder {
+  color: #64748b;
+}
+
+@media (max-width: 700px) {
+  .pp-form-page {
+    padding-top: 30px;
+    padding-bottom: 56px;
+  }
+
+  .pp-form-title {
+    font-size: clamp(2.45rem, 11vw, 3.5rem) !important;
+  }
+
+  .pp-form-group {
+    padding: 21px 18px;
+    border-radius: 18px !important;
+  }
+
+  .pp-form-page .MuiButton-root {
+    min-height: 46px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-form-group,
+  .pp-form-group .MuiOutlinedInput-root,
+  .pp-form-group .MuiOutlinedInput-notchedOutline,
+  .pp-form-page .MuiButton-root {
+    transition: none;
+  }
+
+  .pp-form-page .MuiButton-root:hover {
+    transform: none;
+  }
+}

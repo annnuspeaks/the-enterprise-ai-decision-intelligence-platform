@@ -15,6 +15,9 @@ import CustomerChurnResultPage from "../models/customer-churn/pages/CustomerChur
 import CustomerLifetimeValuePage from "../models/customer-lifetime-value/pages/CustomerLifetimeValuePage";
 import CustomerLifetimeValuePredictPage from "../models/customer-lifetime-value/pages/CustomerLifetimeValuePredictPage";
 import CustomerLifetimeValueResultPage from "../models/customer-lifetime-value/pages/CustomerLifetimeValueResultPage";
+import PurchasePropensityPage from "../models/purchase_propensity/pages/PurchasePropensityPage";
+import PurchasePropensityPredictPage from "../models/purchase_propensity/pages/PurchasePropensityPredictPage";
+import PurchasePropensityResultPage from "../models/purchase_propensity/pages/PurchasePropensityResultPage";
 
 import ModelWorkspaceLayout from "../components/layout/ModelWorkspaceLayout/ModelWorkspaceLayout";
 
@@ -68,6 +71,16 @@ function AppRoutes() {
             path="/customer-churn/predict"
             element={<CustomerChurnPredictPage />}
           />
+
+          <Route
+            path="/purchase-propensity"
+            element={<PurchasePropensityPage />}
+          />
+
+          <Route
+            path="/purchase-propensity/predict"
+            element={<PurchasePropensityPredictPage />}
+          />
         </Route>
 
         {/* Result pages */}
@@ -78,6 +91,10 @@ function AppRoutes() {
         <Route
           path="/customer-lifetime-value/result"
           element={<CustomerLifetimeValueResultPage />}
+        />
+        <Route
+          path="/purchase-propensity/result"
+          element={<PurchasePropensityResultPage />}
         />
 
         <Route path="*" element={<NotFoundPage />} />
