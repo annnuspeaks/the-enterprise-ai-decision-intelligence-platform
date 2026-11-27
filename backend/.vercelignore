@@ -18,5 +18,6 @@ notebooks/
 *.log
 .DS_Store
 Thumbs.db
+models/**/*.joblib
 
 # Keep app source, requirements.txt, production data, and backend/models/*.joblib
