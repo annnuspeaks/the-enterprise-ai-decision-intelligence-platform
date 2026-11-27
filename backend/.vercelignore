@@ -1,0 +1,22 @@
+# Exclude development-only files from the Vercel deployment bundle
+.venv/
+venv/
+env/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.git/
+tests/
+**/tests/
+notebooks/
+**/notebooks/
+*.ipynb
+*.log
+.DS_Store
+Thumbs.db
+
+# Keep app source, requirements.txt, production data, and backend/models/*.joblib
