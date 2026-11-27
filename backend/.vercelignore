@@ -18,6 +18,5 @@ notebooks/
 *.log
 .DS_Store
 Thumbs.db
+# ML pipelines are fetched from Cloudflare R2 at runtime to keep the function small
 models/**/*.joblib
-
-# Keep app source, requirements.txt, production data, and backend/models/*.joblib
