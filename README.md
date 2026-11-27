@@ -1,5 +1,6 @@
-::: {align="center"}
-`<img src="./frontend/src/assets/nexora-logo.png" alt="Nexora — Enterprise AI Decision Intelligence Platform" width="720"/>`{=html}
+<div align="center">
+
+<img src="./frontend/src/assets/nexora-logo.png" alt="Nexora — Enterprise AI Decision Intelligence Platform" width="720" />
 
 # NEXORA
 
@@ -7,38 +8,13 @@
 
 **From business data to intelligent decisions.**
 
-```{=html}
-<p>
-```
-`<img src="./frontend/src/assets/nexora-icon.png" alt="Nexora icon" width="64"/>`{=html}
-```{=html}
-</p>
-```
-```{=html}
-<p>
-```
-`<a href="https://nexoratas.vercel.app/">`{=html}`<strong>`{=html}🌐
-Live Platform`</strong>`{=html}`</a>`{=html}  • 
-`<a href="https://the-enterprise-ai-decision-intelligence.onrender.com/docs">`{=html}`<strong>`{=html}📘
-Live API Documentation`</strong>`{=html}`</a>`{=html}  • 
-`<a href="https://github.com/annnuspeaks/the-enterprise-ai-decision-intelligence-platform">`{=html}`<strong>`{=html}💻
-Source Code`</strong>`{=html}`</a>`{=html}
-```{=html}
-</p>
-```
-```{=html}
-<p>
-```
-`<img src="https://img.shields.io/badge/Python-Backend-3776AB?logo=python&logoColor=white" alt="Python"/>`{=html}
-`<img src="https://img.shields.io/badge/FastAPI-API-009688?logo=fastapi&logoColor=white" alt="FastAPI"/>`{=html}
-`<img src="https://img.shields.io/badge/React-Frontend-61DAFB?logo=react&logoColor=20232A" alt="React"/>`{=html}
-`<img src="https://img.shields.io/badge/TypeScript-Frontend-3178C6?logo=typescript&logoColor=white" alt="TypeScript"/>`{=html}
-`<img src="https://img.shields.io/badge/Scikit--learn-ML-F7931E?logo=scikitlearn&logoColor=white" alt="Scikit-learn"/>`{=html}
-`<img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License"/>`{=html}
-```{=html}
-</p>
-```
-:::
+<img src="./frontend/src/assets/nexora-icon.png" alt="Nexora icon" width="64" />
+
+[🌐 **Live Platform**](https://nexoratas.vercel.app/) • [📘 **Live API Documentation**](https://the-enterprise-ai-decision-intelligence.onrender.com/docs) • [💻 **Source Code**](https://github.com/annnuspeaks/the-enterprise-ai-decision-intelligence-platform)
+
+<img src="https://img.shields.io/badge/Python-Backend-3776AB?logo=python&logoColor=white" alt="Python" /> <img src="https://img.shields.io/badge/FastAPI-API-009688?logo=fastapi&logoColor=white" alt="FastAPI" /> <img src="https://img.shields.io/badge/React-Frontend-61DAFB?logo=react&logoColor=20232A" alt="React" /> <img src="https://img.shields.io/badge/TypeScript-Frontend-3178C6?logo=typescript&logoColor=white" alt="TypeScript" /> <img src="https://img.shields.io/badge/Scikit--learn-ML-F7931E?logo=scikitlearn&logoColor=white" alt="Scikit-learn" /> <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License" />
+
+</div>
 
 ------------------------------------------------------------------------
 
@@ -672,12 +648,14 @@ Copyright © 2026 Anurag Shukla.
 
 ------------------------------------------------------------------------
 
-::: {align="center"}
-`<img src="./frontend/src/assets/nexora-icon.png" alt="Nexora" width="52"/>`{=html}
+<div align="center">
+
+<img src="./frontend/src/assets/nexora-icon.png" alt="Nexora" width="52" />
 
 ### NEXORA
 
 **Enterprise AI Decision Intelligence Platform**
 
 *From data → intelligence → decisions.*
-:::
+
+</div>
