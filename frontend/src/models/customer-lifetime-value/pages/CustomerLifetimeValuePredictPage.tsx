@@ -39,6 +39,19 @@ type FeatureDefinition = {
   step?: number;
 };
 
+// Illustrative input examples shown when a field receives focus; these are not defaults.
+const exampleValues: Record<FeatureKey, string> = {
+  observation_invoice_count: "e.g. 12",
+  observation_total_value: "e.g. 1250.50",
+  observation_average_invoice_value: "e.g. 104.21",
+  observation_median_invoice_value: "e.g. 89.50",
+  observation_total_quantity: "e.g. 36",
+  observation_product_line_count: "e.g. 8",
+  recency_days: "e.g. 14",
+  customer_tenure_days: "e.g. 365",
+  average_days_between_observed_purchases: "e.g. 15.5",
+};
+
 const featureGroups: {
   title: string;
   description: string;
@@ -233,6 +246,7 @@ function CustomerLifetimeValuePredictPage() {
                           required
                           type="number"
                           label={field.label}
+                          placeholder={exampleValues[field.name]}
                           value={values[field.name]}
                           onChange={(event) => handleChange(field.name, event.target.value)}
                           inputProps={{ min: field.min, step: field.step ?? "any" }}

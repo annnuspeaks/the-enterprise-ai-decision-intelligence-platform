@@ -1,14 +1,4 @@
-import {
-  ArrowRight,
-  BarChart3,
-  Brain,
-  Cpu,
-  Database,
-  Gauge,
-  Network,
-  Sparkles,
-  Workflow,
-} from "lucide-react";
+import { ArrowRight, BarChart3, Brain, Gauge, Network } from "lucide-react";
 
 import {
   Box,
@@ -59,160 +49,6 @@ const sectionRevealSx = {
   },
   "@media (prefers-reduced-motion: reduce)": { animation: "none" },
 };
-
-function DecisionIntelligenceIllustration() {
-  const nodes = [
-    { x: 72, y: 42, icon: <Database size={16} />, label: "DATA" },
-    { x: 42, y: 112, icon: <Workflow size={16} />, label: "FLOW" },
-    { x: 102, y: 142, icon: <Cpu size={16} />, label: "MODEL" },
-    { x: 230, y: 42, icon: <Network size={16} />, label: "SIGNALS" },
-    { x: 260, y: 112, icon: <Gauge size={16} />, label: "RISK" },
-    { x: 200, y: 142, icon: <BarChart3 size={16} />, label: "INSIGHT" },
-  ];
-
-  return (
-    <Box
-      aria-label="Nexora decision intelligence network illustration"
-      role="img"
-      sx={{
-        position: "relative",
-        width: "100%",
-        maxWidth: 430,
-        mx: "auto",
-        aspectRatio: "1.35 / 1",
-        minHeight: { xs: 230, sm: 260 },
-        borderRadius: 4,
-        overflow: "hidden",
-        border: 1,
-        borderColor: (theme) =>
-          theme.palette.mode === "dark"
-            ? "rgba(96,165,250,0.18)"
-            : "rgba(37,99,235,0.12)",
-        background: (theme) =>
-          theme.palette.mode === "dark"
-            ? "linear-gradient(145deg, rgba(30,41,59,0.72), rgba(15,23,42,0.48))"
-            : "linear-gradient(145deg, rgba(255,255,255,0.86), rgba(239,246,255,0.68))",
-        boxShadow: (theme) =>
-          theme.palette.mode === "dark"
-            ? "inset 0 1px 0 rgba(255,255,255,0.06), 0 22px 48px rgba(0,0,0,0.18)"
-            : "inset 0 1px 0 rgba(255,255,255,0.9), 0 22px 48px rgba(15,23,42,0.08)",
-        "&::before": {
-          content: '""',
-          position: "absolute",
-          inset: "18% 12%",
-          background:
-            "radial-gradient(circle, rgba(99,102,241,0.16), transparent 62%)",
-          animation: "nexoraAmbient 5s ease-in-out infinite",
-        },
-        "@keyframes nexoraAmbient": {
-          "0%, 100%": { transform: "scale(0.94)", opacity: 0.55 },
-          "50%": { transform: "scale(1.08)", opacity: 0.9 },
-        },
-        "@media (prefers-reduced-motion: reduce)": {
-          "&::before": { animation: "none" },
-        },
-      }}
-    >
-      <Box
-        component="svg"
-        viewBox="0 0 300 184"
-        preserveAspectRatio="xMidYMid meet"
-        sx={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
-      >
-        <defs>
-          <linearGradient id="nexoraFlow" x1="0" x2="1">
-            <stop offset="0%" stopColor="currentColor" stopOpacity="0.15" />
-            <stop offset="50%" stopColor="currentColor" stopOpacity="0.75" />
-            <stop offset="100%" stopColor="currentColor" stopOpacity="0.15" />
-          </linearGradient>
-        </defs>
-        {[
-          [72, 42, 150, 92],
-          [42, 112, 150, 92],
-          [102, 142, 150, 92],
-          [230, 42, 150, 92],
-          [260, 112, 150, 92],
-          [200, 142, 150, 92],
-        ].map(([x1, y1, x2, y2], index) => (
-          <line
-            key={`${x1}-${y1}`}
-            x1={x1}
-            y1={y1}
-            x2={x2}
-            y2={y2}
-            stroke="url(#nexoraFlow)"
-            strokeWidth="1.5"
-            strokeDasharray="6 8"
-            style={{
-              animation: "nexoraDash 3.2s linear infinite",
-              animationDelay: `${index * 0.22}s`,
-            }}
-          />
-        ))}
-        <circle cx="150" cy="92" r="31" fill="currentColor" opacity="0.08" />
-        <circle cx="150" cy="92" r="23" fill="currentColor" opacity="0.08" />
-        <circle cx="150" cy="92" r="15" fill="currentColor" opacity="0.14" />
-        <circle cx="150" cy="92" r="8" fill="currentColor" opacity="0.8" />
-        <style>{`@keyframes nexoraDash { to { stroke-dashoffset: -28; } }`}</style>
-      </Box>
-
-      {nodes.map((node, index) => (
-        <Box
-          key={node.label}
-          sx={{
-            position: "absolute",
-            left: `${(node.x / 300) * 100}%`,
-            top: `${(node.y / 184) * 100}%`,
-            transform: "translate(-50%, -50%)",
-            display: "flex",
-            alignItems: "center",
-            gap: 0.65,
-            px: 1,
-            py: 0.65,
-            borderRadius: 2,
-            border: 1,
-            borderColor: "divider",
-            backgroundColor: "background.paper",
-            color: "primary.main",
-            fontSize: "0.58rem",
-            fontWeight: 800,
-            letterSpacing: "0.05em",
-            boxShadow: "0 8px 18px rgba(15,23,42,0.08)",
-            animation: "nexoraNodeFloat 3.8s ease-in-out infinite",
-            animationDelay: `${index * 0.25}s`,
-            zIndex: 2,
-          }}
-        >
-          {node.icon}
-          <span>{node.label}</span>
-        </Box>
-      ))}
-
-      <Stack
-        direction="row"
-        spacing={0.75}
-        sx={{
-          position: "absolute",
-          left: 16,
-          bottom: 13,
-          alignItems: "center",
-          color: "text.secondary",
-          zIndex: 3,
-        }}
-      >
-        <Sparkles size={14} />
-        <Typography
-          variant="caption"
-          sx={{ fontWeight: 800, letterSpacing: "0.06em" }}
-        >
-          DECISION INTELLIGENCE
-        </Typography>
-      </Stack>
-
-      <style>{`@keyframes nexoraNodeFloat { 0%,100% { margin-top: 0px; } 50% { margin-top: -4px; } } @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }`}</style>
-    </Box>
-  );
-}
 
 const homeSecondaryCardSx = {
   height: "100%",
@@ -420,7 +256,7 @@ function HomePage() {
                         size="large"
                         endIcon={<ArrowRight size={18} strokeWidth={2} />}
                         component={Link}
-                        to="/customer-segmentation"
+                        to="/dashboard"
                         sx={{
                           minHeight: 50,
                           px: 3.25,
@@ -457,14 +293,16 @@ function HomePage() {
                           },
                         }}
                       >
-                        Explore Dashboard
+                        Explore Models
                       </Button>
 
                       <Button
                         variant="outlined"
                         size="large"
                         component="a"
-                        href="#models"
+                        href="https://github.com/annnuspeaks/the-enterprise-ai-decision-intelligence-platform/blob/main/README.md"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         sx={{
                           minHeight: 50,
                           px: 3.25,
@@ -492,7 +330,7 @@ function HomePage() {
                           },
                         }}
                       >
-                        Explore Models
+                        View Documentation
                       </Button>
                     </Stack>
 
@@ -527,7 +365,7 @@ function HomePage() {
                           <Gauge size={22} strokeWidth={2} />
                           <Box>
                             <Typography variant="h6" sx={{ fontWeight: 800 }}>
-                              2
+                              4
                             </Typography>
                             <Typography
                               variant="caption"
@@ -620,49 +458,6 @@ function HomePage() {
                   </Stack>
                 </Grid>
                 <Grid size={{ xs: 12, md: 6 }}>
-                  <Stack
-                    spacing={1.5}
-                    sx={{
-                      alignItems: "center",
-                      justifyContent: "center",
-                      width: "100%",
-                      maxWidth: 700,
-                      mx: "auto",
-                      height: "100%",
-                      transform: {
-                        xs: "translateY(-2px)",
-                        md: "translateY(-10px)",
-                      },
-                    }}
-                  >
-                    <DecisionIntelligenceIllustration />
-                    <Stack
-                      direction="row"
-                      spacing={1}
-                      sx={{
-                        justifyContent: "center",
-                        alignItems: "center",
-                        flexWrap: "wrap",
-                        width: "100%",
-                      }}
-                    >
-                      {[
-                        { label: "Data", Icon: Database },
-                        { label: "Models", Icon: Cpu },
-                        { label: "Insights", Icon: Sparkles },
-                      ].map(({ label, Icon }) => (
-                        <Chip
-                          key={label}
-                          icon={<Icon size={14} />}
-                          label={label}
-                          size="small"
-                          variant="outlined"
-                          sx={{ fontWeight: 700 }}
-                        />
-                      ))}
-                    </Stack>
-                  </Stack>
-
                   <Card
                     elevation={0}
                     sx={{
@@ -897,7 +692,7 @@ function HomePage() {
 
                         {[
                           ["AI Models", "8"],
-                          ["Live Models", "2"],
+                          ["Live Models", "4"],
                           ["Prediction Flow", "Real-time"],
                         ].map(([label, value]) => (
                           <Grid key={label} size={{ xs: 6, sm: 3 }}>
@@ -1031,7 +826,7 @@ function HomePage() {
                               </Typography>
 
                               <Chip
-                                label="2 Live"
+                                label="4 Live"
                                 size="small"
                                 color="success"
                                 variant="outlined"
@@ -1109,6 +904,128 @@ function HomePage() {
               </Grid>
             </Box>
 
+            {/* Nexora visual showcase — put Hero_1.png through Hero_5.png in frontend/public/assets/ */}
+            <Box
+              component="section"
+              aria-label="Nexora visual showcase"
+              sx={sectionRevealSx}
+            >
+              <Stack spacing={2.5}>
+                <Box sx={{ textAlign: "center" }}>
+                  <Typography
+                    variant="overline"
+                    color="primary.main"
+                    sx={{ fontWeight: 800 }}
+                  >
+                    INSIDE NEXORA
+                  </Typography>
+                  <Typography
+                    variant="h4"
+                    component="h2"
+                    sx={{ fontWeight: 800, mt: 0.5 }}
+                  >
+                    Intelligence in motion.
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ mt: 1, maxWidth: 680, mx: "auto" }}
+                  >
+                    A closer look at the models, insights, and decisions powered
+                    by Nexora.
+                  </Typography>
+                </Box>
+
+                <Box
+                  sx={{
+                    position: "relative",
+                    width: "100%",
+                    height: { xs: 230, sm: 340, md: 460, lg: 520 },
+                    overflow: "hidden",
+                    borderRadius: { xs: 3, md: 4 },
+                    border: 1,
+                    borderColor: "divider",
+                    backgroundColor: "background.paper",
+                    boxShadow: (theme) =>
+                      theme.palette.mode === "dark"
+                        ? "0 24px 60px rgba(0,0,0,0.32)"
+                        : "0 24px 60px rgba(15,23,42,0.12)",
+                    isolation: "isolate",
+                    "@media (prefers-reduced-motion: reduce)": {
+                      "& .nexora-hero-slide": {
+                        animation: "none !important",
+                        opacity: 0,
+                      },
+                      "& .nexora-hero-slide:first-of-type": {
+                        opacity: 1,
+                        clipPath: "none",
+                      },
+                    },
+                  }}
+                >
+                  {[1, 2, 3, 4, 5].map((number, index) => (
+                    <Box
+                      key={number}
+                      className="nexora-hero-slide"
+                      sx={{
+                        position: "absolute",
+                        inset: 0,
+                        width: "100%",
+                        height: "100%",
+                        opacity: 0,
+                        clipPath: "inset(0 0 0 100%)",
+                        animation:
+                          "nexoraHeroWipe 25s cubic-bezier(0.76, 0, 0.24, 1) infinite",
+                        animationDelay: `${index * -5}s`,
+                        "@keyframes nexoraHeroWipe": {
+                          "0%": { opacity: 0, clipPath: "inset(0 0 0 100%)" },
+                          "2%": { opacity: 1 },
+                          "9%": { opacity: 1, clipPath: "inset(0 0 0 0)" },
+                          "22%": { opacity: 1, clipPath: "inset(0 0 0 0)" },
+                          "25%": { opacity: 0, clipPath: "inset(0 100% 0 0)" },
+                          "100%": { opacity: 0, clipPath: "inset(0 100% 0 0)" },
+                        },
+                      }}
+                    >
+                      <Box
+                        component="img"
+                        src={`/assets/Hero_${number}.png`}
+                        alt={`Nexora platform showcase ${number}`}
+                        loading={index === 0 ? "eager" : "lazy"}
+                        sx={{
+                          display: "block",
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          objectPosition: "center",
+                        }}
+                      />
+                    </Box>
+                  ))}
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      zIndex: 5,
+                      left: { xs: 2, sm: 4 },
+                      bottom: { xs: 2, sm: 4 },
+                      px: 1.5,
+                      py: 0.75,
+                      borderRadius: 99,
+                      color: "common.white",
+                      backgroundColor: "rgba(15,23,42,0.72)",
+                      border: "1px solid rgba(255,255,255,0.18)",
+                      backdropFilter: "blur(10px)",
+                      fontSize: "0.72rem",
+                      fontWeight: 700,
+                      pointerEvents: "none",
+                    }}
+                  >
+                    NEXORA · ENTERPRISE AI
+                  </Box>
+                </Box>
+              </Stack>
+            </Box>
+
             {/* 4.1.9 Technology Stack */}
             <Box component="section" sx={sectionRevealSx}>
               <Stack spacing={3}>
@@ -1145,10 +1062,7 @@ function HomePage() {
                     ["Vite", "Frontend Tooling"],
                   ].map(([name, category]) => (
                     <Grid key={name} size={{ xs: 6, sm: 4, md: 3 }}>
-                      <Card
-                        elevation={0}
-                        sx={{ ...homeSecondaryCardSx }}
-                      >
+                      <Card elevation={0} sx={{ ...homeSecondaryCardSx }}>
                         <CardContent sx={{ p: 2 }}>
                           <Stack spacing={0.75}>
                             <Typography
@@ -1368,7 +1282,7 @@ function HomePage() {
                       icon: <Gauge size={28} strokeWidth={2} />,
                       title: "Real-Time Decisions",
                       description:
-                        "Two live AI models demonstrate end-to-end decision intelligence flows.",
+                        "Four live AI models demonstrate end-to-end decision intelligence flows.",
                     },
                     {
                       icon: <BarChart3 size={28} strokeWidth={2} />,
@@ -1502,38 +1416,41 @@ function HomePage() {
                   overflow: "hidden",
                 }}
               >
-                <CardContent sx={{
-                  borderRadius: 3,
-                  border: 1,
-                  borderColor: (theme: Theme) =>
-                    theme.palette.mode === "dark"
-                      ? "rgba(148,163,184,0.15)"
-                      : "rgba(15,23,42,0.10)",
-                  background: (theme: Theme) =>
-                    theme.palette.mode === "dark"
-                      ? "linear-gradient(145deg, rgba(30,41,59,0.68), rgba(15,23,42,0.48) 58%, rgba(37,99,235,0.055))"
-                      : "linear-gradient(145deg, rgba(255,255,255,0.94), rgba(248,250,252,0.84) 58%, rgba(239,246,255,0.72))",
-                  backdropFilter: "blur(18px)",
-                  WebkitBackdropFilter: "blur(18px)",
-                  boxShadow: (theme: Theme) =>
-                    theme.palette.mode === "dark"
-                      ? "inset 0 1px 0 rgba(255,255,255,0.055), 0 14px 34px rgba(0,0,0,0.16)"
-                      : "inset 0 1px 0 rgba(255,255,255,0.92), 0 9px 25px rgba(15,23,42,0.075), 0 2px 6px rgba(15,23,42,0.03)",
-                  transition: "transform 200ms cubic-bezier(0.22,1,0.36,1), border-color 200ms ease, box-shadow 200ms ease",
-                  overflow: "hidden",
-                  "&:hover": {
-                    transform: "translateY(-3px)",
-                    borderColor: "rgba(59,130,246,0.28)",
+                <CardContent
+                  sx={{
+                    borderRadius: 3,
+                    border: 1,
+                    borderColor: (theme: Theme) =>
+                      theme.palette.mode === "dark"
+                        ? "rgba(148,163,184,0.15)"
+                        : "rgba(15,23,42,0.10)",
+                    background: (theme: Theme) =>
+                      theme.palette.mode === "dark"
+                        ? "linear-gradient(145deg, rgba(30,41,59,0.68), rgba(15,23,42,0.48) 58%, rgba(37,99,235,0.055))"
+                        : "linear-gradient(145deg, rgba(255,255,255,0.94), rgba(248,250,252,0.84) 58%, rgba(239,246,255,0.72))",
+                    backdropFilter: "blur(18px)",
+                    WebkitBackdropFilter: "blur(18px)",
                     boxShadow: (theme: Theme) =>
                       theme.palette.mode === "dark"
-                        ? "inset 0 1px 0 rgba(255,255,255,0.08), 0 18px 40px rgba(0,0,0,0.21), 0 0 22px rgba(59,130,246,0.07)"
-                        : "inset 0 1px 0 rgba(255,255,255,0.96), 0 15px 32px rgba(15,23,42,0.11), 0 0 20px rgba(59,130,246,0.05)",
-                  },
-                  "@media (prefers-reduced-motion: reduce)": {
-                    transition: "none",
-                    "&:hover": { transform: "none" },
-                  },
-                }}>
+                        ? "inset 0 1px 0 rgba(255,255,255,0.055), 0 14px 34px rgba(0,0,0,0.16)"
+                        : "inset 0 1px 0 rgba(255,255,255,0.92), 0 9px 25px rgba(15,23,42,0.075), 0 2px 6px rgba(15,23,42,0.03)",
+                    transition:
+                      "transform 200ms cubic-bezier(0.22,1,0.36,1), border-color 200ms ease, box-shadow 200ms ease",
+                    overflow: "hidden",
+                    "&:hover": {
+                      transform: "translateY(-3px)",
+                      borderColor: "rgba(59,130,246,0.28)",
+                      boxShadow: (theme: Theme) =>
+                        theme.palette.mode === "dark"
+                          ? "inset 0 1px 0 rgba(255,255,255,0.08), 0 18px 40px rgba(0,0,0,0.21), 0 0 22px rgba(59,130,246,0.07)"
+                          : "inset 0 1px 0 rgba(255,255,255,0.96), 0 15px 32px rgba(15,23,42,0.11), 0 0 20px rgba(59,130,246,0.05)",
+                    },
+                    "@media (prefers-reduced-motion: reduce)": {
+                      transition: "none",
+                      "&:hover": { transform: "none" },
+                    },
+                  }}
+                >
                   <Stack
                     direction={{ xs: "column", md: "row" }}
                     spacing={3}
