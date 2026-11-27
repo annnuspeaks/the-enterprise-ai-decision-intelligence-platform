@@ -1,363 +1,275 @@
-```{=html}
 <p align="center">
-```
-`<img src="src/assets/nexora-logo.png" alt="Nexora — The Enterprise AI Decision Intelligence Platform" width="520" />`{=html}
-```{=html}
+  <img src="src/assets/nexora-logo.png" alt="Nexora — The Enterprise AI Decision Intelligence Platform" width="520" />
 </p>
-```
-```{=html}
-<h1 align="center">
-```
-Nexora --- Frontend
-```{=html}
-</h1>
-```
-```{=html}
-<p align="center">
-```
-`<strong>`{=html}The Enterprise AI Decision Intelligence
-Platform`</strong>`{=html}`<br />`{=html} From business data to
-intelligent decisions.
-```{=html}
-</p>
-```
-```{=html}
-<p align="center">
-```
-`<a href="https://nexoratas.vercel.app/">`{=html}Live
-Platform`</a>`{=html} ·
-`<a href="https://the-enterprise-ai-decision-intelligence.onrender.com/docs">`{=html}Backend
-API Docs`</a>`{=html} ·
-`<a href="https://github.com/annnuspeaks/the-enterprise-ai-decision-intelligence-platform">`{=html}Source
-Repository`</a>`{=html}
-```{=html}
-</p>
-```
 
-------------------------------------------------------------------------
+<h1 align="center">Nexora — Frontend</h1>
+
+<p align="center">
+  <strong>The Enterprise AI Decision Intelligence Platform</strong><br />
+  From business data to intelligent decisions.
+</p>
+
+<p align="center">
+  <a href="https://nexoratas.vercel.app/">Live Platform</a> ·
+  <a href="https://the-enterprise-ai-decision-intelligence.onrender.com/docs">Backend API Docs</a> ·
+  <a href="https://github.com/annnuspeaks/the-enterprise-ai-decision-intelligence-platform">Source Repository</a>
+</p>
+
+---
 
 ## Overview
 
-The Nexora frontend is the user-facing web application for an
-enterprise-oriented AI decision intelligence platform. It gives users a
-consistent interface to enter business data, submit prediction requests,
-and review model-generated insights.
+The Nexora frontend is the user-facing web application for an enterprise-oriented AI decision intelligence platform. It provides a consistent interface for entering business data, submitting prediction requests, and reviewing model-generated insights.
 
-The frontend is designed as a single-page application (SPA) and
-communicates with the Nexora FastAPI backend over HTTP. The backend
-performs model inference; the frontend handles the user experience,
-request submission, and presentation of returned results.
+The frontend is a React single-page application (SPA) that communicates with the Nexora FastAPI backend over HTTP. The backend performs model inference; the frontend manages the user experience, request submission, and presentation of returned results.
 
-> **Implementation status:** Models 01--04 are the current model
-> integrations. Models 05--08 are reserved for upcoming platform
-> capabilities and should not be treated as implemented until their
-> individual workflows are released.
+> **Implementation status:** Models 01–04 are the current model integrations. Models 05–08 are planned capabilities and should not be treated as implemented until their workflows are released.
 
 ## Live Environments
 
-  ---------------------------------------------------------------------------------------------------------------------
-  Resource                            URL
-  ----------------------------------- ---------------------------------------------------------------------------------
-  Frontend application                https://nexoratas.vercel.app/
+| Resource | URL |
+|---|---|
+| Frontend application | [nexoratas.vercel.app](https://nexoratas.vercel.app/) |
+| Backend service | [Render API](https://the-enterprise-ai-decision-intelligence.onrender.com) |
+| Interactive API documentation | [Swagger UI](https://the-enterprise-ai-decision-intelligence.onrender.com/docs) |
+| OpenAPI schema | [openapi.json](https://the-enterprise-ai-decision-intelligence.onrender.com/openapi.json) |
+| Source repository | [GitHub](https://github.com/annnuspeaks/the-enterprise-ai-decision-intelligence-platform) |
 
-  Backend service                     https://the-enterprise-ai-decision-intelligence.onrender.com
-
-  Interactive API documentation       https://the-enterprise-ai-decision-intelligence.onrender.com/docs
-
-  API OpenAPI schema                  https://the-enterprise-ai-decision-intelligence.onrender.com/openapi.json
-
-  GitHub repository                   https://github.com/annnuspeaks/the-enterprise-ai-decision-intelligence-platform
-  ---------------------------------------------------------------------------------------------------------------------
-
-The frontend is deployed on Vercel and the API is hosted separately on
-Render. Keep the production API base URL in the frontend environment
-configuration rather than hard-coding it across components.
+The frontend is deployed on Vercel and the API is hosted separately on Render. Configure the production API base URL through the frontend environment settings.
 
 ## Model Portfolio
 
-Nexora is being developed incrementally, with each model integrated as a
-distinct business workflow.
+Nexora is being developed incrementally, with each model integrated as a distinct business workflow.
 
-  Model          Capability                                 Status
-  -------------- ------------------------------------------ ------------
-  **Model 01**   Customer Segmentation                      Integrated
-  **Model 02**   Customer Churn Prediction                  Integrated
-  **Model 03**   Customer Lifetime Value (CLV) Prediction   Integrated
-  **Model 04**   Purchase Propensity Prediction             Integrated
-  **Model 05**   Upcoming model capability                  Planned
-  **Model 06**   Upcoming model capability                  Planned
-  **Model 07**   Upcoming model capability                  Planned
-  **Model 08**   Upcoming model capability                  Planned
+| Model | Capability | Status |
+|---|---|---|
+| **Model 01** | Customer Segmentation | Integrated |
+| **Model 02** | Customer Churn Prediction | Integrated |
+| **Model 03** | Customer Lifetime Value (CLV) Prediction | Integrated |
+| **Model 04** | Purchase Propensity Prediction | Integrated |
+| **Model 05** | Upcoming model capability | Planned |
+| **Model 06** | Upcoming model capability | Planned |
+| **Model 07** | Upcoming model capability | Planned |
+| **Model 08** | Upcoming model capability | Planned |
 
-The exact scope and names of Models 05--08 will be documented here when
-those capabilities are confirmed and implemented. Do not interpret the
-planned entries as live prediction workflows.
+The exact scope and names of Models 05–08 should be added when those capabilities are confirmed and implemented. Planned entries are not live prediction workflows.
 
 ## Technology Stack
 
--   **React** --- component-based user interface
--   **TypeScript** --- typed application code
--   **Vite** --- development server and production build tooling
--   **Material UI (MUI)** --- interface components and layout primitives
--   **HTTP API integration** --- communicates with the FastAPI backend
--   **Vercel** --- frontend deployment
+- **React** — component-based user interface
+- **TypeScript** — typed application code
+- **Vite** — development server and production build tooling
+- **Material UI (MUI)** — interface components and layout primitives
+- **HTTP API integration** — communicates with the FastAPI backend
+- **Vercel** — frontend deployment
 
-Refer to `package.json` for the exact dependency versions and available
-scripts.
+For exact dependency versions and available scripts, refer to `package.json`.
 
-## How the Application Works
+## Architecture and Request Flow
 
-``` text
+```text
 User
-  │
-  ▼
+  |
+  v
 Nexora React + TypeScript Frontend
-  │  Collects and validates form input
-  ▼
-API Client
-  │  Sends an HTTP request to the configured API base URL
-  ▼
+  |  Collects and validates form input
+  v
+Frontend API Client
+  |  Sends an HTTP request to the configured API base URL
+  v
 Nexora FastAPI Backend (Render)
-  │  Validates input and runs the selected model
-  ▼
+  |  Validates input and runs the selected model
+  v
 JSON Prediction Response
-  │
-  ▼
+  |
+  v
 Frontend Result View
 ```
 
-The frontend does not load or train model artifacts in the browser.
-Prediction and inference logic belong to the backend service.
+The frontend does not train models or load model artifacts in the browser. Prediction and inference logic belong to the backend service.
 
 ## Getting Started
 
 ### Prerequisites
 
-Install the following before running the frontend locally:
-
--   Node.js --- use an active LTS release
--   npm (included with Node.js)
--   Git
+- Node.js (an active LTS release is recommended)
+- npm (included with Node.js)
+- Git
 
 ### 1. Clone the repository
 
-Run these commands from a terminal:
+Run the following commands in a terminal:
 
-``` bash
+```bash
 git clone https://github.com/annnuspeaks/the-enterprise-ai-decision-intelligence-platform.git
 cd the-enterprise-ai-decision-intelligence-platform/frontend
 ```
 
 ### 2. Install dependencies
 
-``` bash
+```bash
 npm install
 ```
 
-### 3. Configure the environment
+### 3. Configure environment variables
 
-Create a local `.env` file in the `frontend/` directory. Use
-`.env.example` as the reference if it is present.
+Create a local `.env` file inside `frontend/`. Use `.env.example` as a reference if it exists.
 
-``` env
+For the deployed backend:
+
+```env
 VITE_API_BASE_URL=https://the-enterprise-ai-decision-intelligence.onrender.com
 ```
 
-For local backend development, set the value to the local API origin,
-for example:
+For local backend development only:
 
-``` env
+```env
 VITE_API_BASE_URL=http://127.0.0.1:8000
 ```
 
-Use the production URL for the deployed frontend and the local URL only
-when intentionally running the backend on your own machine. Do not add
-secret keys to frontend environment variables: Vite exposes variables
-prefixed with `VITE_` to browser-side code.
+Use the production URL for the deployed frontend. The `127.0.0.1` address points to the user's own computer and must not be used as the production API URL.
 
-After changing `.env`, restart the Vite development server so the new
-value is loaded.
+Vite exposes variables prefixed with `VITE_` to browser-side code. Never store private keys, tokens, or server secrets in these variables.
+
+Restart the development server after changing `.env`.
 
 ### 4. Start the development server
 
-``` bash
+```bash
 npm run dev
 ```
 
-Vite will print the local development URL in the terminal. Open that
-address in your browser.
+Open the local URL printed in the terminal.
 
 ### 5. Create a production build
 
-``` bash
+```bash
 npm run build
 ```
 
-### 6. Preview the production build locally
+### 6. Preview the production build
 
-``` bash
+```bash
 npm run preview
 ```
 
-Check `package.json` for the scripts supported by the current repository
-version.
+Check `package.json` for the scripts supported by the current repository version.
 
 ## Environment Configuration
 
-  Variable              Required   Purpose
-  --------------------- ---------- ------------------------------------------
-  `VITE_API_BASE_URL`   Yes        Base URL used by the frontend API client
+| Variable | Required | Purpose |
+|---|---|---|
+| `VITE_API_BASE_URL` | Yes | Base URL used by the frontend API client |
 
-Example production value:
+Production example:
 
-``` env
+```env
 VITE_API_BASE_URL=https://the-enterprise-ai-decision-intelligence.onrender.com
 ```
 
 Configuration notes:
 
--   Set environment variables in Vercel for the appropriate deployment
-    environments.
--   After changing a Vercel environment variable, create a new
-    deployment for the change to take effect.
--   Keep the base URL as the API origin; API route paths should be
-    appended by the API client or feature service.
--   Avoid trailing-slash inconsistencies if the API client already
-    normalizes the base URL.
--   Never place credentials, private tokens, or other server secrets in
-    `VITE_*` variables.
+- Set the variable in Vercel for the required deployment environments.
+- Trigger a new deployment after changing Vercel environment variables.
+- Set the value to the API origin; route paths should be appended by the API client or feature service.
+- Avoid trailing-slash inconsistencies if the API client does not normalize the base URL.
+- Never place credentials or server-side secrets in `VITE_*` variables.
 
 ## Backend Integration and Troubleshooting
 
-The production backend is available at:
+The production API and interactive documentation are available here:
 
--   **API base:**
-    `https://the-enterprise-ai-decision-intelligence.onrender.com`
--   **Swagger UI:**
-    `https://the-enterprise-ai-decision-intelligence.onrender.com/docs`
+- **API base:** [Render API](https://the-enterprise-ai-decision-intelligence.onrender.com)
+- **Swagger UI:** [API documentation](https://the-enterprise-ai-decision-intelligence.onrender.com/docs)
 
-Use Swagger UI to inspect the currently registered routes, request
-schemas, and response formats. It is the source of truth for the
-deployed API contract.
+Use Swagger UI to inspect the deployed routes, request schemas, and response formats. It is the reference for the currently deployed API contract.
 
-### If predictions fail
+### If a prediction fails
 
-1.  Open the browser Developer Tools.
-2.  Select **Network**, then submit a prediction again.
-3.  Open the failed request and check its **Request URL**, **Status
-    Code**, and **Response**.
-4.  Confirm `VITE_API_BASE_URL` points to the Render API origin, not
-    `127.0.0.1` in production.
-5.  If the browser console reports a CORS error, verify that the backend
-    allows the deployed frontend origin.
-6.  Check the Render service logs for server-side errors.
-7.  Compare the frontend request payload with the schema shown in the
-    deployed Swagger documentation.
+1. Open the browser Developer Tools.
+2. Select **Network** and submit the prediction again.
+3. Open the failed request and inspect its **Request URL**, **Status Code**, and **Response**.
+4. Confirm `VITE_API_BASE_URL` points to the Render API origin, not `127.0.0.1` in production.
+5. If the console reports a CORS error, verify that the backend allows the exact deployed frontend origin.
+6. Check the Render service logs for server-side errors.
+7. Compare the frontend payload with the request schema shown in Swagger UI.
 
-A backend endpoint returning `200 OK` when tested directly does not by
-itself guarantee browser integration is working. The browser request can
-still fail because of CORS, an incorrect URL, a mismatched payload, or
-frontend response handling.
+A `200 OK` response when an endpoint is tested directly does not guarantee that browser integration is working. The browser request can still fail because of CORS, an incorrect URL, a payload mismatch, or frontend response handling.
 
-## CORS and Deployment Notes
+## CORS and Deployment
 
-The backend must allow the deployed frontend origin, including the exact
-scheme and hostname. For example:
+The backend must allow the exact production frontend origin, including its scheme and hostname. For example:
 
-``` text
+```text
 https://nexoratas.vercel.app
 ```
 
-If the frontend uses another production domain or a Vercel preview URL,
-that origin must also be handled according to the backend's CORS
-configuration. Avoid using a broad wildcard together with credentialed
-requests.
+If the frontend uses another production domain or a Vercel preview URL, configure that origin according to the backend's CORS policy. Do not combine a wildcard origin with credentialed requests.
 
-For production deployment:
+Recommended release sequence:
 
-1.  Set `VITE_API_BASE_URL` in Vercel.
-2.  Confirm the Render backend is running and its `/docs` page opens.
-3.  Build and deploy the frontend.
-4.  Test each model workflow in the browser.
-5.  Inspect Network and Console output for failed requests.
-6.  Verify the deployed site is using the latest commit and environment
-    configuration.
+1. Set `VITE_API_BASE_URL` in Vercel.
+2. Confirm the Render backend is running and its `/docs` page opens.
+3. Build and deploy the frontend.
+4. Test each implemented model workflow in the browser.
+5. Inspect the browser Network and Console panels for failed requests.
+6. Verify that the deployment uses the intended commit and environment configuration.
 
-## Suggested Project Structure
+## Project Structure
 
-The exact structure can evolve; the repository itself is the source of
-truth. The frontend is organized around application entry points,
-reusable UI, feature pages, and API integration.
+The repository's current files are the source of truth. At a high level, the frontend contains application entry points, assets, UI components, and model workflows.
 
-``` text
+```text
 frontend/
-├── public/                 # Public static assets, if present
+├── public/              # Public static assets, if present
 ├── src/
-│   ├── assets/             # Nexora logo, icon, and other assets
-│   ├── components/         # Shared UI components
-│   ├── pages/              # Page-level views and model workflows
-│   ├── services/            # API client and request helpers, if present
-│   ├── App.tsx              # Application shell and routes
-│   └── main.tsx             # Frontend entry point
-├── .env.example             # Environment-variable template, if present
-├── package.json             # Scripts and dependencies
-├── tsconfig.json            # TypeScript configuration
-└── vite.config.ts           # Vite configuration
+│   ├── assets/          # Nexora logo, icon, and other assets
+│   ├── components/      # Shared UI components, if present
+│   ├── pages/           # Page-level views, if present
+│   ├── services/        # API client/helpers, if present
+│   ├── App.tsx          # Application shell
+│   └── main.tsx         # Frontend entry point
+├── .env.example         # Environment template, if present
+├── package.json         # Scripts and dependencies
+├── tsconfig.json        # TypeScript configuration
+└── vite.config.ts       # Vite configuration
 ```
 
-This is a high-level guide, not a guarantee that every optional
-directory exists in every revision.
+This is an illustrative overview; optional directories may differ between revisions.
 
 ## Development Guidelines
 
--   Keep API communication in the existing API client/service layer
-    rather than duplicating request logic across pages.
--   Keep model-specific form fields and result presentation aligned with
-    the backend request and response schemas.
--   Show clear loading, success, empty, and error states for prediction
-    workflows.
--   Do not silently replace failed API responses with fabricated
-    prediction values.
--   Keep labels and validation messages understandable to business
-    users.
--   Use shared components and consistent spacing, typography, and
-    responsive behavior.
--   Document newly released model workflows and update the Model
-    Portfolio table when their implementation status changes.
+- Keep API communication in the existing API client/service layer.
+- Align model forms and result views with the backend's request and response schemas.
+- Provide clear loading, success, empty, and error states.
+- Never replace failed API responses with fabricated prediction values.
+- Use clear labels and validation messages for business users.
+- Maintain consistent spacing, typography, accessibility, and responsive behavior.
+- Update the Model Portfolio table when model capabilities are actually released.
 
-## Testing and Release Checklist
+## Release Checklist
 
-Before considering a frontend release complete:
-
--   [ ] Dependencies install successfully.
--   [ ] `npm run build` completes without errors.
--   [ ] The deployed frontend loads without runtime errors.
--   [ ] `VITE_API_BASE_URL` points to the intended backend.
--   [ ] The deployed backend `/docs` page is reachable.
--   [ ] Each released model submits a request using the expected
-    payload.
--   [ ] Successful responses render the expected result.
--   [ ] Failed requests show a useful error message.
--   [ ] CORS works from the production frontend origin.
--   [ ] Desktop and mobile layouts remain usable.
--   [ ] README links, model statuses, and setup instructions match the
-    current release.
+- [ ] Dependencies install successfully.
+- [ ] `npm run build` completes without errors.
+- [ ] The deployed frontend loads without runtime errors.
+- [ ] `VITE_API_BASE_URL` points to the intended backend.
+- [ ] The deployed backend's `/docs` page is reachable.
+- [ ] Each implemented model sends the expected request payload.
+- [ ] Successful responses display the expected result.
+- [ ] Failed requests show a useful error message.
+- [ ] CORS works from the production frontend origin.
+- [ ] Desktop and mobile layouts remain usable.
+- [ ] Documentation links and model statuses match the current release.
 
 ## Related Documentation
 
--   [Main platform README](../README.md)
--   [Backend README](../backend/README.md)
--   [Interactive API
-    documentation](https://the-enterprise-ai-decision-intelligence.onrender.com/docs)
--   [OpenAPI
-    schema](https://the-enterprise-ai-decision-intelligence.onrender.com/openapi.json)
+- [Main platform README](../README.md)
+- [Backend README](../backend/README.md)
+- [Interactive API documentation](https://the-enterprise-ai-decision-intelligence.onrender.com/docs)
+- [OpenAPI schema](https://the-enterprise-ai-decision-intelligence.onrender.com/openapi.json)
 
-If a linked documentation file is not present in the current branch, use
-the corresponding documentation in the repository or add the missing
-file as part of the documentation cleanup.
+If a linked README does not exist in the current branch, update the link when that documentation file is added.
 
 ## License
 
-This project is distributed under the repository's [MIT
-License](../LICENSE). Refer to the root `LICENSE` file for the complete
-terms.
+This project is distributed under the repository's [MIT License](../LICENSE). See the root `LICENSE` file for the complete terms.
