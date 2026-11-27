@@ -1,775 +1,368 @@
-<div align="center">
+# Nexora Backend
 
-<img src="../frontend/src/assets/nexora-logo.png" alt="Nexora — Enterprise Decision Intelligence System" width="780"/>
+![Nexora — The Enterprise AI Decision Intelligence Platform](../frontend/src/assets/nexora-logo.png)
 
-# Backend Documentation
+**The Enterprise AI Decision Intelligence Platform**
 
-### The Enterprise AI Decision Intelligence Platform
+*From business data to intelligent decisions.*
 
-*Central API, application processing, and ML integration layer*
 
-</div>
+[**Live API Documentation**](https://the-enterprise-ai-decision-intelligence.onrender.com/docs) · [**ReDoc**](https://the-enterprise-ai-decision-intelligence.onrender.com/redoc) · [**Live Platform**](https://nexoratas.vercel.app/) · [**Source Repository**](https://github.com/annnuspeaks/the-enterprise-ai-decision-intelligence-platform)
 
 ---
 
-# Nexora --- Backend Documentation
+## Overview
 
-## The Enterprise AI Decision Intelligence Platform
+The Nexora backend is the platform's API and application-processing layer. Built with **FastAPI**, it receives frontend requests, validates incoming data, coordinates application logic and machine-learning inference, and returns structured responses to the client.
 
-The Nexora backend is the central application and API layer of the
-platform. It is built with **FastAPI** and is responsible for receiving
-client requests, validating input, executing application and business
-logic, coordinating Machine Learning inference where required, and
-returning structured responses to the frontend.
+The backend is deployed on **Render** and communicates with the Nexora frontend hosted on **Vercel**. Model artifacts are maintained with the project backend rather than relying on a separate external model-storage service.
 
-This document focuses **only on the backend layer**. Model-specific
-datasets, feature engineering, training experiments, model metrics, and
-individual model-development details are intentionally documented
-separately.
+> **Documentation scope:** This README covers backend architecture, API usage, configuration, local development, deployment, and troubleshooting. Dataset preparation, feature engineering, training experiments, and detailed model evaluation belong in the documentation for each individual model.
 
-------------------------------------------------------------------------
+## Quick Links
 
-## 1. Backend Role in Nexora
+| Resource | Link |
+|---|---|
+| Live backend | [the-enterprise-ai-decision-intelligence.onrender.com](https://the-enterprise-ai-decision-intelligence.onrender.com) |
+| Interactive Swagger UI | [Open `/docs`](https://the-enterprise-ai-decision-intelligence.onrender.com/docs) |
+| ReDoc API reference | [Open `/redoc`](https://the-enterprise-ai-decision-intelligence.onrender.com/redoc) |
+| Live frontend | [nexoratas.vercel.app](https://nexoratas.vercel.app/) |
+| GitHub repository | [the-enterprise-ai-decision-intelligence-platform](https://github.com/annnuspeaks/the-enterprise-ai-decision-intelligence-platform) |
 
-The backend acts as the bridge between the user-facing application and
-the platform's intelligence layer.
+*If the hosted service is starting after an idle period, allow a short time for it to wake up before retrying a request.*
 
-``` text
-┌──────────────────────┐
-│   React Frontend     │
-│   User Interface     │
-└──────────┬───────────┘
-           │ HTTP / REST
-           ▼
-┌──────────────────────┐
-│     FastAPI Backend  │
-│  API + Validation    │
-│  Business Logic      │
-└──────────┬───────────┘
-           │
-           ├──────────────► ML Inference
-           │
-           ├──────────────► Data / Services
-           │
-           └──────────────► Logging / Errors
-           │
-           ▼
-┌──────────────────────┐
-│   Structured JSON    │
-│      Response        │
-└──────────────────────┘
+## Current Model Integration Status
+
+Nexora is being developed incrementally. The current platform milestone includes four model workflows.
+
+| Model | Capability | Status |
+|---|---|---|
+| Model 01 — Customer Segmentation | Groups customers into segments using customer-level features | Integrated |
+| Model 02 — Customer Churn Prediction | Estimates customer churn risk | Integrated |
+| Model 03 — Customer Lifetime Value (CLV) Prediction | Estimates customer lifetime value | Integrated |
+| Model 04 — Purchase Propensity Prediction | Estimates purchase likelihood from session and acquisition features | Integrated |
+| Models 05–08 | Additional planned model capabilities | Upcoming |
+
+The exact endpoint paths, request schemas, and response structures exposed by the running deployment should be checked in the [live Swagger documentation](https://the-enterprise-ai-decision-intelligence.onrender.com/docs). This avoids relying on outdated local URLs or assuming that every model uses the same input fields.
+
+## Architecture
+
+```text
+┌──────────────────────────────┐
+│      Nexora React Frontend   │
+│          Vercel              │
+└──────────────┬───────────────┘
+               │ HTTPS / JSON
+               ▼
+┌──────────────────────────────┐
+│       FastAPI Backend        │
+│          Render              │
+├──────────────────────────────┤
+│ API Routes and Validation    │
+│ Application / Service Logic  │
+│ ML Inference Integration     │
+│ Configuration and Logging    │
+└──────────────┬───────────────┘
+               │
+               ▼
+┌──────────────────────────────┐
+│   Model Artifacts / Results  │
+│   Structured JSON Response   │
+└──────────────────────────────┘
 ```
 
-The backend is designed as a reusable foundation so that additional AI
-services can be integrated without coupling their implementation
-directly to the frontend.
+### Request lifecycle
 
-------------------------------------------------------------------------
+1. The frontend sends an HTTPS request to the backend API.
+2. FastAPI routes the request to the relevant endpoint.
+3. The request data is validated against the endpoint's expected schema.
+4. The application invokes the required service or model-inference workflow.
+5. The backend formats the result as a JSON response.
+6. The frontend presents the result to the user.
 
-## 2. Core Responsibilities
+This separation keeps UI concerns in the frontend and prediction processing on the backend.
 
-The backend is responsible for:
+## Technology Stack
 
--   Exposing RESTful API endpoints.
--   Receiving requests from the frontend.
--   Validating incoming request data.
--   Executing application and business logic.
--   Coordinating Machine Learning inference when required.
--   Formatting standardized API responses.
--   Managing application configuration.
--   Maintaining structured application logs.
--   Handling application exceptions.
--   Providing a foundation for future database and enterprise
-    integrations.
+| Component | Technology |
+|---|---|
+| API framework | FastAPI |
+| Language | Python |
+| ASGI server | Uvicorn |
+| Request validation and settings | Pydantic / Pydantic Settings |
+| API format | REST over HTTP(S), JSON |
+| Frontend integration | React frontend hosted on Vercel |
+| Backend deployment | Render |
+| API documentation | Swagger UI and ReDoc |
 
-The backend therefore separates **what the user sees** from **how the
-application processes the request**.
+## Backend Project Structure
 
-------------------------------------------------------------------------
+The repository's backend is organized around the application entry point, API routes, configuration, and machine-learning integration.
 
-## 3. Backend Architecture
-
-Nexora follows a modular, layered backend architecture.
-
-``` text
-Client
-  │
-  ▼
-FastAPI Application
-  │
-  ▼
-API / Route Layer
-  │
-  ▼
-Request Validation
-  │
-  ▼
-Service / Business Logic
-  │
-  ├──────────────► ML Inference (when required)
-  │
-  ├──────────────► Data Access (when required)
-  │
-  └──────────────► Utility Functions
-  │
-  ▼
-Response Formatting
-  │
-  ▼
-Logging / Error Handling
-  │
-  ▼
-JSON Response
-```
-
-### Why this separation matters
-
-Each layer has a focused responsibility. This makes the backend easier
-to:
-
--   understand,
--   test,
--   maintain,
--   debug,
--   extend,
--   and integrate with additional services.
-
-It also prevents the frontend from needing to know how internal business
-logic or Machine Learning inference is implemented.
-
-------------------------------------------------------------------------
-
-## 4. Project Structure
-
-The backend currently follows this organization:
-
-``` text
+```text
 backend/
-│
 ├── app/
-│   ├── api/          # API routes and router registration
-│   ├── core/         # Configuration and logging
-│   ├── ml/           # Machine Learning integration/inference
-│   ├── main.py       # FastAPI application entry point
-│   └── ...
-│
-├── data/              # Backend-side data resources
-├── logs/              # Runtime/application logs
-├── models/            # Backend model resources
-├── notebooks/         # Existing backend development notebooks
-├── package.json
-├── package-lock.json
-├── README.md
-└── run.py
+│   ├── api/                 # API routes and router registration
+│   ├── core/                # Application configuration and logging
+│   ├── ml/                  # Model loading and inference integration
+│   ├── main.py              # FastAPI application entry point
+│   └── ...                  # Additional application modules
+├── data/                    # Backend-side data resources, where applicable
+├── logs/                    # Runtime/application logs, where configured
+├── models/                  # Model artifacts used by backend inference
+├── notebooks/               # Existing development notebooks, if applicable
+├── requirements.txt          # Python dependencies
+├── README.md                 # Backend documentation
+└── run.py                    # Existing runner, if used by the project
 ```
 
-Some backend directories support the existing project history and
-development workflow. Model-development documentation should not be
-treated as part of this backend README; model-specific documentation
-belongs with the corresponding model.
+The exact contents may evolve as the project develops. Keep model-specific training notebooks and research documentation separate from production API logic where practical.
 
-------------------------------------------------------------------------
+## API Documentation and Endpoints
 
-## 5. API Layer
+FastAPI publishes interactive documentation from the deployed application:
 
-The API layer is the backend's entry point for communication with the
-frontend.
+- **Swagger UI:** [https://the-enterprise-ai-decision-intelligence.onrender.com/docs](https://the-enterprise-ai-decision-intelligence.onrender.com/docs)
+- **ReDoc:** [https://the-enterprise-ai-decision-intelligence.onrender.com/redoc](https://the-enterprise-ai-decision-intelligence.onrender.com/redoc)
 
-Its responsibilities are to:
+Use these pages to inspect the endpoints currently registered in the deployed API, including HTTP methods, required fields, validation rules, response schemas, and error responses.
 
-1.  Receive an HTTP request.
-2.  Identify the requested endpoint.
-3.  Validate the request structure.
-4.  Pass valid data to the appropriate application service.
-5.  Receive the result.
-6.  Return a structured response.
+### Example request
 
-Routes are organized separately from the main application entry point so
-that the API can grow as more platform capabilities are added.
+The following example illustrates the request pattern for the Customer Segmentation API. Use the live API documentation to confirm the latest schema before testing.
 
-### API design principles
-
--   RESTful endpoint design
--   Clear request and response contracts
--   Pydantic-based validation
--   Modular route organization
--   Consistent HTTP behavior
--   Separation of routing from business logic
--   Frontend-independent API layer
-
-------------------------------------------------------------------------
-
-## 6. Request Lifecycle
-
-A typical request follows this flow:
-
-``` text
-Frontend Request
-      │
-      ▼
-FastAPI
-      │
-      ▼
-Route Handler
-      │
-      ▼
-Request Validation
-      │
-      ▼
-Application / Service Logic
-      │
-      ├── ML inference, if required
-      ├── Data operation, if required
-      └── Other business logic
-      │
-      ▼
-Response Construction
-      │
-      ▼
-Logging / Error Handling
-      │
-      ▼
-JSON Response
-      │
-      ▼
-Frontend
+```bash
+curl -X POST \
+  "https://the-enterprise-ai-decision-intelligence.onrender.com/customer-segmentation/predict" \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json" \
+  -d '{
+    "total_orders": 12,
+    "total_spent": 1850.75,
+    "average_order_value": 154.23,
+    "average_review_score": 4.6
+  }'
 ```
 
-### In simple terms
+A successful response is expected to use JSON. The exact output fields are defined by the active endpoint implementation and can be inspected in Swagger UI.
 
-**Frontend asks → API receives → backend validates → logic executes →
-result is formatted → frontend receives the result.**
+## Configuration and Environment Variables
 
-This is the core interaction pattern used by the platform.
+Application settings are centralized through the backend configuration layer. Environment-specific values should be supplied through environment variables or an appropriate local `.env` file rather than hard-coded into source code.
 
-------------------------------------------------------------------------
+### Frontend API base URL
 
-## 7. Request Validation
+The deployed frontend uses the following production API base URL:
 
-Incoming API data should not be trusted blindly.
-
-The backend uses typed request schemas to define the expected structure
-of API inputs. Validation occurs before application logic is executed.
-
-This provides:
-
--   predictable input structure,
--   early detection of invalid requests,
--   clearer API contracts,
--   safer business logic,
--   easier debugging,
--   and better frontend/backend integration.
-
-For example, an endpoint can define exactly which fields it expects and
-what type each field should have rather than accepting arbitrary
-unstructured input.
-
-------------------------------------------------------------------------
-
-## 8. Service and Business Logic
-
-Route handlers should remain focused on handling HTTP concerns.
-
-Application-specific processing is delegated to service logic wherever
-appropriate.
-
-Conceptually:
-
-``` text
-Route
-  │
-  └── receives request
-       │
-       ▼
-Service
-  │
-  ├── applies business rules
-  ├── coordinates processing
-  ├── calls ML inference when required
-  └── prepares result
-       │
-       ▼
-Route
-  │
-  └── returns API response
+```env
+VITE_API_BASE_URL=https://the-enterprise-ai-decision-intelligence.onrender.com
 ```
 
-This separation prevents API files from becoming large collections of
-business logic and makes individual components easier to test and reuse.
+Set this variable in the frontend's Vercel project, then redeploy the frontend for the change to take effect. Do not add the `VITE_` variable to the backend unless the backend code explicitly requires it.
 
-------------------------------------------------------------------------
+### CORS
 
-## 9. Machine Learning Integration
+The backend uses FastAPI's `CORSMiddleware` with origins supplied through application settings. The deployed configuration must allow the actual frontend origin:
 
-Machine Learning is one of the backend's supported processing
-capabilities, but the backend documentation intentionally does **not**
-contain individual model datasets or training details.
-
-The backend's responsibility is primarily to provide a clean integration
-boundary for inference.
-
-A typical ML-backed request follows:
-
-``` text
-API Request
-    │
-    ▼
-Validate Input
-    │
-    ▼
-Prepare Inference Input
-    │
-    ▼
-Load / Access Model
-    │
-    ▼
-Run Inference
-    │
-    ▼
-Process Prediction
-    │
-    ▼
-Return Structured Response
+```text
+https://nexoratas.vercel.app
 ```
 
-Individual models should document their own:
+If the frontend is also served from another production domain or preview deployment, add only the origins that are genuinely required. Avoid using unrestricted origins as a production shortcut, particularly when credentials are enabled.
 
--   datasets,
--   feature definitions,
--   preprocessing,
--   training methodology,
--   hyperparameters,
--   evaluation metrics,
--   thresholds,
--   explainability,
--   and model limitations.
+### Secrets and credentials
 
-Keeping these concerns separate allows the backend to remain stable even
-as the platform's collection of models changes.
+- Never commit real credentials, API keys, or private environment files.
+- Keep production configuration in the hosting provider's environment-variable settings.
+- If a credential is accidentally exposed, revoke or rotate it.
+- Do not log secrets or sensitive request data.
 
-------------------------------------------------------------------------
-
-## 10. Configuration Management
-
-Application configuration is centralized rather than hard-coded
-throughout the codebase.
-
-The backend uses **Pydantic Settings** for configuration management.
-
-Configuration can include values such as:
-
--   application name,
--   environment,
--   host and port,
--   API configuration,
--   CORS settings,
--   database configuration,
--   security-related settings,
--   deployment-specific values.
-
-Environment variables and `.env` files can be used to keep
-environment-specific values outside application code.
-
-### Why centralized configuration?
-
-It makes the application easier to:
-
--   run in different environments,
--   configure without changing source code,
--   maintain securely,
--   and deploy consistently.
-
-Sensitive values should remain in environment configuration and should
-not be committed to source control.
-
-------------------------------------------------------------------------
-
-## 11. CORS and Frontend Communication
-
-The backend is configured to communicate with the React frontend through
-HTTP APIs.
-
-CORS middleware controls which frontend origins are allowed to
-communicate with the API.
-
-This is important because the frontend and backend may run on different
-development or deployment origins.
-
-The general communication pattern is:
-
-``` text
-React Frontend
-      │
-      │ HTTP request
-      ▼
-FastAPI Backend
-      │
-      │ JSON response
-      ▼
-React Frontend
-```
-
-------------------------------------------------------------------------
-
-## 12. Logging
-
-Structured application logging is used to record important runtime
-events.
-
-Logging supports:
-
--   application monitoring,
--   debugging,
--   error investigation,
--   request/application event tracking,
--   and operational visibility.
-
-The backend supports standard log levels:
-
--   `DEBUG`
--   `INFO`
--   `WARNING`
--   `ERROR`
--   `CRITICAL`
-
-Logs should provide useful operational information without exposing
-secrets, credentials, or unnecessary sensitive data.
-
-------------------------------------------------------------------------
-
-## 13. Error Handling
-
-A production-oriented API should distinguish between successful
-processing and failed processing.
-
-The backend architecture supports centralized exception handling so that
-errors can be handled consistently rather than each endpoint inventing
-its own response format.
-
-A typical error flow is:
-
-``` text
-Invalid / Failed Request
-        │
-        ▼
-Exception or Validation Error
-        │
-        ▼
-Error Handling Layer
-        │
-        ▼
-Structured HTTP Response
-        │
-        ▼
-Frontend
-```
-
-This gives the frontend predictable behavior when an operation fails.
-
-------------------------------------------------------------------------
-
-## 14. API Documentation
-
-FastAPI automatically provides interactive API documentation.
-
-When the development server is running:
-
-``` text
-Swagger UI:
-http://127.0.0.1:8000/docs
-
-ReDoc:
-http://127.0.0.1:8000/redoc
-```
-
-These interfaces are useful during development because they allow
-developers and examiners to inspect available endpoints, request
-schemas, response schemas, and API behavior.
-
-------------------------------------------------------------------------
-
-## 15. Running the Backend
+## Run Locally
 
 ### Prerequisites
 
-The backend development environment requires:
+- Python installed
+- `pip`
+- Git
+- A terminal or IDE such as Visual Studio Code
 
--   Python
--   pip
--   Git
--   Visual Studio Code
+### 1. Open the backend directory
 
-### Setup
+Run these commands from the repository root:
 
-From the project root:
-
-``` bash
+```bash
 cd backend
 ```
 
-Create a virtual environment if required:
+### 2. Create and activate a virtual environment
 
-``` bash
+**Windows — Command Prompt:**
+
+```bat
 python -m venv .venv
-```
-
-Activate it on Windows:
-
-``` bash
 .venv\Scripts\activate
 ```
 
-Install dependencies:
+**Windows — PowerShell:**
 
-``` bash
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+**macOS / Linux:**
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+### 3. Install dependencies
+
+```bash
+python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### Start the development server
+### 4. Start the development server
 
-``` bash
+```bash
 uvicorn app.main:app --reload
 ```
 
-The default development server is:
+By default, the local development server is available at:
 
-``` text
-http://127.0.0.1:8000
+- API base: `http://127.0.0.1:8000`
+- Swagger UI: `http://127.0.0.1:8000/docs`
+- ReDoc: `http://127.0.0.1:8000/redoc`
+
+These are **local development URLs only**. Use the hosted Render URLs above when accessing the production backend.
+
+## Deployment on Render
+
+The backend is deployed as a Python web service on Render.
+
+Typical service configuration for this repository layout:
+
+| Setting | Value |
+|---|---|
+| Root Directory | `backend` |
+| Build Command | `pip install -r requirements.txt` |
+| Start Command | `uvicorn app.main:app --host 0.0.0.0 --port $PORT` |
+
+Before deploying, verify that:
+
+1. `backend/requirements.txt` contains every dependency imported by the backend.
+2. The configured root directory is `backend`.
+3. The model artifacts required at runtime are included in the repository/deployment bundle at the paths expected by the model loader.
+4. The deployed service has the required environment variables.
+5. The configured CORS origins include the production frontend.
+6. The start command points to `app.main:app`.
+7. The deployed Swagger UI loads and the prediction endpoints return expected responses.
+
+The actual service settings in Render remain the source of truth if they differ from this suggested configuration.
+
+## Frontend Integration
+
+The React frontend calls the backend through the configured API base URL. Keep the base URL centralized in the frontend configuration so that local development and production can use different backends without changing individual model screens.
+
+When diagnosing a failed prediction, check the following in order:
+
+1. Open the endpoint directly in the live Swagger UI.
+2. Submit a valid request using the schema shown there.
+3. Confirm the backend returns the expected HTTP status and JSON body.
+4. Open the browser's Developer Tools → **Network** and inspect the failing request.
+5. Check the browser console for CORS errors.
+6. Verify `VITE_API_BASE_URL` in Vercel and redeploy after changing it.
+7. Inspect the Render service logs for model-loading, validation, or runtime errors.
+
+A backend endpoint returning `200 OK` in Swagger does not, by itself, prove that the browser request is succeeding. CORS configuration, frontend request payloads, or a stale frontend deployment can still cause the UI workflow to fail.
+
+## Validation, Logging, and Error Handling
+
+### Request validation
+
+Request schemas define the expected structure and types of incoming data. Invalid payloads should be rejected before reaching model inference, helping keep API behavior predictable.
+
+### Logging
+
+Application logging supports startup diagnostics, runtime troubleshooting, and investigation of unexpected failures. Logs should be useful without exposing credentials or unnecessary personal or sensitive data.
+
+### Error handling
+
+When a request fails, inspect the HTTP status and response body rather than relying only on the frontend's generic error message. Common causes include:
+
+- invalid or missing request fields;
+- a model artifact missing from the deployed bundle;
+- a model-loading or inference exception;
+- an incorrect API base URL;
+- a CORS preflight failure;
+- or a deployment that has not yet picked up the latest configuration.
+
+## Testing Checklist
+
+Use this checklist after backend changes or a production deployment.
+
+- [ ] Backend service starts without import errors.
+- [ ] Live Swagger UI is accessible.
+- [ ] All four current model endpoints are visible in the API documentation.
+- [ ] Each model accepts a valid request and returns the expected response.
+- [ ] Invalid payloads return a meaningful HTTP error.
+- [ ] The frontend uses the correct production API base URL.
+- [ ] Browser requests pass CORS checks.
+- [ ] Render logs contain no unresolved model-loading or inference errors.
+- [ ] No secrets or local-only configuration files are committed.
+
+## Security and Future Expansion
+
+The backend is structured to support additional platform capabilities as the project evolves. Authentication, authorization, rate limiting, database integrations, background jobs, and audit logging should be described as implemented only after they have been added and verified.
+
+Recommended production practices include input validation, least-privilege configuration, restricted CORS origins, secret management, dependency maintenance, and useful operational logging.
+
+## Viva / Project Review Notes
+
+**What is the backend's role in Nexora?**  
+It exposes APIs, validates requests, runs application logic and model inference, and returns structured results to the frontend.
+
+**Why FastAPI?**  
+FastAPI supports typed request validation, automatic interactive API documentation, and a modular Python API structure.
+
+**How does the frontend communicate with it?**  
+The frontend sends HTTPS requests to the backend and exchanges JSON data through REST endpoints.
+
+**Why are the model training details separate?**  
+The backend README explains how the deployed API integrates the models. Dataset choices, training methodology, and evaluation belong to each model's own documentation.
+
+**How should a prediction failure be debugged?**  
+First test the endpoint and payload in Swagger UI, then inspect the browser Network panel and console, verify the frontend API URL and CORS settings, and check Render logs.
+
+## Architecture at a Glance
+
+```text
+React Frontend
+      │
+      ▼
+HTTPS / REST API
+      │
+      ▼
+FastAPI Routing
+      │
+      ▼
+Request Validation
+      │
+      ▼
+Application Logic
+      │
+      ▼
+Model Inference (when required)
+      │
+      ▼
+Structured JSON Response
 ```
 
-------------------------------------------------------------------------
+---
 
-## 16. Application Entry Point
+**Nexora — The Enterprise AI Decision Intelligence Platform**
 
-The backend application starts from:
-
-``` text
-backend/app/main.py
-```
-
-The entry point is responsible for creating the FastAPI application and
-connecting the major application-level components, including:
-
--   API routers,
--   CORS middleware,
--   application configuration,
--   logging,
--   and other global middleware or settings.
-
-The entry point should remain lightweight. Individual features belong in
-their respective modules rather than being implemented directly inside
-`main.py`.
-
-------------------------------------------------------------------------
-
-## 17. Backend and Frontend Separation
-
-One of the key architectural decisions is keeping the frontend and
-backend independent.
-
-``` text
-Frontend
-├── UI
-├── Navigation
-├── Forms
-└── Presentation
-        │
-        │ REST API
-        ▼
-Backend
-├── Routing
-├── Validation
-├── Business Logic
-├── ML Integration
-├── Configuration
-└── Logging
-```
-
-This separation provides several benefits:
-
--   frontend changes do not require rewriting backend logic,
--   backend APIs can support other clients in the future,
--   ML logic remains server-side,
--   responsibilities remain clearly defined,
--   and the platform can evolve toward additional integrations.
-
-------------------------------------------------------------------------
-
-## 18. Security Considerations
-
-Security-related capabilities are part of the backend's architectural
-direction.
-
-The backend should:
-
--   keep secrets outside source code,
--   validate incoming data,
--   avoid exposing sensitive runtime information,
--   use appropriate authentication and authorization when required,
--   apply controlled CORS policies,
--   and use secure deployment configuration in production.
-
-Future enterprise capabilities may include:
-
--   JWT authentication,
--   OAuth2,
--   Role-Based Access Control (RBAC),
--   user and organization management,
--   API rate limiting,
--   and audit logging.
-
-These are architectural capabilities for future expansion unless
-explicitly implemented in the current backend.
-
-------------------------------------------------------------------------
-
-## 19. Scalability and Extensibility
-
-The backend is intentionally modular so that additional platform
-capabilities can be introduced without redesigning the entire
-application.
-
-Potential future backend integrations include:
-
--   PostgreSQL
--   Redis
--   background task processing
--   message queues
--   notification services
--   monitoring systems
--   CI/CD pipelines
--   cloud deployment
--   containerization
-
-The important architectural principle is **incremental expansion**: new
-capabilities should be added as independent modules wherever practical
-instead of turning the main application into a monolithic file.
-
-------------------------------------------------------------------------
-
-## 20. Deployment Direction
-
-The backend architecture is suitable for future deployment in
-containerized or cloud environments.
-
-Possible deployment targets include:
-
--   Docker-based environments
--   Render
--   Railway
--   AWS
--   Microsoft Azure
--   Google Cloud Platform
-
-Production deployment should additionally address environment
-management, secrets, logging, monitoring, health checks, security, and
-scaling.
-
-------------------------------------------------------------------------
-
-## 21. What This README Does Not Cover
-
-To keep responsibilities clear, this document intentionally excludes
-detailed model-development information.
-
-It does **not** document:
-
--   individual model datasets,
--   dataset sources,
--   feature engineering details,
--   model training experiments,
--   hyperparameter searches,
--   model-specific metrics,
--   model-specific thresholds,
--   confusion matrices,
--   SHAP analysis,
--   or model-specific business interpretation.
-
-Those details belong in the README/documentation of the corresponding
-model under the ML project structure.
-
-This separation is especially important as Nexora expands to additional
-models whose datasets and methodologies may differ.
-
-------------------------------------------------------------------------
-
-## 22. Examiner / Viva Explanation
-
-### What is the role of the backend in Nexora?
-
-The backend is the central processing and API layer. It receives
-requests from the frontend, validates them, executes application logic,
-coordinates Machine Learning inference when required, and returns
-structured responses.
-
-### Why did you use FastAPI?
-
-FastAPI provides a modern Python API framework with automatic API
-documentation, typed request validation, good performance, and a clean
-structure for building modular REST APIs.
-
-### Why separate routes and services?
-
-Routes handle HTTP communication, while services handle application
-logic. This separation improves maintainability, testing, reuse, and
-scalability.
-
-### How does the frontend communicate with the backend?
-
-The React frontend communicates with FastAPI through RESTful HTTP
-endpoints and exchanges structured JSON data.
-
-### Where does Machine Learning fit?
-
-Machine Learning is an internal processing capability exposed through
-backend APIs. The backend coordinates inference without requiring the
-frontend to know how an individual model is implemented.
-
-### Why are model datasets not documented here?
-
-Because datasets and model-development decisions belong to individual ML
-models. Keeping them separate prevents the backend README from becoming
-tied to one model or one dataset.
-
-### What happens when invalid data is submitted?
-
-The request is validated against the API's defined schema. Invalid input
-can be rejected before it reaches the business or ML processing layer.
-
-### How can the backend be expanded?
-
-New API routes, services, ML integrations, databases, authentication,
-background tasks, and enterprise integrations can be added as separate
-modules without fundamentally changing the existing architecture.
-
-------------------------------------------------------------------------
-
-## 23. One-Line Architecture
-
-> **React Frontend → FastAPI API → Validation → Service/Business Logic →
-> ML/Data Processing → Structured JSON Response**
-
-------------------------------------------------------------------------
-
-## 24. Summary
-
-The Nexora backend provides a modular foundation for the platform's API,
-application processing, Machine Learning integration, configuration,
-logging, and future enterprise capabilities.
-
-Its primary architectural goal is to keep responsibilities separated:
-
-``` text
-API        → communication
-Validation → input correctness
-Services   → application logic
-ML         → inference
-Logging    → observability
-Config     → environment management
-Response   → standardized frontend communication
-```
-
-This design allows Nexora to grow from its current AI capabilities into
-a broader Enterprise AI Decision Intelligence Platform while keeping the
-backend maintainable and extensible.
+*From business data to intelligent decisions.*
 
