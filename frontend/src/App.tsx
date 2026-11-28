@@ -1,3 +1,5 @@
+import { Analytics } from "@vercel/analytics/react";
+
 import AppRoutes from "./routes/index";
 import Navbar from "./components/layout/Navbar/Navbar";
 import Footer from "./components/layout/Footer/Footer";
@@ -12,6 +14,7 @@ function App() {
       <Footer />
       <ChatSupport />
       <BackToTop />
+      <Analytics />
     </>
   );
 }
