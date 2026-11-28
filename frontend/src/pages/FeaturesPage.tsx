@@ -126,13 +126,13 @@ const models = [
   },
   {
     title: "Customer Lifetime Value",
-    status: "Coming Soon",
+    status: "Live",
     description: "Estimate the long-term value of each customer.",
     Icon: TrendingUp,
   },
   {
     title: "Purchase Propensity",
-    status: "Coming Soon",
+    status: "Live",
     description: "Estimate the likelihood of a future purchase.",
     Icon: Target,
   },
@@ -313,7 +313,7 @@ function FeaturesPage() {
                   >
                     <Chip
                       icon={<Zap size={14} />}
-                      label="2 Live Models"
+                      label="4 Live Models"
                       size="small"
                       variant="outlined"
                       color="primary"
